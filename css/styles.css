@@ -1505,3 +1505,13 @@ button:disabled { opacity:0.4; cursor:not-allowed; }
 .dcp-card p { font-size:13px; color:var(--text-muted); }
 .dcp-more { display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:10px; background:linear-gradient(135deg,#eff6ff,#dbeafe); border:2px dashed var(--primary-light); }
 .dcp-icon { font-size:2rem; font-weight:900; color:var(--primary-light); }
+
+/* Diagnose filter bar */
+.diagnose-filters { background:var(--surface); border-radius:var(--radius-lg); padding:16px 20px; margin-bottom:24px; box-shadow:var(--shadow); display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
+.filter-group { display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+.filter-label { font-size:13px; font-weight:600; color:var(--text-muted); white-space:nowrap; }
+.filter-btn { background:var(--bg); border:1.5px solid var(--border); border-radius:99px; padding:4px 12px; font-size:12px; font-weight:600; color:var(--text-muted); cursor:pointer; transition:all 0.15s; white-space:nowrap; }
+.filter-btn:hover { border-color:var(--primary-light); color:var(--primary); }
+.filter-btn.active { background:var(--primary); border-color:var(--primary); color:#fff; }
+.filter-summary { margin-left:auto; font-size:13px; color:var(--text-muted); font-weight:600; }
+@media (max-width:768px) { .diagnose-filters { flex-direction:column; align-items:flex-start; } .filter-summary { margin-left:0; } }

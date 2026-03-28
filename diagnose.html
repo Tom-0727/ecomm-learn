@@ -32,6 +32,25 @@
       <p>真实业务场景 · 找出卡点所在 · 掌握「判断项目卡在哪一环」的能力</p>
     </div>
     <div class="container">
+      <div class="diagnose-filters">
+        <div class="filter-group">
+          <span class="filter-label">难度：</span>
+          <button class="filter-btn active" data-filter="diff" data-val="all" onclick="setFilter('diff','all',this)">全部</button>
+          <button class="filter-btn" data-filter="diff" data-val="1" onclick="setFilter('diff','1',this)">★ 入门</button>
+          <button class="filter-btn" data-filter="diff" data-val="2" onclick="setFilter('diff','2',this)">★★ 进阶</button>
+          <button class="filter-btn" data-filter="diff" data-val="3" onclick="setFilter('diff','3',this)">★★★ 高阶</button>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">类型：</span>
+          <button class="filter-btn active" data-filter="cat" data-val="all" onclick="setFilter('cat','all',this)">全部</button>
+          <button class="filter-btn" data-filter="cat" data-val="转化问题" onclick="setFilter('cat','转化问题',this)">转化</button>
+          <button class="filter-btn" data-filter="cat" data-val="盈利问题" onclick="setFilter('cat','盈利问题',this)">盈利</button>
+          <button class="filter-btn" data-filter="cat" data-val="流量获取" onclick="setFilter('cat','流量获取',this)">流量</button>
+          <button class="filter-btn" data-filter="cat" data-val="复购/留存" onclick="setFilter('cat','复购/留存',this)">复购</button>
+          <button class="filter-btn" data-filter="cat" data-val="口碑管理" onclick="setFilter('cat','口碑管理',this)">口碑</button>
+        </div>
+        <div class="filter-summary" id="filter-summary">共 18 个案例</div>
+      </div>
       <div id="case-grid" class="case-grid"></div>
     </div>
   </div>
@@ -51,6 +70,7 @@
 
 // ── 状态 ──────────────────────────────────────────────────
 let diagnoseProgress = {}; // { caseId: 'correct'|'wrong' }
+let activeFilters = { diff: 'all', cat: 'all' };
 
 function loadDiagnoseProgress() {
   try {
@@ -63,11 +83,38 @@ function saveDiagnoseProgress() {
   localStorage.setItem('ecomm_diagnose', JSON.stringify(diagnoseProgress));
 }
 
+// ── 过滤器 ──────────────────────────────────────────────
+function setFilter(type, val, btn) {
+  activeFilters[type] = val;
+  // Update active button styles within same group
+  document.querySelectorAll(`[data-filter="${type}"]`).forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderCaseGrid();
+}
+
 // ── 案例列表 ──────────────────────────────────────────────
 function renderCaseGrid() {
   diagnoseProgress = loadDiagnoseProgress();
   const grid = document.getElementById('case-grid');
-  const cases = getAllCases();
+  let cases = getAllCases();
+
+  // Apply filters
+  if (activeFilters.diff !== 'all') {
+    cases = cases.filter(c => c.difficulty === parseInt(activeFilters.diff));
+  }
+  if (activeFilters.cat !== 'all') {
+    cases = cases.filter(c => c.category === activeFilters.cat);
+  }
+
+  // Update summary
+  const summary = document.getElementById('filter-summary');
+  if (summary) summary.textContent = `共 ${cases.length} 个案例`;
+
+  if (cases.length === 0) {
+    grid.innerHTML = '<p style="text-align:center;color:#6b7280;padding:40px">该筛选条件下暂无案例</p>';
+    return;
+  }
+
   grid.innerHTML = cases.map(c => {
     const done = diagnoseProgress[c.id];
     const diffLabel = ['', '★', '★★', '★★★'][c.difficulty] || '';
