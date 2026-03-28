@@ -558,6 +558,165 @@ const DIAGNOSE_CASES = [
 </ol>`,
     chainLink: 5
   }
+,
+
+  {
+    id: 13,
+    title: "拼多多商家：价格越打越低，终于亏钱了",
+    difficulty: 2,
+    category: "盈利问题",
+    background: `某厨房用品商家在拼多多经营2年，主营不粘锅（出厂价38元）。初入时定价79元，利润良好。后来竞争加剧，现定价49元，月销5000单但利润转负。`,
+    metrics: [
+      { label: "当前定价", value: "49元", status: "bad" },
+      { label: "出厂成本", value: "38元", status: "bad" },
+      { label: "平台佣金+推广费", value: "约9元/单", status: "bad" },
+      { label: "包装+快递", value: "5元/单", status: "bad" },
+      { label: "单单利润", value: "-3元（每卖一单亏3元）", status: "bad" },
+      { label: "月销量", value: "5,000单", status: "good" },
+      { label: "仅退款率", value: "8.2%（行业均值4%）", status: "bad" },
+      { label: "差评率", value: "3.1%", status: "bad" }
+    ],
+    options: [
+      { id: "a", text: "卡在【供应链】—— 出厂成本太高，需要压缩至25元以下才能盈利" },
+      { id: "b", text: "卡在【选品策略】—— 陷入价格战内卷，需要重新定位差异化产品或转换平台/渠道" },
+      { id: "c", text: "卡在【流量获取】—— 推广费占比太高，停掉付费广告就能盈利" },
+      { id: "d", text: "卡在【口碑管理】—— 差评率高导致降权，需先处理口碑再提价" }
+    ],
+    answer: "b",
+    explanation: `
+<h3>核心卡点：选品策略——陷入无差异化价格战</h3>
+<p><strong>成本结构拆解：</strong></p>
+<table style="width:100%;border-collapse:collapse;margin:12px 0;">
+  <tr style="background:#fee2e2"><th style="padding:6px;border:1px solid #fca5a5">项目</th><th style="padding:6px;border:1px solid #fca5a5">金额</th></tr>
+  <tr><td style="padding:6px;border:1px solid #e5e7eb">售价</td><td style="padding:6px;border:1px solid #e5e7eb">49元</td></tr>
+  <tr><td style="padding:6px;border:1px solid #e5e7eb">出厂成本</td><td style="padding:6px;border:1px solid #e5e7eb">-38元</td></tr>
+  <tr><td style="padding:6px;border:1px solid #e5e7eb">平台费+推广</td><td style="padding:6px;border:1px solid #e5e7eb">-9元</td></tr>
+  <tr><td style="padding:6px;border:1px solid #e5e7eb">包材+快递</td><td style="padding:6px;border:1px solid #e5e7eb">-5元</td></tr>
+  <tr style="background:#fee2e2"><td style="padding:6px;border:1px solid #fca5a5"><strong>单单利润</strong></td><td style="padding:6px;border:1px solid #fca5a5"><strong>-3元</strong></td></tr>
+</table>
+<p><strong>为什么不是「压供应链成本」能解决的？</strong></p>
+<ul>
+  <li>即使出厂压到30元（压缩8元），单单利润也只有+5元，月盈利2.5万 — 对应5000单的运营投入而言回报极低</li>
+  <li>仅退款率8.2%（行业均值2倍）→ 低价吸引来的是价格敏感用户，退款多、差评多，形成恶性循环</li>
+  <li>拼多多平台机制：价格越低 → 曝光越多 → 销量越多 → 但低价吸引的是最难服务的客群</li>
+</ul>
+<p><strong>根本诊断：</strong>陷入同质化内卷，用「杀敌一千自损八百」的方式抢销量，商业模型已不可持续。</p>
+<p><strong>处方（两条路选一条）：</strong></p>
+<ol>
+  <li><strong>产品升级路线</strong>：开发差异化版本（例：带盖不粘锅礼盒装，定价128元），在同一平台推高客单价SKU，老款维持销量作引流款</li>
+  <li><strong>渠道迁移路线</strong>：相同产品转移到天猫/京东，同规格产品在这些平台有89-119元的价格带，毛利率可达35%+，配合品质内容营销</li>
+  <li><strong>短期止损</strong>：立即停止49元款的付费推广，仅保留自然流量，减少每月现金消耗</li>
+</ol>
+<p><strong>关键公式提醒：</strong>ROI盈亏线 = 1 ÷ 毛利率。当前毛利率 = (49-38)/49 = 22.4%，盈亏线ROI = 4.46 — 几乎不可能达到。</p>`,
+    chainLink: 2  // 对应模块2选品策略
+  },
+
+  {
+    id: 14,
+    title: "美妆品牌私域：加了5000个微信，群全部静默",
+    difficulty: 2,
+    category: "复购/留存",
+    background: `某国货护肤品牌在淘宝经营，年销约1500万。过去1年积极导流私域，累计5个微信群（共4800人）、企业微信好友3200人。但月复购GMV仅3万元，私域几乎无贡献。`,
+    metrics: [
+      { label: "私域总人数", value: "微信群4,800人 + 企微3,200人", status: "good" },
+      { label: "私域月GMV贡献", value: "3万元（占总GMV 0.2%）", status: "bad" },
+      { label: "群月均消息数", value: "12条（全为品牌单向推送）", status: "bad" },
+      { label: "群内用户回复率", value: "<1%", status: "bad" },
+      { label: "私域用户购买转化率", value: "0.6%（行业健康值5-8%）", status: "bad" },
+      { label: "每月推送内容类型", value: "100%促销/新品广告", status: "bad" },
+      { label: "淘宝整体复购率", value: "23%（尚可）", status: "ok" },
+      { label: "产品NPS", value: "+42（用户认可产品）", status: "good" }
+    ],
+    options: [
+      { id: "a", text: "卡在【流量获取】—— 5000人太少，需要继续扩大私域人数至5万人以上" },
+      { id: "b", text: "卡在【复购/留存运营】—— 私域运营逻辑错误：把用户当广告受众而非社群成员，需要从「推销群」改为「价值群」" },
+      { id: "c", text: "卡在【选品】—— 产品复购属性弱，护肤品消耗周期太长不适合私域" },
+      { id: "d", text: "卡在【平台搭建】—— 应该从微信迁移到企业微信SCRM系统" }
+    ],
+    answer: "b",
+    explanation: `
+<h3>核心卡点：复购留存——私域运营方向性错误</h3>
+<p><strong>证据链：</strong></p>
+<ul>
+  <li>产品NPS=+42 → 用户喜欢产品，不是选品问题</li>
+  <li>淘宝整体复购率23% → 说明有真实复购需求</li>
+  <li>但私域购买转化率0.6% → 同样的用户，在私域里几乎不买</li>
+  <li>群消息100%促销 + 回复率<1% → 用户已将群设置为「免打扰」，品牌声音彻底消失</li>
+</ul>
+<p><strong>根本原因：把私域当「免费广告位」</strong></p>
+<p>用户加群的初衷是「获取价值」（护肤知识、优先购买权、专属福利），但实际体验是每天被广告轰炸。人类大脑会自动屏蔽无关信息——群变成了垃圾消息来源，而不是价值来源。</p>
+<p><strong>处方：将「促销群」改造为「价值群」</strong></p>
+<ol>
+  <li><strong>内容结构重建（7:2:1原则）</strong>：
+    <ul>
+      <li>70% 价值内容：护肤科普、成分解析、季节护肤指南、用户晒单互动</li>
+      <li>20% 互动内容：群内投票（下期新品选香调）、护肤问答、UGC征集</li>
+      <li>10% 促销内容：群专属优惠，且要做成「限时专属感」而非常规促销</li>
+    </ul>
+  </li>
+  <li><strong>群分层管理</strong>：按购买次数分「新客群/活跃群/VIP群」，VIP群提供真正差异化权益（如新品试用资格）</li>
+  <li><strong>激活沉默用户</strong>：发起「护肤日记打卡」活动，送小样，重新激活群内互动</li>
+  <li><strong>预期目标</strong>：3个月内私域转化率从0.6%提升至4%，月GMV从3万提升至20万+</li>
+</ol>
+<p><strong>衡量指标变化</strong>：关注群内互动率（目标>10%）、私域复购间隔（目标缩短20%）</p>`,
+    chainLink: 10  // 对应模块10复购留存
+  },
+
+  {
+    id: 15,
+    title: "天猫新品：上架10天，自然搜索流量为零",
+    difficulty: 1,
+    category: "流量获取",
+    background: `某品牌方在天猫开设旗舰店，新品「胶原蛋白饮料」于10天前上架。目前站外小红书/微博有一定种草铺垫，但天猫店铺自然搜索流量每天不足30个UV，直接影响新品销售计划。`,
+    metrics: [
+      { label: "上架天数", value: "10天", status: "ok" },
+      { label: "天猫自然搜索UV/天", value: "28（目标300+）", status: "bad" },
+      { label: "累计销量", value: "11单（含内购）", status: "bad" },
+      { label: "累计评价数", value: "3条", status: "bad" },
+      { label: "主关键词排名", value: "「胶原蛋白饮料」第68页", status: "bad" },
+      { label: "标题优化", value: "仅含品牌词+核心词，无长尾词", status: "bad" },
+      { label: "直通车是否开启", value: "未开启", status: "bad" },
+      { label: "站外种草UV引入", value: "约200UV/天（转化率5.5%）", status: "good" }
+    ],
+    options: [
+      { id: "a", text: "卡在【需求洞察】—— 胶原蛋白饮料市场需求不足，应换赛道" },
+      { id: "b", text: "卡在【流量获取——新品冷启动】—— 销量/评价基础为零导致搜索权重极低，需要系统性的冷启动方案" },
+      { id: "c", text: "卡在【内容运营】—— 主图点击率太低，更换主图即可解决" },
+      { id: "d", text: "卡在【平台搭建】—— 天猫旗舰店等级不够，需要等级提升后才有自然流量" }
+    ],
+    answer: "b",
+    explanation: `
+<h3>核心卡点：流量获取——新品冷启动基础未建立</h3>
+<p><strong>天猫搜索排名机制（新品视角）：</strong></p>
+<p>天猫搜索系统给新品排名的核心信号优先级：<strong>销量 > 转化率 > 评价数 > 关键词相关性</strong></p>
+<p>11单销量 + 3条评价 → 系统判定「用户对此商品兴趣极低」→ 主关键词第68页 → 自然流量为零 → 形成负向循环。</p>
+<p><strong>新品冷启动的破局逻辑：</strong></p>
+<div class="callout callout-warning">新品前30天是「权重建立期」，必须用「人为干预」快速积累销量和评价信号，让算法认为这是一款有市场需求的商品。</div>
+<p><strong>处方（分阶段冷启动计划）：</strong></p>
+<ol>
+  <li><strong>第1-7天：基础信号建立</strong>
+    <ul>
+      <li>内部测单（合规范围内）：完成30-50单基础销量</li>
+      <li>邀请种子用户（老客、员工、供应商）购买并留真实评价，目标20条评价</li>
+      <li>优化宝贝标题：加入「精准长尾词」（如「胶原蛋白饮料 女 美白 抗糖」），放弃首周竞争核心大词</li>
+    </ul>
+  </li>
+  <li><strong>第8-14天：付费助推</strong>
+    <ul>
+      <li>开启直通车（日预算300-500元），投「精准长尾词」，目标ROI≥1.5</li>
+      <li>利用站外种草已有的200UV/天，在详情页设「好评返现」引导评价积累</li>
+    </ul>
+  </li>
+  <li><strong>第15-30天：搜索权重冲刺</strong>
+    <ul>
+      <li>销量达100+、评价达50+后，系统开始给予更多自然流量</li>
+      <li>此时可以开始竞争「胶原蛋白饮料」核心词</li>
+    </ul>
+  </li>
+</ol>
+<p><strong>关键认知</strong>：站外种草（200UV/天，转化5.5%）是非常好的信号，说明产品有市场。当前问题100%是「平台内冷启动机制未激活」，不是需求或产品问题。</p>`,
+    chainLink: 6  // 对应模块6流量获取
+  }
 ];
 
 function getAllCases() { return DIAGNOSE_CASES; }
