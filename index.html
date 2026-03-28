@@ -94,6 +94,14 @@
   </div>
 </section>
 
+<!-- LEARNING SUGGESTION -->
+<section class="section section-light" id="suggestion-section" style="display:none">
+  <div class="container">
+    <h2 class="section-title">📅 本阶段学习建议</h2>
+    <div id="suggestion-cards" class="suggestion-grid"></div>
+  </div>
+</section>
+
 <!-- DIAGNOSE CTA -->
 <section class="section">
   <div class="container">
@@ -116,7 +124,7 @@
         <p>产品口碑极好，但90天复购率远低于行业均值…</p>
       </div>
       <div class="dcp-card dcp-more" onclick="location.href='diagnose.html'">
-        <span class="dcp-icon">+5</span>
+        <span class="dcp-icon">+15</span>
         <p>查看全部18个诊断案例</p>
         <a href="diagnose.html" class="btn-primary">开始诊断</a>
       </div>
@@ -150,7 +158,97 @@
   document.addEventListener('DOMContentLoaded', () => {
     renderModuleCards(document.getElementById('module-grid'));
     renderRecentScores(document.getElementById('recent-scores'));
+    renderSuggestions();
   });
+
+  function renderSuggestions() {
+    const prog = loadProgress();
+    const allMods = getAllModules();
+    const suggestions = [];
+
+    // Find next unstarted module
+    const nextMod = allMods.find(m => {
+      const mp = getModuleProgress(m.id);
+      return mp.sectionsRead === 0;
+    });
+    if (nextMod) {
+      suggestions.push({
+        icon: nextMod.icon,
+        title: '下一个学习模块',
+        desc: `${nextMod.title} · 预计 ${nextMod.estimatedMinutes} 分钟`,
+        action: `course.html?module=${nextMod.id}`,
+        label: '开始学习',
+        type: 'primary'
+      });
+    }
+
+    // Suggest exam if any module is fully read
+    const readMods = allMods.filter(m => {
+      const mp = getModuleProgress(m.id);
+      return mp.sectionsRead > 0;
+    });
+    if (readMods.length > 0) {
+      const weakMods = prog.weakModules || [];
+      if (weakMods.length > 0) {
+        const wm = allMods.find(m => m.id === weakMods[0]);
+        suggestions.push({
+          icon: '🎯',
+          title: '弱项强化练习',
+          desc: `${wm ? wm.title : '弱项模块'} 得分偏低，建议针对性练习`,
+          action: 'exam.html',
+          label: '强化训练',
+          type: 'accent'
+        });
+      } else {
+        suggestions.push({
+          icon: '📝',
+          title: '综合测试',
+          desc: `已学 ${readMods.length} 个模块，来测试一下掌握程度`,
+          action: 'exam.html',
+          label: '开始考试',
+          type: 'accent'
+        });
+      }
+    }
+
+    // Suggest diagnosis if hasn't tried any
+    const diagProg = (() => { try { return JSON.parse(localStorage.getItem('ecomm_diagnose') || '{}'); } catch { return {}; } })();
+    const triedCount = Object.keys(diagProg).length;
+    if (triedCount < 3) {
+      suggestions.push({
+        icon: '🔬',
+        title: '项目诊断练习',
+        desc: `已完成 ${triedCount}/18 个诊断案例，实战判断力是核心能力`,
+        action: 'diagnose.html',
+        label: '开始诊断',
+        type: 'secondary'
+      });
+    }
+
+    // Suggest metrics review for anyone
+    suggestions.push({
+      icon: '📊',
+      title: '指标速查手册',
+      desc: '随时查阅核心公式与健康基准，考前/汇报前速查必备',
+      action: 'metrics.html',
+      label: '查看指标',
+      type: 'secondary'
+    });
+
+    if (suggestions.length === 0) return;
+    document.getElementById('suggestion-section').style.display = 'block';
+
+    const btnClass = { primary: 'btn-primary', accent: 'btn-accent', secondary: 'btn-outline' };
+    document.getElementById('suggestion-cards').innerHTML = suggestions.slice(0, 4).map(s => `
+      <div class="sug-card">
+        <div class="sug-icon">${s.icon}</div>
+        <div class="sug-body">
+          <h4>${s.title}</h4>
+          <p>${s.desc}</p>
+        </div>
+        <a href="${s.action}" class="btn-sm ${btnClass[s.type] || 'btn-outline'}">${s.label} →</a>
+      </div>`).join('');
+  }
 </script>
 </body>
 </html>
