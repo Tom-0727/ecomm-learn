@@ -716,6 +716,167 @@ const DIAGNOSE_CASES = [
 </ol>
 <p><strong>关键认知</strong>：站外种草（200UV/天，转化5.5%）是非常好的信号，说明产品有市场。当前问题100%是「平台内冷启动机制未激活」，不是需求或产品问题。</p>`,
     chainLink: 6  // 对应模块6流量获取
+  },
+
+  {
+    id: 16,
+    title: "达人带货：花了5万块，销售额8千元",
+    difficulty: 2,
+    category: "流量获取",
+    background: `某新锐护肤品牌首次尝试达人营销，找了5位粉丝量50-200万的「美妆博主」投放，总坑位费+佣金支出5万元。30天后核算：可追踪销售额仅8千元，ROI=0.16。品牌方认为「达人带货根本不管用」。`,
+    metrics: [
+      { label: "达人合作总费用", value: "50,000元", status: "bad" },
+      { label: "可追踪销售额", value: "8,000元（ROI=0.16）", status: "bad" },
+      { label: "5位达人类型", value: "3位娱乐/剧情博主，2位美妆博主", status: "bad" },
+      { label: "平均播放量", value: "每条视频约85,000次", status: "ok" },
+      { label: "视频内容形式", value: "5条均为品牌硬广（30秒贴片式）", status: "bad" },
+      { label: "落地页评价数", value: "天猫详情页仅21条评价", status: "bad" },
+      { label: "商品链接点击率", value: "约1.8%（行业优质达人≥4%）", status: "bad" },
+      { label: "产品客单价", value: "198元（高决策成本品类）", status: "ok" }
+    ],
+    options: [
+      { id: "a", text: "卡在【需求洞察】—— 护肤品达人营销本来就不适合这个价位" },
+      { id: "b", text: "卡在【流量获取——达人选择与内容策略】—— 达人类型错配+内容形式纯广告+承接页面薄弱，三重失误叠加" },
+      { id: "c", text: "卡在【平台搭建】—— 应该做抖音小店而不是导流到天猫" },
+      { id: "d", text: "卡在【复购/留存】—— 首购转化无问题，问题是没有复购" }
+    ],
+    answer: "b",
+    explanation: `
+<h3>核心卡点：流量获取——达人营销三重失误</h3>
+<p><strong>失误一：达人类型错配（最根本问题）</strong></p>
+<ul>
+  <li>3位「娱乐/剧情博主」的粉丝关注的是内容娱乐性，与「护肤决策」几乎零关联</li>
+  <li>5万元中，估计3-3.5万花在了娱乐博主身上 → 这部分几乎100%无效</li>
+  <li>正确选择：垂直「成分党/护肤测评」KOL，粉丝数可以更少（5-30万），但受众精准度高10倍</li>
+</ul>
+<p><strong>失误二：内容形式纯广告（用户立即划走）</strong></p>
+<ul>
+  <li>5条视频全为30秒品牌硬广 → 抖音/小红书用户会立即划走，完播率极低</li>
+  <li>正确做法：达人用自己的语言做「真实测评」「使用前后对比」，品牌信息自然融入</li>
+  <li>参考数据：测评类内容点击转化率通常是硬广的3-5倍</li>
+</ul>
+<p><strong>失误三：承接页面薄弱（前功尽弃）</strong></p>
+<ul>
+  <li>21条评价 + 客单价198元 → 高决策成本品类，评价不足时用户不敢下单</li>
+  <li>即便达人内容做好了，进店后因信任缺失而流失</li>
+</ul>
+<p><strong>正确的达人营销方法论：</strong></p>
+<ol>
+  <li><strong>漏斗匹配原则</strong>：头部达人（100万+）做品牌曝光；腰部达人（10-50万）做种草测评；素人（1000-5万）做UGC背书铺量</li>
+  <li><strong>先铺底层，再放头部</strong>：先用50-100篇素人测评建立评价基础，再投腰部达人，最后考虑头部</li>
+  <li><strong>内容原则</strong>：达人用自己风格说产品，不要给脚本</li>
+  <li><strong>归因方法</strong>：给每个达人专属优惠码或UTM链接，才能准确追踪ROI</li>
+</ol>
+<p><strong>复盘结论</strong>：这5万块不是「达人营销无效」，是「无效的达人营销」。同样预算，用对方法可以做到ROI 3-5。</p>`,
+    chainLink: 6  // 对应模块6流量获取
+  },
+
+  {
+    id: 17,
+    title: "天猫旗舰店：DSR评分3项全降，搜索排名消失",
+    difficulty: 2,
+    category: "口碑管理",
+    background: `某家居品牌天猫旗舰店，半年前月GMV约300万，DSR评分4.85/4.82/4.87。近3个月快速扩充SKU（从80款增至350款），月GMV升至480万，但DSR三项评分全面下滑至4.62/4.58/4.65，搜索自然流量下降45%。`,
+    metrics: [
+      { label: "宝贝描述评分", value: "4.62（下降0.23，低于均值）", status: "bad" },
+      { label: "卖家服务评分", value: "4.58（下降0.24，低于均值）", status: "bad" },
+      { label: "物流速度评分", value: "4.65（下降0.22，低于均值）", status: "bad" },
+      { label: "自然搜索流量变化", value: "-45%（3个月内）", status: "bad" },
+      { label: "退货率", value: "从3.1%升至7.8%", status: "bad" },
+      { label: "客服响应时间", value: "平均4.2分钟（增加前1.8分钟）", status: "bad" },
+      { label: "SKU数量变化", value: "80款 → 350款（4.4倍）", status: "bad" },
+      { label: "仓库发货时效", value: "从24h升至54h平均时效", status: "bad" }
+    ],
+    options: [
+      { id: "a", text: "卡在【需求洞察】—— 家居品类竞争太激烈，DSR下滑是行业现象" },
+      { id: "b", text: "卡在【口碑管理】—— SKU快速扩充导致供应链、客服、仓储能力跟不上，全链路体验下降拖垮DSR" },
+      { id: "c", text: "卡在【流量获取】—— 需要加大直通车投放对冲自然流量下滑" },
+      { id: "d", text: "卡在【选品策略】—— 新增的270款产品选品有问题，应该全部下架" }
+    ],
+    answer: "b",
+    explanation: `
+<h3>核心卡点：口碑管理——规模扩张速度超出运营能力</h3>
+<p><strong>因果链分析：</strong></p>
+<div style="background:#fef9c3;padding:12px;border-left:4px solid #eab308;border-radius:4px;margin:12px 0;">
+  SKU扩4.4倍 → 仓库复杂度激增 → 发货时效从24h→54h → 物流评分↓<br>
+  SKU扩4.4倍 → 部分新品描述不准确/图片不符 → 退货率7.8% → 宝贝描述评分↓<br>
+  SKU扩4.4倍 → 客服咨询量暴增 → 响应时间4.2分钟 → 卖家服务评分↓<br>
+  三项DSR全低于均值 → 天猫搜索降权 → 自然流量-45%
+</div>
+<p><strong>DSR对搜索排名的影响机制：</strong></p>
+<ul>
+  <li>天猫搜索将DSR作为重要排名因子：3项均高于行业均值 → 加权；低于均值 → 降权</li>
+  <li>当前状态：3项全低于均值 → 三重降权叠加 → 自然流量腰斩</li>
+  <li>注意：加大直通车投放能带来付费流量，但不能修复DSR，是「治标」而非「治本」</li>
+</ul>
+<p><strong>处方（分优先级）：</strong></p>
+<ol>
+  <li><strong>立即止血（1-2周）</strong>：暂停新SKU上架；下架质量投诉集中的TOP20问题SKU</li>
+  <li><strong>物流修复</strong>：临时增加仓储人员或外包分仓，目标将发货时效恢复至24h以内</li>
+  <li><strong>客服扩容</strong>：增加2-3名客服，目标响应时间回到2分钟以内</li>
+  <li><strong>描述核查</strong>：逐一核对新增270款SKU的描述与实物一致性，修正不准确描述</li>
+  <li><strong>主动维护DSR</strong>：对近期差评主动联系买家解决，合规范围内邀请修改评价</li>
+  <li><strong>中期原则</strong>：SKU扩张速度 ≤ 运营能力扩张速度。每增加50款SKU，检查一次各项能力指标</li>
+</ol>
+<p><strong>关键认知</strong>：GMV从300万涨到480万是表面繁荣，但DSR全降+搜索流量-45%说明正在「吃老本」。若不修复，3个月后自然流量可能再降50%，GMV将大幅萎缩。</p>`,
+    chainLink: 9  // 对应模块9口碑管理
+  },
+
+  {
+    id: 18,
+    title: "双11大促：GMV达标了，利润是负的",
+    difficulty: 3,
+    category: "盈利问题",
+    background: `某服装天猫店参加双11，GMV目标200万，最终完成218万，超额完成。但大促结束后财务核算发现：当月净利润为-12万元，而平时月份净利润约+8万元。老板非常困惑：「为什么卖得越多亏得越多？」`,
+    metrics: [
+      { label: "大促GMV", value: "218万元（超额完成目标）", status: "good" },
+      { label: "大促净利润", value: "-12万元（平时+8万/月）", status: "bad" },
+      { label: "平均折扣力度", value: "6.5折（平时9折）", status: "bad" },
+      { label: "退货率", value: "34%（平时11%）", status: "bad" },
+      { label: "实收GMV（扣退货后）", value: "约144万元", status: "bad" },
+      { label: "大促期付费推广费用", value: "38万元（占GMV 17.4%）", status: "bad" },
+      { label: "临时快递费溢价", value: "+0.8元/单（旺季加价）", status: "bad" },
+      { label: "毛利率（正常定价）", value: "45%", status: "ok" }
+    ],
+    options: [
+      { id: "a", text: "卡在【选品策略】—— 参加大促的商品选错了，应该选高毛利品" },
+      { id: "b", text: "卡在【转化优化】—— 大促页面转化率不够高，需要提高转化来摊薄成本" },
+      { id: "c", text: "卡在【大促策略/盈利模型】—— 折扣过深导致毛利率崩塌，高退货率让实收GMV腰斩，推广费率失控，三重因素叠加致亏损" },
+      { id: "d", text: "卡在【履约物流】—— 快递涨价是主因，换快递公司即可解决" }
+    ],
+    answer: "c",
+    explanation: `
+<h3>核心卡点：大促盈利模型——三重亏损因素叠加</h3>
+<p><strong>利润拆解还原：</strong></p>
+<table style="width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;">
+  <tr style="background:#f3f4f6"><th style="padding:8px;border:1px solid #d1d5db;text-align:left">项目</th><th style="padding:8px;border:1px solid #d1d5db">金额</th><th style="padding:8px;border:1px solid #d1d5db">说明</th></tr>
+  <tr><td style="padding:6px;border:1px solid #e5e7eb">表面GMV</td><td style="padding:6px;border:1px solid #e5e7eb;text-align:center">+218万</td><td style="padding:6px;border:1px solid #e5e7eb">看起来很好</td></tr>
+  <tr style="background:#fef2f2"><td style="padding:6px;border:1px solid #e5e7eb">退货扣减（34%）</td><td style="padding:6px;border:1px solid #e5e7eb;text-align:center">-74万</td><td style="padding:6px;border:1px solid #e5e7eb">实收仅144万</td></tr>
+  <tr><td style="padding:6px;border:1px solid #e5e7eb">商品成本（6.5折后毛利≈24%）</td><td style="padding:6px;border:1px solid #e5e7eb;text-align:center">-109万</td><td style="padding:6px;border:1px solid #e5e7eb">折扣压缩毛利</td></tr>
+  <tr style="background:#fef2f2"><td style="padding:6px;border:1px solid #e5e7eb">付费推广费</td><td style="padding:6px;border:1px solid #e5e7eb;text-align:center">-38万</td><td style="padding:6px;border:1px solid #e5e7eb">大促必须抢位</td></tr>
+  <tr><td style="padding:6px;border:1px solid #e5e7eb">平台佣金+快递+运营</td><td style="padding:6px;border:1px solid #e5e7eb;text-align:center">-9万</td><td style="padding:6px;border:1px solid #e5e7eb">快递旺季溢价</td></tr>
+  <tr style="background:#fef2f2;font-weight:bold"><td style="padding:6px;border:1px solid #fca5a5">净利润</td><td style="padding:6px;border:1px solid #fca5a5;text-align:center">-12万</td><td style="padding:6px;border:1px solid #fca5a5">亏损</td></tr>
+</table>
+<p><strong>三重死亡螺旋：</strong></p>
+<ol>
+  <li><strong>折扣过深</strong>：6.5折 → 正常毛利45%被压缩至≈24%，ROI盈亏线从2.2升至4.2，几乎不可能达到</li>
+  <li><strong>退货率爆炸</strong>：大促期冲动购买比例高，34%退货（平时11%）→ 实收缩水33%，但推广费已花出去收不回来</li>
+  <li><strong>推广费失控</strong>：大促期竞价激烈，38万推广费基于218万GMV设计，但实收只有144万 → 实际推广费率26%</li>
+</ol>
+<p><strong>大促盈利公式（重要）：</strong></p>
+<div style="background:#eff6ff;padding:12px;border-radius:6px;font-family:monospace;margin:12px 0;">
+  大促净利 = 实收GMV × (折后毛利率 - 推广费率 - 平台费率 - 物流费率)<br>
+  实收GMV = 表面GMV × (1 - 退货率)<br>
+  折后毛利率 = 1 - 成本/(折扣力度×原价)
+</div>
+<p><strong>处方（下次大促前必做）：</strong></p>
+<ol>
+  <li><strong>设定最低折扣底线</strong>：基于成本倒推，本案例最低折扣应为7.5折（才能保证毛利率≥35%）</li>
+  <li><strong>预测退货率并纳入模型</strong>：服装大促退货率历史约28-35%，预算必须按实收GMV而非表面GMV计算</li>
+  <li><strong>推广费封顶</strong>：设定推广费/实收GMV上限（建议≤12%），超过则降低出价</li>
+  <li><strong>部分商品不参与大促</strong>：核心利润款保持正常价，引流款才做大折扣，保护整体毛利结构</li>
+</ol>`,
+    chainLink: 7  // 对应模块7转化优化（大促策略）
   }
 ];
 
