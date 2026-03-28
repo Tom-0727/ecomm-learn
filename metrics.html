@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>指标速查 — 中国电商实战课</title>
+<link rel="stylesheet" href="css/styles.css">
+<style>
+.metrics-page { max-width:1100px; margin:0 auto; padding:32px 24px; }
+.metrics-page h1 { font-size:1.6rem; font-weight:800; margin-bottom:8px; }
+.metrics-page .sub { color:var(--text-muted); font-size:14px; margin-bottom:32px; }
+.m-section { margin-bottom:40px; }
+.m-section h2 { font-size:1.1rem; font-weight:700; padding:10px 16px; border-radius:var(--radius-sm); color:#fff; margin-bottom:16px; display:flex; align-items:center; gap:8px; }
+.m-table { width:100%; border-collapse:collapse; background:var(--surface); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); }
+.m-table th { background:var(--bg); padding:10px 14px; text-align:left; font-size:13px; font-weight:700; color:var(--text-muted); border-bottom:2px solid var(--border); }
+.m-table td { padding:11px 14px; font-size:13px; border-bottom:1px solid var(--border); vertical-align:top; line-height:1.5; }
+.m-table tr:last-child td { border-bottom:none; }
+.m-table tr:hover td { background:#fafbfc; }
+.m-table td:first-child { font-weight:700; color:var(--text); white-space:nowrap; }
+.badge-g { background:#dcfce7; color:#16a34a; padding:2px 8px; border-radius:99px; font-size:11px; font-weight:600; white-space:nowrap; }
+.badge-y { background:#fef3c7; color:#d97706; padding:2px 8px; border-radius:99px; font-size:11px; font-weight:600; white-space:nowrap; }
+.badge-r { background:#fee2e2; color:#dc2626; padding:2px 8px; border-radius:99px; font-size:11px; font-weight:600; white-space:nowrap; }
+.formula-inline { font-family:var(--mono); font-size:12px; background:var(--bg); padding:2px 6px; border-radius:4px; }
+.tip-box { background:#eff6ff; border-left:3px solid var(--primary-light); border-radius:0 var(--radius-sm) var(--radius-sm) 0; padding:10px 14px; margin-top:10px; font-size:13px; color:var(--text-muted); line-height:1.6; }
+.tip-box strong { color:var(--primary-light); }
+.grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+@media(max-width:700px){ .grid-2{ grid-template-columns:1fr; } }
+.quick-card { background:var(--surface); border-radius:var(--radius); padding:18px 20px; box-shadow:var(--shadow); }
+.quick-card h3 { font-size:14px; font-weight:700; margin-bottom:12px; }
+.qc-row { display:flex; justify-content:space-between; align-items:center; font-size:13px; padding:5px 0; border-bottom:1px solid var(--border); gap:8px; }
+.qc-row:last-child { border-bottom:none; }
+.qc-name { color:var(--text-muted); }
+.qc-val { font-weight:700; color:var(--primary-light); text-align:right; }
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="logo">
+    <div class="logo-icon">电</div>
+    <div>
+      <h1>中国电商实战课</h1>
+      <div class="tagline">从需求洞察到复购留存 · 商业级完整链路</div>
+    </div>
+  </div>
+  <nav class="nav">
+    <a href="index.html" class="nav-link">首页</a>
+    <a href="course.html" class="nav-link">课程</a>
+    <a href="exam.html" class="nav-link">考试</a>
+    <a href="diagnose.html" class="nav-link">诊断</a>
+    <a href="metrics.html" class="nav-link active">指标</a>
+  </nav>
+</header>
+
+<div class="metrics-page">
+  <h1>📊 电商指标速查手册</h1>
+  <p class="sub">覆盖全链路核心指标的健康基准、计算公式、决策用途 — 随时查阅，快速判断</p>
+
+  <!-- ── 快速公式卡 ── -->
+  <div class="grid-2" style="margin-bottom:36px">
+    <div class="quick-card">
+      <h3>💰 盈利公式速查</h3>
+      <div class="qc-row"><span class="qc-name">ROI盈亏线</span><span class="qc-val">1 ÷ 毛利率</span></div>
+      <div class="qc-row"><span class="qc-name">毛利率30% → ROI盈亏线</span><span class="qc-val">3.33</span></div>
+      <div class="qc-row"><span class="qc-name">毛利率40% → ROI盈亏线</span><span class="qc-val">2.50</span></div>
+      <div class="qc-row"><span class="qc-name">毛利率50% → ROI盈亏线</span><span class="qc-val">2.00</span></div>
+      <div class="qc-row"><span class="qc-name">LTV公式</span><span class="qc-val">客单价×频次×年数×毛利率</span></div>
+      <div class="qc-row"><span class="qc-name">健康 CAC/LTV 比</span><span class="qc-val">CAC &lt; LTV × 30%</span></div>
+    </div>
+    <div class="quick-card">
+      <h3>📦 库存公式速查</h3>
+      <div class="qc-row"><span class="qc-name">安全库存</span><span class="qc-val">日销×周期天数×1.2-1.5</span></div>
+      <div class="qc-row"><span class="qc-name">补货点</span><span class="qc-val">安全库存 + 日销×提前期</span></div>
+      <div class="qc-row"><span class="qc-name">大促备货</span><span class="qc-val">预测日销×天数×弹性系数2.0</span></div>
+      <div class="qc-row"><span class="qc-name">库存周转天数</span><span class="qc-val">库存量 ÷ 日均销量</span></div>
+      <div class="qc-row"><span class="qc-name">服装健康周转</span><span class="qc-val">30-60天</span></div>
+      <div class="qc-row"><span class="qc-name">3C健康周转</span><span class="qc-val">30-45天</span></div>
+    </div>
+  </div>
+
+  <!-- ── 模块1：需求洞察 ── -->
+  <div class="m-section">
+    <h2 style="background:#2563eb">🔍 模块1：需求洞察与市场分析</h2>
+    <table class="m-table">
+      <thead><tr><th>指标</th><th>计算/定义</th><th>健康基准</th><th>决策用途</th></tr></thead>
+      <tbody>
+        <tr><td>搜索人气</td><td>30天独立搜索该词的UV数</td><td><span class="badge-g">细分词 &gt;5万/月</span></td><td>判断市场基础规模</td></tr>
+        <tr><td>供需比</td><td>搜索人气 ÷ 在线商品数</td><td><span class="badge-g">&gt;0.3</span> <span class="badge-y">0.1-0.3 谨慎</span> <span class="badge-r">&lt;0.1 饱和</span></td><td>判断竞争空间</td></tr>
+        <tr><td>搜索热度 YoY</td><td>同比增长率</td><td><span class="badge-g">&gt;20% 成长</span> <span class="badge-y">0-20% 成熟</span> <span class="badge-r">负数 萎缩</span></td><td>判断趋势方向</td></tr>
+        <tr><td>CR3（市场集中度）</td><td>前三名GMV占类目总GMV比例</td><td><span class="badge-g">&lt;40% 分散</span> <span class="badge-y">40-70% 中等</span> <span class="badge-r">&gt;70% 垄断</span></td><td>判断新入局难度</td></tr>
+        <tr><td>类目支付转化率</td><td>成交UV ÷ 搜索UV</td><td>日用品5-8%，服装3-5%，食品8-12%</td><td>判断品类购买意愿</td></tr>
+      </tbody>
+    </table>
+    <div class="tip-box"><strong>入局决策规则：</strong>搜索人气&gt;10万 + 供需比&gt;0.2 + CR3&lt;50% + 自身有差异化 → 值得入局。四个条件缺一，难度倍增。</div>
+  </div>
+
+  <!-- ── 模块2：选品 ── -->
+  <div class="m-section">
+    <h2 style="background:#7c3aed">🎯 模块2：选品策略</h2>
+    <table class="m-table">
+      <thead><tr><th>指标</th><th>说明</th><th>基准</th><th>用途</th></tr></thead>
+      <tbody>
+        <tr><td>选品得分（M×C×S）</td><td>市场空间×竞争格局×供应能力，各维度1-5分</td><td><span class="badge-g">&gt;30 优质</span> <span class="badge-y">15-30 可做</span> <span class="badge-r">&lt;15 放弃</span></td><td>系统化选品决策</td></tr>
+        <tr><td>差异化可持续月数</td><td>竞品复制该差异化所需时间估算</td><td><span class="badge-g">&gt;6个月</span> <span class="badge-r">&lt;3个月（价格差异化）</span></td><td>护城河评估</td></tr>
+        <tr><td>新品期CTR阈值</td><td>主图点击率，决定是否继续投入</td><td><span class="badge-g">&gt;3% 继续</span> <span class="badge-r">&lt;1.5% 优化主图</span></td><td>新品期存活判断</td></tr>
+        <tr><td>连带率</td><td>总销售件数 ÷ 总订单数</td><td><span class="badge-g">&gt;1.5 良好</span></td><td>客单价提升空间</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── 模块3：供应链 ── -->
+  <div class="m-section">
+    <h2 style="background:#059669">🏭 模块3：供应链管理</h2>
+    <table class="m-table">
+      <thead><tr><th>指标</th><th>说明</th><th>基准</th><th>用途</th></tr></thead>
+      <tbody>
+        <tr><td>批次合格率（OQC）</td><td>出货检验通过率</td><td><span class="badge-g">&gt;98%</span> <span class="badge-y">95-98% 合格</span> <span class="badge-r">&lt;95% 暂停</span></td><td>工厂品控水平</td></tr>
+        <tr><td>库存周转天数</td><td>当前库存量 ÷ 日均销量</td><td>快消品15-30天；服装30-60天；电器30-45天；家居45-75天</td><td>资金使用效率</td></tr>
+        <tr><td>缺货率</td><td>因断货导致无法履约的订单比例</td><td><span class="badge-g">&lt;3%</span> <span class="badge-r">&gt;5% 供应链风险</span></td><td>供应链可靠性</td></tr>
+        <tr><td>质量退货率</td><td>因产品质量问题退货占总订单比例</td><td><span class="badge-g">&lt;1%</span> <span class="badge-r">&gt;3% 需整改</span></td><td>产品质量水平</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── 模块5：内容运营 ── -->
+  <div class="m-section">
+    <h2 style="background:#d97706">📝 模块5：商品内容运营</h2>
+    <table class="m-table">
+      <thead><tr><th>指标</th><th>说明</th><th>基准</th><th>用途</th></tr></thead>
+      <tbody>
+        <tr><td>主图CTR（点击率）</td><td>点击量 ÷ 展现量</td><td>服装&gt;3.5%；电器&gt;2.5%；日用品&gt;2%（均值150%为优秀）</td><td>主图吸引力评估</td></tr>
+        <tr><td>详情页转化率</td><td>成交UV ÷ 商品页UV</td><td>服装3-5%；电器2-3%；食品5-8%</td><td>详情页说服力</td></tr>
+        <tr><td>加购率</td><td>加购UV ÷ 商品页UV</td><td><span class="badge-g">&gt;8%</span> <span class="badge-r">&lt;4% 详情页有问题</span></td><td>用户购买意向强度</td></tr>
+        <tr><td>页面停留时长</td><td>用户在详情页停留秒数</td><td><span class="badge-g">&gt;45秒</span></td><td>内容吸引力</td></tr>
+        <tr><td>毛利率</td><td>（售价-成本）÷ 售价</td><td>新品期可低，成熟期<span class="badge-g">&gt;30%</span></td><td>商业可持续性</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── 模块6：流量 ── -->
+  <div class="m-section">
+    <h2 style="background:#6d28d9">📊 模块6：流量获取</h2>
+    <table class="m-table">
+      <thead><tr><th>指标</th><th>公式</th><th>基准</th><th>用途</th></tr></thead>
+      <tbody>
+        <tr><td>ROI（投入产出比）</td><td>销售额 ÷ 广告费</td><td>盈亏线 = 1÷毛利率（毛利40%→ROI须&gt;2.5）</td><td>付费广告盈亏判断</td></tr>
+        <tr><td>CPC（每次点击费）</td><td>广告费 ÷ 点击次数</td><td>因品类和竞争不同，相对质量分评估</td><td>直通车效率</td></tr>
+        <tr><td>GPM（千次播放成交）</td><td>GMV ÷ 播放量 × 1000</td><td><span class="badge-g">&gt;100元</span> <span class="badge-r">&lt;15元 不宜放量</span></td><td>短视频/直播内容效率</td></tr>
+        <tr><td>UV价值（直播）</td><td>场均GMV ÷ 进场UV</td><td><span class="badge-g">&gt;2元/UV</span></td><td>直播间综合效率</td></tr>
+        <tr><td>CAC（获客成本）</td><td>总营销费 ÷ 新增用户</td><td>应 &lt; LTV × 30%</td><td>整体营销效率</td></tr>
+        <tr><td>直播转化率</td><td>下单人数 ÷ 进场UV</td><td><span class="badge-g">3-8%</span></td><td>直播间转化效率</td></tr>
+        <tr><td>短视频完播率</td><td>完整观看人数 ÷ 播放人数</td><td><span class="badge-g">&gt;30%</span> 才考虑付费放量</td><td>内容质量判断</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── 模块7：转化 ── -->
+  <div class="m-section">
+    <h2 style="background:#0891b2">💰 模块7：转化优化</h2>
+    <table class="m-table">
+      <thead><tr><th>漏斗节点</th><th>指标</th><th>健康基准</th><th>低于基准的应对</th></tr></thead>
+      <tbody>
+        <tr><td>展现→点击</td><td>CTR 点击率</td><td>各类目均值×150%</td><td>A/B测主图，优化标题</td></tr>
+        <tr><td>点击→加购</td><td>加购率</td><td>&gt;8%</td><td>优化详情页前3屏，调整定价</td></tr>
+        <tr><td>加购→下单</td><td>加购转化率</td><td>&gt;30%（7天内）</td><td>发限时优惠券，大促节点催单</td></tr>
+        <tr><td>下单→支付</td><td>支付率</td><td><span class="badge-g">&gt;85%</span> <span class="badge-r">&lt;80% 排查支付</span></td><td>优化支付流程，增加支付方式</td></tr>
+        <tr><td>综合转化率</td><td>成交UV ÷ 商品页UV</td><td>服装3-5%，电器2-3%，食品5-8%</td><td>系统检查各节点</td></tr>
+        <tr><td>好评率</td><td>好评数 ÷ 总评价数</td><td><span class="badge-g">&gt;98%</span> <span class="badge-r">&lt;95% 紧急处理</span></td><td>信任度和转化影响</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── 模块8：履约 ── -->
+  <div class="m-section">
+    <h2 style="background:#ea580c">🚚 模块8：履约与物流</h2>
+    <table class="m-table">
+      <thead><tr><th>指标</th><th>说明</th><th>基准</th><th>超标后果</th></tr></thead>
+      <tbody>
+        <tr><td>发货时效达成率</td><td>按时发货订单 ÷ 总订单</td><td><span class="badge-g">&gt;98%</span></td><td>DSR物流分下滑，平台赔付</td></tr>
+        <tr><td>整体退货率</td><td>退货单数 ÷ 总订单数</td><td><span class="badge-g">&lt;3%</span> <span class="badge-y">3-8%</span> <span class="badge-r">&gt;8% 紧急</span></td><td>利润损耗，品控/描述问题信号</td></tr>
+        <tr><td>破损率</td><td>因包装破损产生的退货/纠纷</td><td><span class="badge-g">&lt;0.5%</span></td><td>差评，换货成本</td></tr>
+        <tr><td>DSR物流分</td><td>平台物流维度评分（满分5）</td><td><span class="badge-g">&gt;4.7</span> <span class="badge-r">&lt;类目均值 触发降权</span></td><td>搜索排名权重</td></tr>
+        <tr><td>客诉率（物流）</td><td>物流相关投诉 ÷ 总订单</td><td><span class="badge-g">&lt;0.3%</span></td><td>累积差评，DSR下滑</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── 模块9：口碑 ── -->
+  <div class="m-section">
+    <h2 style="background:#ca8a04">⭐ 模块9：口碑管理</h2>
+    <table class="m-table">
+      <thead><tr><th>指标</th><th>说明</th><th>基准</th><th>用途</th></tr></thead>
+      <tbody>
+        <tr><td>DSR宝贝描述分</td><td>商品与描述符合程度（满分5）</td><td><span class="badge-g">&gt;4.7 且高于均值</span></td><td>搜索权重，参活资格</td></tr>
+        <tr><td>DSR卖家服务分</td><td>客服服务体验（满分5）</td><td><span class="badge-g">&gt;4.7 且高于均值</span></td><td>同上</td></tr>
+        <tr><td>DSR物流服务分</td><td>物流配送体验（满分5）</td><td><span class="badge-g">&gt;4.7 且高于均值</span></td><td>同上</td></tr>
+        <tr><td>纠纷率</td><td>买家申请平台介入纠纷数 ÷ 总订单</td><td><span class="badge-g">&lt;0.5%</span> <span class="badge-r">&gt;1% 危险</span></td><td>服务风险水平</td></tr>
+        <tr><td>客服首次响应时间</td><td>买家咨询到首次回复时间</td><td><span class="badge-g">&lt;2分钟</span></td><td>服务分+转化率</td></tr>
+        <tr><td>天猫年度积分</td><td>违规扣分累计</td><td><span class="badge-g">&lt;6分安全</span> <span class="badge-y">6-12分预警</span> <span class="badge-r">&gt;48分关店</span></td><td>合规风险监控</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── 模块10：复购 ── -->
+  <div class="m-section">
+    <h2 style="background:#16a34a">🔄 模块10：复购与用户留存</h2>
+    <table class="m-table">
+      <thead><tr><th>指标</th><th>公式</th><th>基准</th><th>用途</th></tr></thead>
+      <tbody>
+        <tr><td>复购率（90天）</td><td>90天内复购用户 ÷ 首购用户</td><td><span class="badge-g">成熟品牌 &gt;30%</span> <span class="badge-r">&lt;10% 留存有问题</span></td><td>用户忠诚度</td></tr>
+        <tr><td>LTV/CAC比值</td><td>用户生命周期价值 ÷ 获客成本</td><td><span class="badge-g">&gt;3 健康</span> <span class="badge-r">&lt;1 亏损模式</span></td><td>商业模式可持续性</td></tr>
+        <tr><td>私域用户月活率</td><td>月内有互动用户 ÷ 私域总用户</td><td><span class="badge-g">&gt;20%</span> <span class="badge-r">&lt;8% 内容质量差</span></td><td>私域运营质量</td></tr>
+        <tr><td>会员消费占比</td><td>会员GMV ÷ 总GMV</td><td><span class="badge-g">&gt;50%（成熟品牌）</span></td><td>会员体系价值</td></tr>
+        <tr><td>流失预警阈值</td><td>超过平均购买间隔×1.5未购</td><td>例：平均30天买，45天未购 = 流失风险</td><td>触发唤醒动作</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── 平台对比 ── -->
+  <div class="m-section">
+    <h2 style="background:#374151">🏪 平台指标对比速查</h2>
+    <table class="m-table">
+      <thead><tr><th>平台</th><th>佣金率</th><th>保证金</th><th>客单价中位</th><th>核心流量逻辑</th><th>最适品类</th></tr></thead>
+      <tbody>
+        <tr><td>淘宝C店</td><td>0.6%</td><td>0-1万</td><td>80-150元</td><td>搜索+猜你喜欢</td><td>白牌、长尾、个性化</td></tr>
+        <tr><td>天猫</td><td>0.6-5%</td><td>5-15万</td><td>120-200元</td><td>搜索+品牌词</td><td>品牌、高客单</td></tr>
+        <tr><td>京东POP</td><td>2-8%</td><td>1-10万</td><td>300-500元</td><td>搜索（理性）</td><td>3C、家电、图书</td></tr>
+        <tr><td>拼多多</td><td>0.6%</td><td>1千-2万</td><td>50-100元</td><td>算法推荐+社交</td><td>农产品、日用品、白牌</td></tr>
+        <tr><td>抖音</td><td>1-5%</td><td>500-2万</td><td>80-150元</td><td>内容兴趣算法</td><td>食品、美妆、新奇特</td></tr>
+        <tr><td>小红书</td><td>5%</td><td>500-1万</td><td>150-300元</td><td>内容种草+搜索</td><td>美妆、护肤、家居</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── ROI速算表 ── -->
+  <div class="m-section">
+    <h2 style="background:#1e293b">⚡ ROI盈亏线速算表</h2>
+    <table class="m-table">
+      <thead><tr><th>毛利率</th><th>ROI盈亏线</th><th>ROI=3时状态</th><th>ROI=5时状态</th></tr></thead>
+      <tbody>
+        <tr><td>25%</td><td>4.0</td><td><span class="badge-r">亏损 (-25%)</span></td><td><span class="badge-y">盈利但差（+25%）</span></td></tr>
+        <tr><td>30%</td><td>3.33</td><td><span class="badge-r">亏损 (-10%)</span></td><td><span class="badge-g">盈利（+50%）</span></td></tr>
+        <tr><td>35%</td><td>2.86</td><td><span class="badge-g">盈利（+5%）</span></td><td><span class="badge-g">优秀（+75%）</span></td></tr>
+        <tr><td>40%</td><td>2.50</td><td><span class="badge-g">盈利（+20%）</span></td><td><span class="badge-g">优秀（+100%）</span></td></tr>
+        <tr><td>50%</td><td>2.00</td><td><span class="badge-g">盈利（+50%）</span></td><td><span class="badge-g">非常优秀</span></td></tr>
+      </tbody>
+    </table>
+    <div class="tip-box"><strong>速记：</strong>ROI盈亏线 = 1 ÷ 毛利率。当前ROI &gt; 盈亏线才是真正盈利的投放。</div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <p>中国电商实战课 · 指标速查手册 · 随时查阅 · 快速判断</p>
+</footer>
+
+<script src="js/courseData.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

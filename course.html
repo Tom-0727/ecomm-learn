@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>课程内容 — 中国电商实战课</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header id="header">
+  <div class="logo">
+    <div class="logo-icon">电</div>
+    <div>
+      <h1>中国电商实战课</h1>
+      <div class="tagline">从需求洞察到复购留存 · 商业级完整链路</div>
+    </div>
+  </div>
+  <nav class="nav">
+    <a href="index.html" class="nav-link">首页</a>
+    <a href="course.html" class="nav-link active">课程</a>
+    <a href="exam.html" class="nav-link">考试</a>
+    <a href="diagnose.html" class="nav-link">诊断</a>
+    <a href="metrics.html" class="nav-link">指标</a>
+  </nav>
+</header>
+
+<div class="course-layout">
+  <!-- SIDEBAR -->
+  <aside class="course-sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h3>课程目录</h3>
+      <div class="sidebar-progress">
+        <span class="global-progress-num">0%</span> 已完成
+        <div class="progress-bar-wrap"><div class="progress-bar-fill global-progress-bar" style="width:0%"></div></div>
+      </div>
+    </div>
+    <div id="toc-list" class="toc-list"></div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="course-main" id="course-main">
+    <div id="content-area">
+      <!-- JS will render content here -->
+      <div class="welcome-screen">
+        <h2>欢迎学习中国电商实战课</h2>
+        <p>请从左侧目录选择模块开始学习，或点击下方直接进入第一模块。</p>
+        <a href="course.html?module=1" class="btn-primary">从模块一开始</a>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="js/courseData.js"></script>
+<script src="js/examData.js"></script>
+<script src="js/app.js"></script>
+<script>
+// ── TOC 渲染 ─────────────────────────────────────────────
+function renderTOC(activeModuleId, activeSectionIdx) {
+  const p = loadProgress();
+  const toc = document.getElementById('toc-list');
+  if (!toc) return;
+  toc.innerHTML = getAllModules().map(m => {
+    const pct = getModuleProgress(m.id);
+    const isActive = m.id === activeModuleId;
+    const isWeak = p.weakModules.includes(m.id);
+    return `
+    <div class="toc-module ${isActive ? 'active' : ''}">
+      <div class="toc-module-header" onclick="loadModule(${m.id})">
+        <span class="toc-icon">${m.icon}</span>
+        <span class="toc-title">模块${m.id}：${m.title}</span>
+        ${isWeak ? '<span class="toc-badge-weak">弱</span>' : ''}
+        ${pct === 100 ? '<span class="toc-badge-done">✓</span>' : `<span class="toc-pct">${pct}%</span>`}
+      </div>
+      ${isActive ? `
+      <div class="toc-sections">
+        ${m.sections.map((s, i) => {
+          const read = p.sectionsRead[`${m.id}-${i}`];
+          return `<div class="toc-section ${i === activeSectionIdx ? 'active' : ''} ${read ? 'read' : ''}" onclick="loadSection(${m.id}, ${i})">
+            ${read ? '✓' : '○'} ${s.title}
+          </div>`;
+        }).join('')}
+      </div>` : ''}
+    </div>`;
+  }).join('');
+}
+
+// ── 模块渲染 ──────────────────────────────────────────────
+function loadModule(moduleId, sectionIdx = 0) {
+  const m = getModule(moduleId);
+  if (!m) return;
+  history.pushState({}, '', `course.html?module=${moduleId}&section=${sectionIdx}`);
+  loadSection(moduleId, sectionIdx);
+}
+
+function loadSection(moduleId, sectionIdx) {
+  const m = getModule(moduleId);
+  if (!m) return;
+  history.pushState({}, '', `course.html?module=${moduleId}&section=${sectionIdx}`);
+  const section = m.sections[sectionIdx];
+  if (!section) return;
+
+  markSectionRead(moduleId, sectionIdx);
+  renderTOC(moduleId, sectionIdx);
+
+  const p = loadProgress();
+  const prevSec = sectionIdx > 0 ? sectionIdx - 1 : null;
+  const nextSec = sectionIdx < m.sections.length - 1 ? sectionIdx + 1 : null;
+  const prevMod = moduleId > 1 ? moduleId - 1 : null;
+  const nextMod = moduleId < 10 ? moduleId + 1 : null;
+
+  const area = document.getElementById('content-area');
+  area.innerHTML = `
+    <div class="module-breadcrumb">
+      <a href="index.html">首页</a> › <span onclick="loadModule(${moduleId})" style="cursor:pointer">${m.icon} 模块${moduleId}：${m.title}</span> › ${section.title}
+    </div>
+
+    <div class="module-header" style="border-left:4px solid ${m.color}">
+      <h1>${m.icon} 模块${m.id}：${m.title}</h1>
+      <p class="module-summary">${m.summary}</p>
+      <div class="module-meta">
+        <span>⏱ ${m.estimatedMinutes}分钟</span>
+        <span>📋 ${m.sections.length}节</span>
+        <span>进度：${getModuleProgress(moduleId)}%</span>
+      </div>
+    </div>
+
+    <div class="section-nav-tabs">
+      ${m.sections.map((s, i) => `
+        <button class="section-tab ${i === sectionIdx ? 'active' : ''} ${p.sectionsRead[moduleId+'-'+i] ? 'read' : ''}"
+          onclick="loadSection(${moduleId}, ${i})">${i+1}. ${s.title.split('：').pop() || s.title}</button>
+      `).join('')}
+    </div>
+
+    <div class="section-content">
+      <h2 class="section-heading">${section.title}</h2>
+      ${section.content}
+    </div>
+
+    ${m.keyMetrics && sectionIdx === m.sections.length - 1 ? `
+    <div class="module-metrics">
+      <h3>📊 本模块关键指标</h3>
+      <div class="metrics-grid">
+        ${m.keyMetrics.map(metric => `
+          <div class="metric-card">
+            <div class="metric-name">${metric.name}</div>
+            <div class="metric-benchmark">${metric.benchmark}</div>
+            <div class="metric-meaning">${metric.meaning}</div>
+          </div>`).join('')}
+      </div>
+    </div>
+
+    <div class="module-pitfalls">
+      <h3>⚠️ 常见误区</h3>
+      <ul>
+        ${m.pitfalls.map(p => `<li>${p}</li>`).join('')}
+      </ul>
+    </div>` : ''}
+
+    <div class="section-footer">
+      <div class="nav-prev">
+        ${prevSec !== null
+          ? `<button class="btn-secondary" onclick="loadSection(${moduleId}, ${prevSec})">← ${m.sections[prevSec].title}</button>`
+          : prevMod !== null
+          ? `<button class="btn-secondary" onclick="loadModule(${prevMod})">← 模块${prevMod}</button>`
+          : ''}
+      </div>
+      <div class="nav-next">
+        ${nextSec !== null
+          ? `<button class="btn-primary" onclick="loadSection(${moduleId}, ${nextSec})">${m.sections[nextSec].title} →</button>`
+          : nextMod !== null
+          ? `<button class="btn-primary" onclick="loadModule(${nextMod})">模块${nextMod} →</button>`
+          : `<a href="exam.html" class="btn-accent">课程学完了！去考试 →</a>`}
+      </div>
+    </div>`;
+
+  window.scrollTo(0, 0);
+}
+
+// ── 初始化 ────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search);
+  const moduleId = parseInt(params.get('module')) || null;
+  const sectionIdx = parseInt(params.get('section')) || 0;
+
+  if (moduleId) {
+    loadSection(moduleId, sectionIdx);
+  } else {
+    renderTOC(null, null);
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>项目诊断 — 中国电商实战课</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header id="header">
+  <div class="logo">
+    <div class="logo-icon">电</div>
+    <div>
+      <h1>中国电商实战课</h1>
+      <div class="tagline">从需求洞察到复购留存 · 商业级完整链路</div>
+    </div>
+  </div>
+  <nav class="nav">
+    <a href="index.html" class="nav-link">首页</a>
+    <a href="course.html" class="nav-link">课程</a>
+    <a href="exam.html" class="nav-link">考试</a>
+    <a href="diagnose.html" class="nav-link active">诊断</a>
+    <a href="metrics.html" class="nav-link">指标</a>
+  </nav>
+</header>
+
+<div class="diagnose-page">
+  <div id="case-list-view">
+    <div class="page-hero diagnose-hero">
+      <h2>🔬 项目诊断训练</h2>
+      <p>真实业务场景 · 找出卡点所在 · 掌握「判断项目卡在哪一环」的能力</p>
+    </div>
+    <div class="container">
+      <div id="case-grid" class="case-grid"></div>
+    </div>
+  </div>
+
+  <div id="case-detail-view" style="display:none">
+    <div class="container">
+      <div id="case-content"></div>
+    </div>
+  </div>
+</div>
+
+<script src="js/courseData.js"></script>
+<script src="js/examData.js"></script>
+<script src="js/app.js"></script>
+<script src="js/diagnoseData.js"></script>
+<script>
+
+// ── 状态 ──────────────────────────────────────────────────
+let diagnoseProgress = {}; // { caseId: 'correct'|'wrong' }
+
+function loadDiagnoseProgress() {
+  try {
+    const raw = localStorage.getItem('ecomm_diagnose');
+    return raw ? JSON.parse(raw) : {};
+  } catch { return {}; }
+}
+
+function saveDiagnoseProgress() {
+  localStorage.setItem('ecomm_diagnose', JSON.stringify(diagnoseProgress));
+}
+
+// ── 案例列表 ──────────────────────────────────────────────
+function renderCaseGrid() {
+  diagnoseProgress = loadDiagnoseProgress();
+  const grid = document.getElementById('case-grid');
+  const cases = getAllCases();
+  grid.innerHTML = cases.map(c => {
+    const done = diagnoseProgress[c.id];
+    const diffLabel = ['', '★', '★★', '★★★'][c.difficulty] || '';
+    return `
+    <div class="case-card ${done === 'correct' ? 'solved' : done === 'wrong' ? 'attempted' : ''}"
+      onclick="openCase(${c.id})">
+      <div class="case-card-header">
+        <span class="case-cat">${c.category}</span>
+        <span class="case-diff">${diffLabel}</span>
+        ${done === 'correct' ? '<span class="case-done">✓ 已解决</span>' : done === 'wrong' ? '<span class="case-wrong">× 已尝试</span>' : ''}
+      </div>
+      <h3>${c.title}</h3>
+      <p class="case-bg">${c.background.slice(0, 60)}…</p>
+      <div class="case-card-footer">
+        <span>8项数据指标</span>
+        <span class="btn-sm">开始诊断 →</span>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ── 诊断界面 ──────────────────────────────────────────────
+let currentCase = null;
+let revealed = false;
+
+function openCase(id) {
+  currentCase = getCase(id);
+  revealed = false;
+  document.getElementById('case-list-view').style.display = 'none';
+  document.getElementById('case-detail-view').style.display = 'block';
+  renderCaseDetail();
+  window.scrollTo(0, 0);
+}
+
+function backToList() {
+  document.getElementById('case-list-view').style.display = 'block';
+  document.getElementById('case-detail-view').style.display = 'none';
+  renderCaseGrid();
+  window.scrollTo(0, 0);
+}
+
+function renderCaseDetail() {
+  const c = currentCase;
+  const statusColor = { good: '#10b981', ok: '#f59e0b', bad: '#ef4444' };
+  const statusIcon = { good: '✓', ok: '~', bad: '✗' };
+
+  const metricsHtml = c.metrics.map(m => `
+    <div class="metric-row">
+      <span class="metric-row-label">${m.label}</span>
+      <span class="metric-row-value" style="color:${statusColor[m.status]}">
+        ${statusIcon[m.status]} ${m.value}
+      </span>
+    </div>`).join('');
+
+  const optionsHtml = c.options.map(opt => `
+    <button class="diag-option" id="opt-${opt.id}" onclick="selectOption('${opt.id}')">
+      ${opt.text}
+    </button>`).join('');
+
+  document.getElementById('case-content').innerHTML = `
+    <div class="case-back">
+      <button class="btn-secondary" onclick="backToList()">← 返回案例列表</button>
+    </div>
+
+    <div class="case-header">
+      <span class="case-cat">${c.category}</span>
+      <h2>${c.title}</h2>
+    </div>
+
+    <div class="case-layout">
+      <!-- 左：背景 + 数据 -->
+      <div class="case-left">
+        <div class="case-section">
+          <h3>📋 案例背景</h3>
+          <p>${c.background}</p>
+        </div>
+        <div class="case-section">
+          <h3>📊 关键数据指标</h3>
+          <div class="metrics-list">${metricsHtml}</div>
+          <div class="metrics-legend">
+            <span style="color:#10b981">✓ 正常/良好</span>
+            <span style="color:#f59e0b">~ 需关注</span>
+            <span style="color:#ef4444">✗ 异常/危险</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右：诊断 -->
+      <div class="case-right">
+        <div class="case-section diagnose-section">
+          <h3>🔍 你的诊断</h3>
+          <p class="diagnose-hint">根据以上数据，判断这个项目最核心的卡点在哪一环？</p>
+          <div class="diag-options">${optionsHtml}</div>
+          <button class="btn-primary" id="submit-btn" onclick="submitDiagnosis()" disabled>提交诊断</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="explanation-area" style="display:none" class="explanation-area"></div>
+
+    <div class="case-actions" id="case-actions" style="display:none">
+      <button class="btn-secondary" onclick="backToList()">← 返回列表</button>
+      <a href="course.html?module=${c.chainLink}" class="btn-primary">📚 复习相关模块</a>
+      ${getAllCases().find(x => x.id === c.id + 1) ? `<button class="btn-accent" onclick="openCase(${c.id + 1})">下一个案例 →</button>` : ''}
+    </div>`;
+}
+
+let selectedOption = null;
+function selectOption(optId) {
+  selectedOption = optId;
+  document.querySelectorAll('.diag-option').forEach(btn => btn.classList.remove('selected'));
+  document.getElementById(`opt-${optId}`)?.classList.add('selected');
+  document.getElementById('submit-btn').disabled = false;
+}
+
+function submitDiagnosis() {
+  if (!selectedOption || revealed) return;
+  revealed = true;
+  const c = currentCase;
+  const correct = selectedOption === c.answer;
+
+  diagnoseProgress[c.id] = correct ? 'correct' : 'wrong';
+  saveDiagnoseProgress();
+
+  // Highlight options
+  c.options.forEach(opt => {
+    const btn = document.getElementById(`opt-${opt.id}`);
+    if (!btn) return;
+    btn.disabled = true;
+    if (opt.id === c.answer) btn.classList.add('correct-ans');
+    else if (opt.id === selectedOption && !correct) btn.classList.add('wrong-ans');
+  });
+
+  // Show explanation
+  const expArea = document.getElementById('explanation-area');
+  expArea.style.display = 'block';
+  expArea.innerHTML = `
+    <div class="exp-result ${correct ? 'exp-correct' : 'exp-wrong'}">
+      <span class="exp-icon">${correct ? '✓' : '✗'}</span>
+      <span>${correct ? '诊断正确！' : '诊断有误，请看解析：'}</span>
+    </div>
+    <div class="exp-body">${c.explanation}</div>`;
+
+  document.getElementById('case-actions').style.display = 'flex';
+  document.getElementById('submit-btn').style.display = 'none';
+  expArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ── 初始化 ────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search);
+  const caseId = parseInt(params.get('case'));
+  if (caseId) {
+    openCase(caseId);
+  } else {
+    renderCaseGrid();
+  }
+});
+</script>
+</body>
+</html>
