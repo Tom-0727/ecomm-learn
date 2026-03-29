@@ -3587,6 +3587,72 @@
               </div>
             </div>
           </div>
+
+          <!-- Safe Price Adjustment Guide -->
+          <div class="deep-steps" style="margin-top:16px">
+            <div class="deep-step">
+              <div class="deep-step-content">
+                <strong>💰 安全调价指南：怎么涨价/降价而不损伤排名（新手最容易踩的坑）</strong>
+                <p style="font-size:.84rem;color:#555;margin:6px 0 10px">很多卖家以为改一下数字就完了，实际上PDD算法会把「价格大幅波动」解读为异常信号，轻则流量下滑，重则触发人工审核。以下是让调价安全的操作规范。</p>
+
+                <div class="framework-box" style="margin:0 0 14px">
+                  <div class="fw-title">📐 调价安全规则（违反任意一条都可能触发流量下跌）</div>
+                  <table class="dt" style="margin-bottom:8px">
+                    <tr><th style="width:28%">规则</th><th style="width:32%">具体标准</th><th>背后原因</th></tr>
+                    <tr>
+                      <td><strong>单次调幅 ≤ 15%</strong></td>
+                      <td>¥38 → ¥43（+13%）✅<br>¥38 → ¥58（+53%）❌</td>
+                      <td>大幅调价会触发算法重新评估，相当于让商品重新「冷启动」；买家也会因价差太大产生「被欺骗」的感觉，差评率上升</td>
+                    </tr>
+                    <tr>
+                      <td><strong>调价间隔 ≥ 72小时</strong></td>
+                      <td>本周一调价后，本周四才能再调</td>
+                      <td>频繁调价是算法判断「商家不稳定」的信号，会降低搜索权重；72小时是算法刷新一次学习周期的最短时间</td>
+                    </tr>
+                    <tr>
+                      <td><strong>调价前确认基本面稳定</strong></td>
+                      <td>调价前7天：CTR稳定、无新差评、无售后纠纷</td>
+                      <td>基本面已经波动时再调价，多个负信号叠加，排名跌幅会放大</td>
+                    </tr>
+                    <tr>
+                      <td><strong>避开高峰时段操作</strong></td>
+                      <td>在 <strong>22:00–08:00</strong> 之间修改价格</td>
+                      <td>流量低谷期修改，价格页面审核期（1-2小时）对当日GMV影响最小</td>
+                    </tr>
+                  </table>
+                </div>
+
+                <div style="background:#0d1117;border-radius:8px;padding:14px;font-size:.83rem;line-height:1.9;margin-bottom:14px">
+                  <strong style="color:#ffd700">实战案例：¥28 安全涨到 ¥42（用10周，净利润率从22%→36%）</strong><br><br>
+                  <strong style="color:#86efac">前提条件（开始涨价前必须满足）：</strong>好评≥30条，好评率≥97%，近7天CTR稳定≥1.5%，无新差评<br><br>
+                  <table class="dt" style="margin:8px 0">
+                    <tr><th>时间节点</th><th>价格</th><th>调整幅度</th><th>观察指标（调价后7天）</th><th>判断</th></tr>
+                    <tr><td>第0周（基准）</td><td>¥28.0</td><td>—</td><td>转化率2.1%，日均8单</td><td>基本面稳定，可以开始</td></tr>
+                    <tr><td>第2周</td><td>¥30.8</td><td>+10%</td><td>转化率2.0%，日均7.6单（-5%）</td><td>✅ 轻微下滑，属正常，继续</td></tr>
+                    <tr><td>第4周</td><td>¥33.5</td><td>+9%</td><td>转化率1.95%，日均7.4单（-2.6%）</td><td>✅ 下滑收窄，说明买家对这价位认可</td></tr>
+                    <tr><td>第6周</td><td>¥37.0</td><td>+10%</td><td>转化率1.75%，日均6.8单（-8%）</td><td>⚠️ 下滑稍大，停一周观察再调</td></tr>
+                    <tr><td>第8周</td><td>¥39.5</td><td>+7%</td><td>转化率1.8%，日均7.0单（+3%回升）</td><td>✅ 买家重新接受，继续</td></tr>
+                    <tr><td>第10周</td><td>¥42.0</td><td>+6%</td><td>转化率1.82%，日均7.2单</td><td>✅ 稳定，完成涨价目标</td></tr>
+                  </table>
+                  <strong style="color:#fbbf24">结果：</strong>GMV ¥28×8单/天=¥224 → ¥42×7.2单/天=¥302（+35%），净利润率从22%→36%，每月净利增加约¥1,440
+                </div>
+
+                <div class="framework-box" style="margin:0 0 12px">
+                  <div class="fw-title">🏷️ 划线价（原价/中划线）的正确用法</div>
+                  <div style="font-size:.84rem;line-height:1.85;padding:4px 0">
+                    商品页可以同时显示「划线原价」和「促销价」，让买家看到折扣感。设置路径：<br>
+                    商品管理 → 编辑商品 → 「市场价/原价」填高价（如¥59）→「销售价」填实际售价（如¥38）→ 页面显示 <span style="text-decoration:line-through;color:#999">¥59</span> <strong style="color:#dc2626">¥38</strong><br><br>
+                    <strong>注意事项：</strong><br>
+                    · 划线价不能虚高（平台要求划线价必须是你历史上真实销售过的价格，否则构成「价格欺骗」）<br>
+                    · 安全做法：先以¥59上架销售1-2周，再降价到¥38，划线价填¥59，完全合规<br>
+                    · 划线价差距建议 20-40%（差距太小没有视觉冲击力，差距太大买家会觉得质量有问题）
+                  </div>
+                </div>
+
+                <div class="danger-box">⛔ 绝对不要做：① 一次性从¥68降到¥19「清仓引流」——算法会给你打上「低质低价」标签，后续涨价极难；② 同一天内多次修改价格——平台会锁定你的价格编辑权限24小时；③ 在大促活动报名期间改价——活动价不能高于近30天最低价，否则被系统自动取消报名资格。</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
