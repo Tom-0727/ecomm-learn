@@ -1884,6 +1884,29 @@
                 <div class="insight-box">💡 工作室和打工的核心区别：你是在给自己的「资产」打工。现在少提现 = 让「资产」更快增长 = 未来提更多。这需要延迟满足的心态。</div>
               </div>
             </div>
+            <div class="deep-step">
+              <div class="deep-step-content">
+                <strong>库存补货预警模型（防止断货断流量）</strong><br>
+                断货 = 流量归零，恢复需要1-2周，是工作室最容易犯的低级失误。用这个公式计算补货时间点：<br><br>
+                <code>
+                  日均销量（D）= 过去7天总销量 ÷ 7<br>
+                  采购提前期（L）= 从下单到货到手的天数（包括供应商发货+快递）<br>
+                  安全库存（S）= D × 1.5（留出50%缓冲应对销量突增）<br>
+                  ──────────────────────────<br>
+                  补货触发库存量 = D × L + S
+                </code>
+                <br>
+                <div style="background:#f0fdf4;border-radius:6px;padding:10px 14px;font-size:.83rem;color:#166534;margin-top:8px">
+                  <strong>实战示例（桌面收纳盒）</strong>：<br>
+                  日均销量 D = 15件/天<br>
+                  采购提前期 L = 5天（供应商2天发货+圆通3天到）<br>
+                  安全库存 S = 15 × 1.5 = 22.5件 ≈ 23件<br>
+                  <strong>补货触发点 = 15×5 + 23 = 98件</strong><br>
+                  → 当库存低于98件时，立即下单补货。不要等到50件再补，那时候很可能断货。<br><br>
+                  <strong>每周检查</strong>：把「当前库存÷补货触发点」设为预警比例。比例&lt;1.0 = 立即补货；1.0-1.5 = 本周内补货；&gt;1.5 = 暂时安全
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
