@@ -436,6 +436,11 @@
       <div class="roadmap-circle" id="rm6">📊</div>
       <div class="roadmap-label">挑战6<br>利润复盘</div>
     </div>
+    <div class="roadmap-arrow">→</div>
+    <div class="roadmap-step" onclick="scrollToChallenge(7)">
+      <div class="roadmap-circle" id="rm7">📕</div>
+      <div class="roadmap-label">挑战7<br>小红书种草</div>
+    </div>
   </div>
 </div>
 
@@ -446,7 +451,7 @@
     <div class="progress-bar-wrap">
       <div class="progress-bar-fill" id="progress-bar" style="width:0%"></div>
     </div>
-    <div id="progress-sub" style="font-size:.8rem;opacity:.6;margin-top:4px;">0 / 7 挑战已完成</div>
+    <div id="progress-sub" style="font-size:.8rem;opacity:.6;margin-top:4px;">0 / 8 挑战已完成</div>
   </div>
 </div>
 
@@ -1324,7 +1329,171 @@
             <li class="checkpoint-item"><input type="checkbox" data-c="6" data-i="1" onchange="saveCheck(6,1,this.checked)"><span>我写了一份简短的复盘记录（哪些做好了，哪些需要改进）</span></li>
             <li class="checkpoint-item"><input type="checkbox" data-c="6" data-i="2" onchange="saveCheck(6,2,this.checked)"><span>我做出了下一步决定：扩大/优化/换品/暂停</span></li>
           </ul>
-          <button class="complete-btn" onclick="markComplete(6)" id="complete-btn-6">🏆 全部挑战完成！恭喜你成为真正的电商人！</button>
+          <button class="complete-btn" onclick="markComplete(6)" id="complete-btn-6">标记挑战6已完成 🎉</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== CHALLENGE 7 ========== -->
+    <div class="challenge-card" id="challenge-7" onclick="toggleChallenge(7)">
+      <div class="challenge-header">
+        <div class="challenge-num">7</div>
+        <div class="challenge-title-area">
+          <div class="challenge-title">📕 小红书种草 — 发一篇笔记，让陌生人主动来找你买</div>
+          <div class="challenge-tags">
+            <span class="c-tag c-tag-cost">💰 0元</span>
+            <span class="c-tag c-tag-time">⏱ 制作2小时，等待1-7天出数据</span>
+            <span class="c-tag c-tag-platform">📱 平台: 小红书</span>
+            <span class="c-tag c-tag-level">⭐⭐ 初级</span>
+          </div>
+        </div>
+        <div class="challenge-done-badge" id="done-badge-7" style="display:none">✓ 已完成</div>
+        <div class="challenge-toggle">▼</div>
+      </div>
+      <div class="challenge-body" onclick="event.stopPropagation()">
+        <div class="challenge-goal">
+          <strong>目标：</strong>发布一篇小红书图文笔记，获得至少500次浏览，并收到至少1条有购买意向的私信或评论。把小红书当作免费的内容流量入口，为你的闲鱼/PDD店铺引流。
+        </div>
+
+        <div class="prereq-box">
+          <strong>📋 你需要准备：</strong>小红书账号（手机号注册，已实名）；挑战2中制作好的商品图片素材；你已经在闲鱼或PDD有可购买的商品链接
+        </div>
+
+        <div class="steps-title">📝 详细操作步骤</div>
+        <ol class="steps-list">
+          <li class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <strong>选择内容角度（决定笔记能否被推荐）</strong><br>
+              小红书的推荐逻辑：内容要「有用」或「有共鸣」，纯广告会被降权。选择以下任一角度切入：<br>
+              <br>
+              &nbsp;&nbsp;· <strong>攻略型</strong>：「我用了3个月的xx，优缺点全说」<br>
+              &nbsp;&nbsp;· <strong>对比型</strong>：「买了5款xx，只有这款值得推荐」<br>
+              &nbsp;&nbsp;· <strong>痛点解决型</strong>：「困扰了我2年的桌面乱问题，这样解决了」<br>
+              &nbsp;&nbsp;· <strong>生活记录型</strong>：「整理宿舍/搬家/换季，我用到了这些」<br>
+              <br>
+              ✅ 好例子：「租房党必看！我是如何把25平米变成超舒适的家（附清单）」<br>
+              ❌ 差例子：「超好用的收纳盒，点击主页有链接！」
+              <div class="step-tip">💡 小红书用户在找的是「解决我的问题的方法」，不是找广告。商品是你解决问题过程中用到的工具，不是主角。</div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <strong>研究竞品笔记，找到爆文结构</strong><br>
+              在小红书搜索你商品相关的关键词（如「桌面收纳」「宿舍整理」），按「最热」排序，点开前5篇笔记，记录：<br>
+              <br>
+              &nbsp;&nbsp;· 标题用什么句式？（问句/数字/情绪词）<br>
+              &nbsp;&nbsp;· 配图用几张？第一张图是什么风格？<br>
+              &nbsp;&nbsp;· 正文结构是怎样的？（痛点→方案→结果？步骤拆解？）<br>
+              &nbsp;&nbsp;· 评论区问什么问题？（这就是你的用户真实需求！）<br>
+              <br>
+              记录下来，你的笔记要参考爆文结构，但内容要是你自己的真实经历。
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <strong>制作封面图（最重要的一步，决定点击率）</strong><br>
+              小红书封面图是用户唯一看到的东西，决定他是否点开。规范：<br>
+              <br>
+              &nbsp;&nbsp;· <strong>尺寸</strong>：3:4比例（竖图，如1080×1440px）<br>
+              &nbsp;&nbsp;· <strong>主体</strong>：商品+使用场景的真实照片（不要纯白底图！）<br>
+              &nbsp;&nbsp;· <strong>文字叠加</strong>：标题前5个字放在图上，大字，高对比度<br>
+              &nbsp;&nbsp;· <strong>风格参考</strong>：搜索你所在品类的爆文封面，学习他们的颜色/字体/构图<br>
+              <br>
+              用Canva：选「小红书封面」模板 → 替换图片 → 修改文字 → 下载高清版<br>
+              <br>
+              <strong>封面文字公式：</strong><br>
+              &nbsp;&nbsp;· 数字+结果：「花了200块，出租屋从乱到整」<br>
+              &nbsp;&nbsp;· 问句：「为什么我的桌面永远乱？」<br>
+              &nbsp;&nbsp;· 情绪共鸣：「租房3年，这才是我最后悔没早买的东西」
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <strong>写正文（结构化，易扫读）</strong><br>
+              小红书用户在手机上快速刷，正文要分段+加粗关键词+emoji辅助扫读：<br>
+              <br>
+              <strong>推荐结构（400-600字）：</strong><br>
+              &nbsp;&nbsp;第1段：共鸣/痛点（「我也有这个问题」）<br>
+              &nbsp;&nbsp;第2段：我的解决方案（自然带出商品）<br>
+              &nbsp;&nbsp;第3段：具体效果/使用心得（真实感）<br>
+              &nbsp;&nbsp;第4段：细节展示（尺寸/材质/使用技巧）<br>
+              &nbsp;&nbsp;结尾：引导互动（「你们有什么收纳好物欢迎评论分享」）<br>
+              <br>
+              ✅ 结尾示例：「整理完的那天我拍了照片发到朋友圈，好几个朋友问我买的什么，想要的可以评论或私信我，我把链接放评论区了。」<br>
+              <br>
+              <strong>避免直接放购买链接在正文里</strong>——小红书会降权有明显广告意图的笔记。把链接放在评论区置顶，或引导私信。
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">5</div>
+            <div class="step-content">
+              <strong>选对话题标签（影响被哪些人看到）</strong><br>
+              每篇笔记添加5-8个话题标签，组合策略：<br>
+              <br>
+              &nbsp;&nbsp;· 2个大词（流量大，如 #收纳 #家居）<br>
+              &nbsp;&nbsp;· 3个中词（精准，如 #桌面收纳 #宿舍整理）<br>
+              &nbsp;&nbsp;· 2个小词/趋势词（竞争小，如 #租房改造 #极简生活）<br>
+              <br>
+              查找方法：在小红书搜索框输入词，看显示的话题热度（「话题：桌面收纳 · 1.2亿次浏览」）
+              <div class="step-tip">💡 发布时间建议：工作日晚8-10点，周末午后2-4点，这两个时段用户最活跃。</div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">6</div>
+            <div class="step-content">
+              <strong>发布后主动运营（前2小时很关键）</strong><br>
+              小红书算法会在发布后1-2小时观察初始互动数据，决定是否扩大推送。<br>
+              发布后立刻做：<br>
+              <br>
+              &nbsp;&nbsp;· 自己在评论区留言：把购买链接或「私信我」引导放置顶评论<br>
+              &nbsp;&nbsp;· 发给2-3个朋友，请他们点赞+收藏（不要求评论，看起来更自然）<br>
+              &nbsp;&nbsp;· 不要在发布后1小时内修改笔记（会重置推流）<br>
+              <br>
+              发布24小时后看数据：<br>
+              &nbsp;&nbsp;· 浏览量 > 200：正常，继续等<br>
+              &nbsp;&nbsp;· 浏览量 < 50：封面可能需要优化（换图重发，或修改标题前5字）<br>
+              &nbsp;&nbsp;· 收藏率 > 5%（收藏数/浏览量）：内容质量良好，会持续推流
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">7</div>
+            <div class="step-content">
+              <strong>承接私信 / 评论中的购买意向</strong><br>
+              有人在评论或私信问「在哪买」「多少钱」时，这是最高质量的潜在客户。<br>
+              <br>
+              回复话术：<br>
+              &nbsp;&nbsp;· 「已经把链接放在评论区置顶了，是某宝/闲鱼，搜[关键词]也能找到～」<br>
+              &nbsp;&nbsp;· 如果想做私域：「微信：[你的微信] 我可以直接帮你看有没有货，价格也会更实惠」<br>
+              <br>
+              <strong>小红书→私域转化路径：</strong>笔记获得关注 → 引导加微信 → 建立私域关系 → 长期复购<br>
+              这是目前中国电商里ROI最高的免费流量路径之一。
+              <div class="step-warn">⚠️ 注意：小红书严格禁止在笔记正文直接放微信号，会被删除。要在私信里才能交换联系方式。</div>
+            </div>
+          </li>
+        </ol>
+
+        <div class="pitfalls-box">
+          <h4>🚫 小红书运营四大雷区</h4>
+          <ul>
+            <li>开头就说「今天给大家推荐一款...」——系统识别为广告，直接降权；要用「最近遇到一个问题」「分享一下我的经历」开头</li>
+            <li>图片全是白底商品图——小红书是生活分享平台，要有场景感、有人物或使用状态的图</li>
+            <li>正文不分段，大段文字——用户直接划走，要多分段、多换行、关键词加粗</li>
+            <li>一发完笔记就修改——触发系统重新审核，会清零初始推流；发布前反复检查，确认后再发</li>
+          </ul>
+        </div>
+
+        <div class="checkpoint-box">
+          <h4>✅ 完成标准</h4>
+          <ul class="checkpoint-items">
+            <li class="checkpoint-item"><input type="checkbox" data-c="7" data-i="0" onchange="saveCheck(7,0,this.checked)"><span>我发布了一篇符合「非广告感」结构的小红书笔记，配封面图</span></li>
+            <li class="checkpoint-item"><input type="checkbox" data-c="7" data-i="1" onchange="saveCheck(7,1,this.checked)"><span>笔记48小时内获得了至少500次浏览</span></li>
+            <li class="checkpoint-item"><input type="checkbox" data-c="7" data-i="2" onchange="saveCheck(7,2,this.checked)"><span>收到了至少1条有购买意向的评论或私信，并做了回复承接</span></li>
+          </ul>
+          <button class="complete-btn" onclick="markComplete(7)" id="complete-btn-7">🏆 全部挑战完成！恭喜你成为真正的电商人！</button>
         </div>
       </div>
     </div>
@@ -1339,7 +1508,7 @@
 
 <script>
 // ===== PROGRESS TRACKING =====
-var TOTAL = 7;
+var TOTAL = 8;
 var KEY = 'ecomm_practice';
 
 function loadProgress() {
