@@ -931,6 +931,59 @@ const DIAGNOSE_CASES = [
 
 <p><strong>关键认知</strong>：「跨境电商不赚钱」的判断是错误的——当前的问题是「没有做好基础工作就开始烧广告」。正确流程应该是：Listing优化（3周）→评价积累（4-8周）→再上广告。顺序错了就是白烧钱。</p>`,
     chainLink: 4  // 对应模块4平台搭建
+  },
+
+  {
+    id: 20,
+    title: "抖音商家：直播卖爆了，商城没人看",
+    difficulty: 2,
+    category: "内容问题",
+    background: `某宠物食品品牌在抖音做得不错：自播每场GMV约8万元，粉丝量52万，评论区互动热烈。但运营发现「抖音商城」里的同款商品几乎没有自然搜索流量，商城月GMV仅约3000元，远低于直播间的1/20。品牌方认为「抖音商城就是摆设，流量全在直播」。`,
+    metrics: [
+      { label: "自播场均GMV", value: "约8万元（表现良好）", status: "good" },
+      { label: "商城月GMV", value: "3,000元（直播间的1/20）", status: "bad" },
+      { label: "商城主图", value: "直播间截图（模糊，有直播UI框）", status: "bad" },
+      { label: "商品标题", value: "「【直播专享】狗粮XX品牌1kg」", status: "bad" },
+      { label: "商城「宠物狗粮」搜索排名", value: "第120页（实际无曝光）", status: "bad" },
+      { label: "详情页内容", value: "仅3张图，无成分/无适用犬种/无喂养指引", status: "bad" },
+      { label: "商城评价数", value: "17条", status: "bad" },
+      { label: "直播间同款评价", value: "1,200+条（但属于直播订单）", status: "good" }
+    ],
+    options: [
+      { id: "a", text: "卡在【需求洞察】—— 宠物食品在抖音商城没有搜索需求，这个渠道本就不适合该品类" },
+      { id: "b", text: "卡在【内容运营】—— 直播间和商城是两个完全不同的流量场景；商城需要独立的「搜索型Listing」（标题/主图/详情页），不能套用直播截图和直播专属标题" },
+      { id: "c", text: "卡在【口碑管理】—— 17条评价太少，需先积累评价再期待搜索流量" },
+      { id: "d", text: "卡在【流量获取】—— 应该给商城Listing开通商品卡付费推广" }
+    ],
+    answer: "b",
+    explanation: `
+<h3>核心卡点：内容运营——直播思维 ≠ 商城思维</h3>
+<p><strong>抖音两大流量场的本质区别：</strong></p>
+<table style="width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;">
+  <tr style="background:#f3f4f6"><th style="padding:8px;border:1px solid #d1d5db">维度</th><th style="padding:8px;border:1px solid #d1d5db">直播间</th><th style="padding:8px;border:1px solid #d1d5db">抖音商城</th></tr>
+  <tr><td style="padding:6px;border:1px solid #e5e7eb">用户状态</td><td style="padding:6px;border:1px solid #e5e7eb">被动刷到，冲动消费</td><td style="padding:6px;border:1px solid #e5e7eb">主动搜索，有明确需求</td></tr>
+  <tr><td style="padding:6px;border:1px solid #e5e7eb">决策依据</td><td style="padding:6px;border:1px solid #e5e7eb">主播讲解+直播氛围</td><td style="padding:6px;border:1px solid #e5e7eb">主图+标题关键词+详情页+评价</td></tr>
+  <tr><td style="padding:6px;border:1px solid #e5e7eb">流量来源</td><td style="padding:6px;border:1px solid #e5e7eb">算法推流（GPM决定权重）</td><td style="padding:6px;border:1px solid #e5e7eb">关键词搜索排名（销量+转化）</td></tr>
+  <tr><td style="padding:6px;border:1px solid #e5e7eb">内容要求</td><td style="padding:6px;border:1px solid #e5e7eb">口播+实物展示+限时优惠</td><td style="padding:6px;border:1px solid #e5e7eb">清晰产品图+成分参数+买家秀</td></tr>
+  <tr><td style="padding:6px;border:1px solid #e5e7eb">类比</td><td style="padding:6px;border:1px solid #e5e7eb">电视购物（推）</td><td style="padding:6px;border:1px solid #e5e7eb">淘宝搜索货架（拉）</td></tr>
+</table>
+
+<p><strong>Listing三重致命错误：</strong></p>
+<ol>
+  <li><strong>标题含「直播专享」</strong>：搜索用户输入「宠物狗粮」，系统无法将此标题匹配到搜索词；且「直播专享」暗示商城价格更高，劝退用户</li>
+  <li><strong>主图用直播截图</strong>：模糊画质+直播UI框 → 商城用户认为「不专业」→ 立即划走。商城主图需要专业白底图+核心卖点文字</li>
+  <li><strong>详情页仅3张图</strong>：直播间主播口述了成分/适用犬种/喂养量，商城无主播，这些信息必须呈现在详情页</li>
+</ol>
+
+<p><strong>处方：两场独立运营</strong></p>
+<ol>
+  <li><strong>重做商城Listing</strong>：标题改为「天然无谷宠物狗粮 成犬通用型 鸡肉味1kg 低敏配方」；主图重拍白底专业图；详情页补成分表/适用犬种/买家秀</li>
+  <li><strong>评价迁移</strong>：从直播间1200条评价中筛选优质买家秀，邀请在商城留评（合规方式）</li>
+  <li><strong>商城搜索冷启动</strong>：参照新品冷启动逻辑，先跑「低脂狗粮成犬」等精准长尾词广告，积累100+销量后再竞争核心词</li>
+  <li><strong>预期</strong>：3个月内商城月GMV可从3000元提升至4-5万，形成「直播冲量+商城沉淀」的双引擎</li>
+</ol>
+<p><strong>关键认知</strong>：商城GMV = 品牌的「被动收入」——不需要每天直播也有销售。商城做好了，才是真正的品牌资产积累。</p>`,
+    chainLink: 5  // 对应模块5内容运营
   }
 ];
 
