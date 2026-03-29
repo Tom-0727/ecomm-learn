@@ -3799,6 +3799,134 @@
         </div>
       </div>
 
+      <!-- Task 3.data: Data Center Guide -->
+      <div class="task-block" id="t3-data">
+        <div class="task-block-header" onclick="toggleTask('t3-data')">
+          <div class="task-icon">📊</div>
+          <div class="task-block-title">任务 3.D — 数据中心实操：5个报告怎么看，每周30分钟知道该优化什么</div>
+          <div class="task-block-meta">每周固定执行</div>
+          <div class="task-block-toggle">▼</div>
+        </div>
+        <div class="task-block-body">
+          <p>课程里说「检查CTR」「看ROI」「分析流量来源」——但很多人打开PDD后台就迷路了，不知道数据在哪里、看什么列、怎么解读。这个指南解决这个问题：5个报告的路径+读法，每周30分钟走完一遍。</p>
+
+          <div class="deep-steps">
+            <div class="deep-step">
+              <div class="deep-step-content">
+                <strong>📍 报告1：商品流量来源（每周必看，5分钟）</strong>
+                <div style="background:#0d1117;border-radius:8px;padding:12px 14px;margin:8px 0;font-size:.83rem;line-height:1.9">
+                  <strong style="color:#ffd700">路径：</strong>商家后台 → 数据中心 → 商品分析 → 选择你的主SKU → 点「流量来源」标签<br><br>
+                  <strong style="color:#86efac">你会看到：</strong>每个流量来源的「展现量」「点击量」「成交量」，按来源类型拆分（搜索自然流量 / 搜索广告 / 活动流量 / 推荐流量）<br><br>
+                  <strong style="color:#fbbf24">怎么读：</strong>
+                </div>
+                <table class="dt" style="margin-bottom:10px">
+                  <tr><th>来源类型</th><th>占比健康标准</th><th>占比异常时怎么处理</th></tr>
+                  <tr>
+                    <td><strong>搜索自然流量</strong></td>
+                    <td>Phase 3目标：占总流量20-35%</td>
+                    <td>&lt;10%：标题关键词需要优化，或新品期正常（前6周）；先用广告带量，自然流量会随排名提升而增加</td>
+                  </tr>
+                  <tr>
+                    <td><strong>搜索广告流量</strong></td>
+                    <td>Phase 2-3：占40-60%（广告为主）</td>
+                    <td>&gt;80%：高度依赖广告，一旦广告暂停流量崩塌；积极优化自然排名</td>
+                  </tr>
+                  <tr>
+                    <td><strong>活动流量</strong></td>
+                    <td>限时秒杀期间：占10-25%；平时接近0</td>
+                    <td>活动结束后骤降是正常的，不是出了问题</td>
+                  </tr>
+                  <tr>
+                    <td><strong>推荐流量</strong>（猜你喜欢）</td>
+                    <td>5-15%为正常</td>
+                    <td>极低（&lt;3%）且想提升：优化详情页标签词和用户评价关键词</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <div class="deep-step">
+              <div class="deep-step-content">
+                <strong>🔑 报告2：自然搜索词报告（每2周看，10分钟，找标题优化机会）</strong>
+                <div style="background:#0d1117;border-radius:8px;padding:12px 14px;margin:8px 0;font-size:.83rem;line-height:1.9">
+                  <strong style="color:#ffd700">路径：</strong>数据中心 → 商品分析 → 选SKU → 点「搜索词」标签 → 切换到「自然搜索词」<br><br>
+                  <strong style="color:#86efac">你会看到：</strong>买家用什么词搜到了你的商品，每个词带来多少点击和成交
+                </div>
+                <table class="dt" style="margin-bottom:10px">
+                  <tr><th>发现</th><th>意味着什么</th><th>操作</th></tr>
+                  <tr>
+                    <td>某个词带来大量点击但0成交</td>
+                    <td>这个词带来的买家需求和你的商品不匹配</td>
+                    <td>把该词从标题里删掉，或者检查详情页是否回应了这个词的买家需求</td>
+                  </tr>
+                  <tr>
+                    <td>某个词带来点击且转化率高，但不在你标题里</td>
+                    <td>「隐藏的黄金词」——买家用这个词找到你，说明相关性很高</td>
+                    <td>把这个词加入标题，并在广告关键词中加入+提价，抢更多曝光</td>
+                  </tr>
+                  <tr>
+                    <td>你的主打词带来流量极少</td>
+                    <td>这个词你还没有排名，买家搜它时看不到你</td>
+                    <td>在广告里加强这个词的出价，先用付费流量建立转化记录，再带动自然排名</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <div class="deep-step">
+              <div class="deep-step-content">
+                <strong>📉 报告3：商品转化漏斗（每周看，5分钟，找转化断点）</strong>
+                <div style="background:#0d1117;border-radius:8px;padding:12px 14px;margin:8px 0;font-size:.83rem;line-height:1.9">
+                  <strong style="color:#ffd700">路径：</strong>数据中心 → 商品分析 → 选SKU → 「转化分析」标签（或叫「概况」）<br><br>
+                  <strong style="color:#86efac">你会看到：</strong>展现量 → 点击量（CTR）→ 加购量 → 成交量（转化率）的完整漏斗
+                </div>
+                <div style="font-size:.84rem;line-height:1.85;background:#fef9c3;border-radius:6px;padding:10px 14px;margin-bottom:8px;color:#78350f">
+                  <strong>快速定位问题的规则：</strong><br>
+                  · CTR低（&lt;1%）→ 主图问题，或者价格比竞品贵太多<br>
+                  · CTR正常但加购低 → 详情页问题（FABE不到位，或价格锚点没有吸引力）<br>
+                  · 加购了但转化低 → 价格问题（买家在比价），或评价不足（信任度不够）<br>
+                  · 三个环节都OK但GMV还是低 → 流量基数太小，需要加大广告或优化关键词排名
+                </div>
+              </div>
+            </div>
+
+            <div class="deep-step">
+              <div class="deep-step-content">
+                <strong>💸 报告4：广告关键词报告（每周必看，10分钟，止损+找机会）</strong>
+                <div style="background:#0d1117;border-radius:8px;padding:12px 14px;margin:8px 0;font-size:.83rem;line-height:1.9">
+                  <strong style="color:#ffd700">路径：</strong>推广中心 → 搜索推广 → 选你的计划 → 关键词 → 「数据报告」→ 设置时间范围为「最近7天」<br><br>
+                  <strong style="color:#86efac">关键列：</strong>花费 / 点击 / 成交金额 / ROI（成交金额÷花费）/ 转化率
+                </div>
+                <table class="dt" style="margin-bottom:6px">
+                  <tr><th>ROI区间</th><th>词的判断</th><th>操作</th></tr>
+                  <tr><td style="color:#16a34a;font-weight:700">ROI ≥ 盈亏线 × 1.5</td><td>A类词：超高效</td><td>出价提高15%，抢更高位置；考虑单独分组，增加预算</td></tr>
+                  <tr><td style="color:#d97706;font-weight:700">ROI = 盈亏线 ± 20%</td><td>B类词：合格，保留</td><td>维持现状，继续观察</td></tr>
+                  <tr><td style="color:#dc2626;font-weight:700">ROI &lt; 盈亏线 × 0.8，连续14天</td><td>C类词：亏钱</td><td>出价降低30%；若再7天仍不达标，暂停该词</td></tr>
+                  <tr><td style="color:#6b7280;font-weight:700">展现&gt;200次，点击=0</td><td>词出价太低，买不到展现位</td><td>出价提高20%；如仍无点击1周后删除</td></tr>
+                </table>
+              </div>
+            </div>
+
+            <div class="deep-step">
+              <div class="deep-step-content">
+                <strong>📅 报告5：周环比趋势对比（每周末，5分钟，判断趋势方向）</strong>
+                <div style="background:#0d1117;border-radius:8px;padding:12px 14px;margin:8px 0;font-size:.83rem;line-height:1.9">
+                  <strong style="color:#ffd700">路径：</strong>数据中心 → 销售概况 → 切换时间范围为「本周」vs「上周」（点右上角「对比时间段」）<br><br>
+                  <strong style="color:#86efac">你会看到：</strong>本周与上周的GMV、订单量、客单价的对比变化（红↑绿↓或反过来，看设置）
+                </div>
+                <div style="font-size:.84rem;line-height:1.85;color:#374151">
+                  <strong>每周末花5分钟问自己3个问题：</strong><br>
+                  1. GMV相比上周 ±多少？原因是广告调整、还是排名变化、还是季节性？<br>
+                  2. 客单价有没有变化？（说明套装销售是否有效，或是否有冲动退款）<br>
+                  3. 退款率相比上周是否上升？（上升&gt;2%要立刻查批次质量）
+                </div>
+                <div class="insight-box" style="margin-top:10px">💡 <strong>30分钟周度复盘节奏</strong>：报告2（10分钟）→ 报告4（10分钟）→ 报告1+3+5（10分钟）。每次复盘只写1-2个「下周要改变的动作」，不超过3个。改动太多，无法判断是哪个改变产生了效果。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Task 3.4: Promotion planning -->
       <div class="task-block" id="t3-4">
         <div class="task-block-header" onclick="toggleTask('t3-4')">
