@@ -3607,6 +3607,107 @@
         </div>
       </div>
 
+      <!-- Task 4.3b: Review to action bridge -->
+      <div class="task-block" id="t4-3b">
+        <div class="task-block-header" onclick="toggleTask('t4-3b')">
+          <div class="task-icon">🔧</div>
+          <div class="task-block-title">任务 4.3 附录 — 复盘发现问题后，怎么执行修复？</div>
+          <div class="task-block-meta">针对3类最常见问题</div>
+          <div class="task-block-toggle">▼</div>
+        </div>
+        <div class="task-block-body">
+          <p>复盘最常见的结束语是：「发现了问题，下月改。」但「怎么改」才是难点。以下是3类最高频问题的具体操作步骤，复盘完直接照做。</p>
+
+          <div class="deep-steps">
+            <div class="deep-step">
+              <div class="deep-step-content">
+                <strong>🖼️ 问题1：CTR下降 → 主图需要重新测试（成熟SKU的A/B测流程）</strong>
+                <div class="danger-box" style="margin:8px 0">
+                  <strong>⚠️ 注意：成熟SKU换主图 ≠ 冷启动换主图，操作方式不同</strong><br>
+                  成熟SKU有历史点击记录，直接换图会「重置学习期」，可能导致流量短暂下跌。要按以下步骤操作，将影响降到最低。
+                </div>
+                <table class="dt" style="margin:10px 0">
+                  <tr><th>步骤</th><th>操作</th><th>注意事项</th></tr>
+                  <tr><td>① 准备新主图</td><td>制作2张新主图（方向A：强化核心痛点；方向B：竞品差异化）</td><td>保持尺寸800×800px，文字不超过主图面积30%</td></tr>
+                  <tr><td>② 选择替换时机</td><td>在<strong>晚上11点-12点</strong>之间更新主图</td><td>避开9-11点、14-16点、20-22点流量高峰期，减少替换对当日数据的冲击</td></tr>
+                  <tr><td>③ 操作路径</td><td>商品管理 → 编辑商品 → 主图 → 拖入新图 → 保存</td><td>更新后PDD需1-4小时审核，审核期间展示旧图</td></tr>
+                  <tr><td>④ 观察期</td><td>保持<strong>5天</strong>不再变动，记录每天CTR</td><td>成熟SKU至少5天才能判断，不是3天（历史数据惯性需要时间消退）</td></tr>
+                  <tr><td>⑤ 判断标准</td><td>第5天CTR相比换图前提升≥0.3%，保留；否则换另一张或还原</td><td>两张新图都不如原图？说明是竞争环境问题，不是主图问题，去查竞品动态</td></tr>
+                </table>
+                <div style="background:#f0fdf4;border-radius:6px;padding:10px 14px;font-size:.83rem;color:#166534;line-height:1.8">
+                  <strong>📊 实战参考：CTR从1.8%回升到2.4%的主图改动</strong><br>
+                  原图：产品平铺白底图（通用款）<br>
+                  新图A：使用场景图（桌面整洁前后对比，文字：「乱桌变整洁，1个盒子搞定」）<br>
+                  结果：新图A第5天CTR=2.4%，比原图+33% → 保留<br>
+                  关键变化：从「产品本身」变成「用户结果」，这是CTR提升的核心逻辑
+                </div>
+              </div>
+            </div>
+
+            <div class="deep-step">
+              <div class="deep-step-content">
+                <strong>💸 问题2：广告费占比过高 → 削减预算的正确顺序</strong>
+                <p style="color:#94a3b8;font-size:.84rem;margin:6px 0">发现广告费占GMV超过18%，需要削减预算。但削哪里？很多人平均削减，结果砍掉了高ROI词，留下了低ROI词——等于把最赚钱的流量关掉了。</p>
+                <div style="background:#0d1117;border-radius:8px;padding:14px;font-size:.84rem;line-height:1.9;margin:10px 0">
+                  <strong style="color:#ffd700">削减顺序（从先削到后削）：</strong><br><br>
+                  <strong>第1步削：场景推广（P3）</strong><br>
+                  路径：多多推广 → 场景推广 → 查看ROI → 把ROI&lt;2.0的计划预算削减50%<br>
+                  预计效果：节省¥300-600/月，GMV影响约¥500-900（净正收益）<br><br>
+                  <strong>第2步削：搜索推广 → 先削C组低转化词</strong><br>
+                  路径：搜索推广 → 关键词报告 → 按「转化率」升序排列 → 把转化率&lt;1%且消耗&gt;¥50/月的词，出价降低30%（不要直接删，先降价观察）<br>
+                  预计效果：节省¥200-400/月，GMV影响约¥300-500<br><br>
+                  <strong>第3步削（如还不够）：搜索推广 → 压缩投放时段</strong><br>
+                  路径：搜索推广 → 时间折扣设置 → 把凌晨0-8点折扣从100%降到60%（夜间流量转化率低）<br>
+                  预计效果：节省¥150-300/月，GMV影响极小（夜间下单本来就少）<br><br>
+                  <strong style="color:#ef4444">绝对不要削：核心搜索词（P1组，ROI≥3.5的词）</strong><br>
+                  这些词是你的流量基础，削掉后GMV可能直接跌30%以上，得不偿失
+                </div>
+                <div class="framework-box">
+                  <div class="fb-title">削预算的实战示例（广告费¥4,296 → 目标¥3,200）</div>
+                  <table class="dt" style="margin-top:10px">
+                    <tr><th>操作</th><th>节省金额</th><th>预计GMV影响</th><th>净收益</th></tr>
+                    <tr><td>场景推广削减50%（¥860→¥430）</td><td>¥430</td><td>-¥800 ~ -¥1,200 GMV（利润影响约-¥100）</td><td style="color:#86efac">+¥330净省</td></tr>
+                    <tr><td>C组词出价降30%（约节省¥400）</td><td>¥400</td><td>-¥400 ~ -¥600 GMV（利润影响约-¥60）</td><td style="color:#86efac">+¥340净省</td></tr>
+                    <tr><td>夜间折扣60%（约节省¥266）</td><td>¥266</td><td>-¥200 GMV（利润影响约-¥30）</td><td style="color:#86efac">+¥236净省</td></tr>
+                    <tr style="font-weight:700"><td>合计</td><td>¥1,096</td><td>GMV下降约¥1,400-2,000</td><td style="color:#86efac">净节省¥906</td></tr>
+                  </table>
+                  <p style="font-size:.82rem;color:#6b7280;margin-top:6px">→ 广告费从¥4,296降至¥3,200，GMV约从¥20,000降至¥18,500，但净利润反而提升（广告效率改善）</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="deep-step">
+              <div class="deep-step-content">
+                <strong>📦 问题3：退款率上升 → 退款原因后台导出与分析</strong>
+                <p style="color:#94a3b8;font-size:.84rem;margin:6px 0">退款率从4%升到6%，直接看数字无法找到原因。需要从后台导出退款明细，分类找到根因。</p>
+                <div style="background:#0d1117;border-radius:8px;padding:14px;font-size:.84rem;line-height:1.9;margin:10px 0">
+                  <strong style="color:#ffd700">后台取数路径：</strong><br>
+                  商家管理后台 → 售后管理 → 退款/退货 → 选择「上月时间范围」→ 点击右上角「导出」→ 下载Excel<br><br>
+                  <strong style="color:#ffd700">Excel分析4步：</strong><br>
+                  ① 打开下载的Excel，找到「退款原因」列<br>
+                  ② 用数据透视表（或手动统计）按退款原因分类，算出每类的数量和占比<br>
+                  ③ 找出占比最高的前3个原因<br>
+                  ④ 针对每个原因找对应解法（见下表）
+                </div>
+                <table class="dt">
+                  <tr><th>退款原因</th><th>可能根因</th><th>对应行动</th></tr>
+                  <tr><td>颜色/尺寸与图不符</td><td>主图颜色失真，或详情页尺寸标注不清</td><td>重拍主图（真实色彩），详情页加尺寸对比图（手/A4纸参照物）</td></tr>
+                  <tr><td>质量问题/收到损坏</td><td>供应商质检不稳定，或包装不够防护</td><td>联系供应商抽检比例提升到5-10%，加内衬泡沫/气泡袋</td></tr>
+                  <tr><td>买错了/不需要了</td><td>选品描述过于宽泛，吸引了错误用户</td><td>详情页第1屏加「适合人群」和「不适合人群」的明确说明</td></tr>
+                  <tr><td>快递问题（损坏/丢失）</td><td>包装不足或快递公司问题</td><td>加固包装（成本¥0.3-0.5/单），与快递公司协商赔付标准</td></tr>
+                  <tr><td>价格问题（找到更便宜）</td><td>竞品降价，或买家比价后悔</td><td>短期内可给买家发「留存优惠券」（¥3-5），降低退款率</td></tr>
+                </table>
+                <div class="insight-box" style="margin-top:10px">
+                  <strong>⚡ 经验法则：退款原因集中=好消息</strong><br>
+                  如果前3个原因占全部退款的70%以上，说明是系统性问题，修一个能解决大半。<br>
+                  如果退款原因非常分散（每类都只有2-3单），说明是随机性问题，不需要大动作，只需维持现有质控。
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Task 4.4: Brand foundation -->
       <div class="task-block" id="t4-4">
         <div class="task-block-header" onclick="toggleTask('t4-4')">
