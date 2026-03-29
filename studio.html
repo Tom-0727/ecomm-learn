@@ -5141,6 +5141,165 @@
           </div>
         </div>
       </div>
+
+      <!-- Task 3.4b: Spring Festival Operations SOP -->
+      <div class="task-block" id="t3-cny">
+        <div class="task-block-header" onclick="toggleTask('t3-cny')">
+          <div class="task-icon">🧧</div>
+          <div class="task-block-title">任务 3.4b — 春节/长假运营SOP（每年最高风险的30天）</div>
+          <div class="task-block-meta">每年1月执行</div>
+          <div class="task-block-toggle">▼</div>
+        </div>
+        <div class="task-block-body">
+          <p>春节是中国电商最危险的时段，不是因为销量差，而是因为快递停运、供应商放假、平台对超时发货的处罚照常执行。很多新手工作室因为没有提前规划，在节后面临：大量未发货订单→买家投诉→平台降权→流量归零的恶性循环。照这个SOP执行，可以完全避开这个风险。</p>
+
+          <div class="framework-box">
+            <div class="fw-title">📅 春节运营倒计时清单（以除夕为基准日 Day 0）</div>
+            <table class="dt" style="margin-bottom:12px">
+              <tr><th style="width:12%">时间节点</th><th>必须完成的操作</th><th style="width:35%">具体做法</th></tr>
+              <tr>
+                <td style="font-weight:700;color:#dc2626">Day -45<br><span style="font-size:.75rem;font-weight:400">除夕前6周</span></td>
+                <td>锁定供应商春节安排</td>
+                <td>问供应商：「你们今年几号开始放假？几号可以接单？能否在放假前帮我备X件货？」→ 根据答复制定备货计划</td>
+              </tr>
+              <tr>
+                <td style="font-weight:700;color:#dc2626">Day -21<br><span style="font-size:.75rem;font-weight:400">除夕前3周</span></td>
+                <td>下最后一批备货单</td>
+                <td>根据「节前日销量 × 假期天数 × 1.3」计算备货量 → 打款给供应商，确认节前到货日期（必须在快递停运前3天到）</td>
+              </tr>
+              <tr>
+                <td style="font-weight:700;color:#dc2626">Day -7<br><span style="font-size:.75rem;font-weight:400">除夕前1周</span></td>
+                <td>设置「延迟发货说明」+ 更新自动回复</td>
+                <td>见下方「延迟发货说明」设置步骤 + 修改客服自动回复（见模板）</td>
+              </tr>
+              <tr>
+                <td style="font-weight:700;color:#dc2626">Day -3<br><span style="font-size:.75rem;font-weight:400">快递停运前</span></td>
+                <td>清空待发货积压 + 下架低库存商品</td>
+                <td>所有待发货订单在快递停运前发完 → 剩余库存不足15天的商品下架或改预售状态 → 主力商品库存改为「节后到货」实际数量</td>
+              </tr>
+              <tr>
+                <td style="font-weight:700;color:#92400e">Day 0-7<br><span style="font-size:.75rem;font-weight:400">除夕至初七</span></td>
+                <td>最小化运营（每天10分钟）</td>
+                <td>每天查一次买家消息，按模板回复 → 不接受需要快速发货的订单 → 广告预算降到平时的30%（减少订单但维持店铺权重）</td>
+              </tr>
+              <tr>
+                <td style="font-weight:700;color:#16a34a">Day +3<br><span style="font-size:.75rem;font-weight:400">节后第3天</span></td>
+                <td>节后重启</td>
+                <td>见下方「节后重启7步清单」</td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="deep-steps">
+            <div class="deep-step">
+              <div class="deep-step-content">
+                <strong>📱 「延迟发货说明」设置步骤（PDD后台，5分钟完成）</strong><br>
+                <span style="font-size:.84rem;color:#374151">PDD允许卖家提前申报节假日延迟发货，申报后买家下单时会看到延迟说明，平台不会因为节假日内未发货而进行处罚（前提是按申报时间范围执行）。</span>
+
+                <div style="background:#1e293b;border-radius:8px;padding:12px 14px;margin:10px 0;font-size:.83rem;line-height:2">
+                  <strong style="color:#fcd34d">设置路径（除夕前7天操作）：</strong><br>
+                  <span style="color:#94a3b8">商家后台</span> → <span style="color:#60a5fa">「物流」</span> → <span style="color:#60a5fa">「运费模板」</span> → 找到你的模板 → <span style="color:#60a5fa">「编辑」</span><br>
+                  → 拉到页面底部 → <span style="color:#fcd34d">「节假日设置」</span> → 开启「延迟发货」<br>
+                  → 填写：延迟开始日期（如：腊月二十八）→ 恢复发货日期（如：正月初八）<br>
+                  → 备注：「春节放假，正月初X（X月X日）恢复发货」<br>
+                  → 保存<br><br>
+                  <strong style="color:#fcd34d">⚠️ 重要：</strong>节假日设置只保护「申报期间内」的订单不被罚，但如果你在申报期内主动接了订单又没发货，照样会受处罚。保险做法：在申报期内将部分商品改为「预售」状态，设置「X月X日发货」，让买家提前知情。
+                </div>
+              </div>
+            </div>
+            <div class="deep-step">
+              <div class="deep-step-content">
+                <strong>💬 春节期间客服自动回复模板（节前7天改，节后恢复）</strong>
+
+                <div class="template-box" style="margin:10px 0">
+                  <div class="tpl-title">模板A：询问发货时间（最常见问题）</div>
+                  <div class="template-content" style="font-family:inherit;font-size:.83rem;line-height:1.9">
+                    「您好！感谢您的关注🧧<br>
+                    我们春节放假时间为<span class="tpl-var">[X月X日—X月X日]</span>，期间不发货。<br>
+                    <span class="tpl-var">[X月X日]</span>（正月初<span class="tpl-var">X</span>）恢复正常发货，届时所有订单将按顺序优先处理。<br>
+                    如果您不急用，可以先下单，节后第一批发；如果急用，建议您稍等假期结束再购买，避免等待。<br>
+                    新年快乐！祝您和家人健康平安！🎊」
+                  </div>
+                </div>
+
+                <div class="template-box" style="margin:10px 0">
+                  <div class="tpl-title">模板B：已下单买家询问进度</div>
+                  <div class="template-content" style="font-family:inherit;font-size:.83rem;line-height:1.9">
+                    「您好！您的订单我们已经收到，感谢支持🙏<br>
+                    目前我们正处于春节假期（<span class="tpl-var">[X月X日—X月X日]</span>），快递公司也暂停派送。<br>
+                    <span class="tpl-var">[X月X日]</span>恢复后，您的订单将在当天/次日安排发出，请放心等待。<br>
+                    如果急需，可以申请退款，无任何手续费。抱歉给您带来不便，新年快乐！🎉」
+                  </div>
+                </div>
+
+                <div class="template-box" style="margin:10px 0">
+                  <div class="tpl-title">模板C：买家节前私信求催发（无法满足时）</div>
+                  <div class="template-content" style="font-family:inherit;font-size:.83rem;line-height:1.9">
+                    「您好！非常抱歉，我们最后一批发货已在<span class="tpl-var">[X月X日]</span>完成，今天快递已经停运，无法在春节前再发货了。<br>
+                    给您提供两个选择：<br>
+                    ① 等到<span class="tpl-var">[X月X日]</span>恢复发货后优先处理您的订单（感谢耐心等待）<br>
+                    ② 如急需，可申请退款，节后有需要随时回来下单，我给您留一张优先发货备注。<br>
+                    请告诉我您的选择，谢谢理解！」
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="deep-step">
+              <div class="deep-step-content">
+                <strong>✅ 节后重启7步清单（节后第1天执行，约2小时）</strong>
+
+                <table class="dt">
+                  <tr><th style="width:8%">步骤</th><th style="width:30%">操作</th><th>具体做法</th></tr>
+                  <tr>
+                    <td style="text-align:center;font-weight:700">1</td>
+                    <td>检查消息积压</td>
+                    <td>PDD后台 → 消息中心 → 按「未读」筛选，优先回复节假期间询问发货的买家（使用模板B/C）</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align:center;font-weight:700">2</td>
+                    <td>确认供应商恢复</td>
+                    <td>联系主供应商确认恢复发货日期 → 若还未恢复，联系备用供应商 → 更新店铺发货时效说明</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align:center;font-weight:700">3</td>
+                    <td>处理节假日订单</td>
+                    <td>查看节假日期间下的订单 → 按下单时间顺序发货 → 在发货前主动给等待超过5天的买家发消息道谢+确认</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align:center;font-weight:700">4</td>
+                    <td>更新库存和发货说明</td>
+                    <td>供应商确认发货后 → 将商品库存更新为实际库存数 → 删除「延迟发货说明」→ 改回正常时效</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align:center;font-weight:700">5</td>
+                    <td>更新自动回复</td>
+                    <td>把客服自动回复改回正常版本（删除春节放假说明）</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align:center;font-weight:700">6</td>
+                    <td>重启广告</td>
+                    <td>搜索推广恢复到春节前预算 → 添加关键词：「年后补货」「<span class="tpl-var">[品类]</span>节后特惠」等春节余温词</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align:center;font-weight:700">7</td>
+                    <td>私域通知老客户</td>
+                    <td>给私域群/老客户发消息：「春节结束了，我们恢复发货，首批有现货！」（见模板C in Task 4.1）</td>
+                  </tr>
+                </table>
+
+                <div style="background:#f0fdf4;border-radius:6px;padding:10px 14px;font-size:.84rem;color:#166534;margin-top:10px;line-height:1.8">
+                  <strong>💡 春节后流量反弹规律</strong>：正月初五到初十通常是春节后的小高峰（「开门红」心理+购物需求积压释放）。节后第1天就把广告重启、库存补齐、消息回复完，可以抓住这波反弹，而不是等到初十才恢复正常运营。
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="background:#fef9c3;border-radius:6px;padding:10px 14px;font-size:.83rem;color:#713f12;margin-top:8px;line-height:1.75">
+            <strong>⚠️ 常见错误：</strong>① 没有设置延迟发货说明，节后被大量投诉超时；② 节前没备货，节后供应商也没恢复，库存断档；③ 广告节后10天才重启，错过初五-初十的反弹流量。这三个错误每个都可能让你损失¥2000-5000。
+          </div>
+        </div>
+      </div>
+
       <!-- Task 3.5: Competitive Response -->
       <div class="task-block" id="t3-5">
         <div class="task-block-header" onclick="toggleTask('t3-5')">
