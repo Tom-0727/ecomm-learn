@@ -1526,3 +1526,18 @@ button:disabled { opacity:0.4; cursor:not-allowed; }
 .sug-body p { font-size:13px; color:var(--text-muted); margin:0; }
 .sug-card .btn-sm { flex-shrink:0; white-space:nowrap; }
 @media (max-width:600px) { .sug-card { flex-wrap:wrap; } .sug-card .btn-sm { width:100%; text-align:center; } }
+
+/* Learning path selector */
+.path-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; margin-top:8px; }
+.path-card { background:var(--surface); border-radius:var(--radius-lg); padding:24px 20px; box-shadow:var(--shadow); cursor:pointer; transition:all 0.2s; border:2px solid transparent; }
+.path-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-lg); border-color:var(--primary-light); }
+.path-card.selected { border-color:var(--primary); background:linear-gradient(135deg,#eff6ff,#fff); }
+.path-icon { font-size:2rem; margin-bottom:10px; }
+.path-card h3 { font-size:15px; font-weight:700; margin-bottom:6px; }
+.path-desc { font-size:13px; color:var(--text-muted); margin-bottom:14px; line-height:1.5; }
+.path-modules { display:flex; flex-wrap:wrap; align-items:center; gap:4px; margin-bottom:14px; }
+.pm-tag { background:var(--primary); color:#fff; border-radius:99px; padding:2px 9px; font-size:11px; font-weight:700; }
+.pm-arrow { font-size:11px; color:var(--text-muted); }
+.path-start { font-size:13px; font-weight:700; color:var(--primary); }
+.path-card.selected .path-start::before { content:"✓ 已选择 · "; }
+@media (max-width:600px) { .path-grid { grid-template-columns:1fr; } }
