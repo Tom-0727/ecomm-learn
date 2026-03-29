@@ -1991,6 +1991,169 @@
       </div>
     </div>
 
+    <!-- Task 2.X: Ad ROI Diagnostic Tree -->
+    <div class="task-block" id="t2-diag">
+      <div class="task-block-header" onclick="toggleTask('t2-diag')">
+        <div class="task-icon">🔍</div>
+        <div class="task-block-title">任务 2.X — 广告ROI诊断：花了钱没效果，问题出在哪？</div>
+        <div class="task-block-meta">卡点专用</div>
+        <div class="task-block-toggle">▼</div>
+      </div>
+      <div class="task-block-body">
+        <p>「开了广告，花了¥200，只出了1-2单，ROI不达标」是第二阶段最常见的卡点。问题出在「广告」？还是「商品」？答案不同，解法完全不同。用这个漏斗式诊断框架，5分钟内定位根因。</p>
+
+        <div class="framework-box" style="margin-bottom:18px">
+          <div class="fb-title">🔻 广告转化漏斗：从曝光到购买，找断点在哪一层</div>
+          <table class="dt" style="margin-top:10px">
+            <tr><th>漏斗层级</th><th>指标</th><th>在哪查</th><th>正常范围</th><th>低于正常 = 断点在这里</th></tr>
+            <tr>
+              <td><strong>第1层：曝光</strong></td>
+              <td>展现量</td>
+              <td>推广中心→搜索推广→数据报告</td>
+              <td>≥500次/天（¥30日预算）</td>
+              <td>曝光&lt;200次 → 出价太低，提价10-20%</td>
+            </tr>
+            <tr>
+              <td><strong>第2层：点击</strong></td>
+              <td>CTR点击率</td>
+              <td>同上</td>
+              <td>家居类≥1.2%；日用品≥1.0%</td>
+              <td>CTR&lt;0.8% → 主图竞争力不足，换主图</td>
+            </tr>
+            <tr>
+              <td><strong>第3层：到详情页</strong></td>
+              <td>点击量</td>
+              <td>商品数据→商品访客数</td>
+              <td>与广告点击量基本一致</td>
+              <td>差异大 → 检查商品是否被限流（商品管理→查看状态）</td>
+            </tr>
+            <tr>
+              <td><strong>第4层：转化</strong></td>
+              <td>转化率</td>
+              <td>商品数据→转化率</td>
+              <td>≥1.5%（有50条以上评价）</td>
+              <td>转化率&lt;1% → 详情页/评价/价格问题（看下面诊断树）</td>
+            </tr>
+            <tr>
+              <td><strong>第5层：ROI</strong></td>
+              <td>广告ROI</td>
+              <td>推广中心→ROI</td>
+              <td>≥毛利率倒数（如毛利50%则ROI≥2.0）</td>
+              <td>ROI低 = 第2层或第4层有问题（按上面找）</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="deep-steps">
+          <div class="deep-step">
+            <div class="deep-step-content">
+              <strong>🩺 断点诊断：转化率低时的进一步排查</strong>
+              <p style="color:#94a3b8;font-size:.84rem;margin:6px 0 10px">已确认转化率&lt;1%（有点击但不买），按以下顺序逐一排查：</p>
+              <table class="dt">
+                <tr><th>#</th><th>检查项</th><th>判断方法</th><th>如果是这个问题，怎么修</th></tr>
+                <tr>
+                  <td>1</td>
+                  <td>价格偏高</td>
+                  <td>搜索核心词→按「综合」排序→你的商品对比前10名价格</td>
+                  <td>如果你贵10%以上且无明显差异化 → 降价5-8%测试7天</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>评价不足/有差评</td>
+                  <td>查商品评价总数（&lt;10条大幅影响转化）和好评率（&lt;95%直接拉低信任）</td>
+                  <td>评价不足 → 继续私域激活；有差评 → 优先处理（见Task 2.3）</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>详情页不完整</td>
+                  <td>检查是否有：使用场景图/买家秀/尺寸参数/痛点前后对比</td>
+                  <td>补充缺失内容（按FABE框架检查7屏是否完整）</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>关键词不精准</td>
+                  <td>在广告后台查「搜索词报告」→ 看实际触发你广告的搜索词</td>
+                  <td>如果触发词与你商品关联度低（如「收纳盒」触发了「玩具收纳」）→ 加排除词，换精准词</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>竞品刚推爆款</td>
+                  <td>搜索核心词，看排名第1-2位的竞品是否是近期新品且销量暴涨</td>
+                  <td>竞品新爆款出现 → 短期内暂停广告（烧钱买不到量），重新审视差异化策略</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+
+          <div class="deep-step">
+            <div class="deep-step-content">
+              <strong>📊 实战案例：¥200广告费只出2单，诊断全流程</strong>
+              <div style="background:#0d1117;border-radius:8px;padding:14px;font-size:.83rem;line-height:1.9">
+                <strong style="color:#ffd700">数据读取（广告报告）：</strong><br>
+                · 花费：¥200 | 展现量：2,840次 | 点击：34次 | 订单：2单 | ROI：0.39（目标≥2.0）<br><br>
+
+                <strong style="color:#ffd700">漏斗分析：</strong><br>
+                · 展现量2,840 → 正常（出价够了）✅<br>
+                · CTR = 34/2,840 = 1.2% → 勉强达标（家居类均值）⚠️<br>
+                · 转化率 = 2/34 = 5.9%？→ 不对，商品数据显示访客100人，订单2单 = 2% → 一般⚠️<br>
+                · <strong style="color:#ef4444">断点在：转化率低（2%）</strong>，不是曝光问题，是商品/详情页问题<br><br>
+
+                <strong style="color:#ffd700">进一步诊断：</strong><br>
+                · 评价：8条（太少！）→ 转化率低的直接原因<br>
+                · 价格：¥39，竞品前5名均为¥32-38 → 价格偏高一点<br>
+                · 详情页：只有3张图，无使用场景图 → 说服力不足<br><br>
+
+                <strong style="color:#86efac">行动计划：</strong><br>
+                ① 暂停广告（避免继续浪费）<br>
+                ② 私域再激活10单，把评价从8条补到18条（2-3天）<br>
+                ③ 补充2-3张使用场景图到详情页<br>
+                ④ 价格从¥39降到¥36测试（毛利率验证还有盈余）<br>
+                ⑤ 一周后重新开广告，同样¥200，观察转化率变化<br><br>
+
+                <strong style="color:#ffd700">结果（重新开广告后）：</strong><br>
+                点击34次 → 订单5单（转化率14.7%）→ ROI = 0.97（接近盈亏线，继续优化）
+              </div>
+            </div>
+          </div>
+
+          <div class="deep-step">
+            <div class="deep-step-content">
+              <strong>⏰ 什么情况下该「继续等待」，什么情况下该「立刻停广告」</strong>
+              <table class="dt" style="margin:10px 0">
+                <tr><th>情况</th><th>判断标准</th><th>正确行动</th></tr>
+                <tr style="background:rgba(134,239,172,.08)">
+                  <td>算法学习期</td>
+                  <td>广告开启&lt;3天，数据波动很大</td>
+                  <td>继续等，不要调整。广告算法需要3-7天学习期</td>
+                </tr>
+                <tr style="background:rgba(253,224,71,.08)">
+                  <td>ROI偏低但有改善趋势</td>
+                  <td>广告开启7天，ROI从0.5缓慢上升到1.2</td>
+                  <td>继续运行，同时优化详情页，不要停</td>
+                </tr>
+                <tr style="background:rgba(248,113,113,.08)">
+                  <td>7天无单</td>
+                  <td>花费超过¥100，0订单</td>
+                  <td>立即暂停，检查关键词相关性（可能买错了词）</td>
+                </tr>
+                <tr style="background:rgba(248,113,113,.08)">
+                  <td>ROI长期&lt;0.5</td>
+                  <td>广告运行10天以上，ROI始终&lt;0.5</td>
+                  <td>暂停广告，先优化转化率（评价+详情页），再重新开</td>
+                </tr>
+                <tr style="background:rgba(248,113,113,.08)">
+                  <td>每天预算花完但0单</td>
+                  <td>日预算¥30全花完，但订单0</td>
+                  <td>关键词严重不精准，停广告，换精准长尾词后重启</td>
+                </tr>
+              </table>
+              <div class="insight-box">⚡ 核心原则：前3天不动（让算法学习），第4-7天看趋势（上升=好信号），第7天做判断。频繁调整广告 = 频繁重置学习期 = 永远无法获得稳定数据。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Phase 2 Stuck Points -->
     <div class="stuckpoints">
       <h4>🚧 第二阶段常见卡点 & 解法</h4>
