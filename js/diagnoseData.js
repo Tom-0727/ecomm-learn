@@ -877,6 +877,60 @@ const DIAGNOSE_CASES = [
   <li><strong>部分商品不参与大促</strong>：核心利润款保持正常价，引流款才做大折扣，保护整体毛利结构</li>
 </ol>`,
     chainLink: 7  // 对应模块7转化优化（大促策略）
+  },
+
+  {
+    id: 19,
+    title: "速卖通新品牌：烧了8万广告费，一单未出",
+    difficulty: 3,
+    category: "流量获取",
+    background: `某国内3C配件制造商首次尝试跨境电商，在速卖通（AliExpress）开店，主营手机支架（出厂价15元，定价$12.99）。前3个月开通站内CPC广告，日预算$100，累计花费约8万元人民币，但实际成交订单仅3单（均为测试订单）。老板认为「跨境电商根本不赚钱」。`,
+    metrics: [
+      { label: "广告累计花费", value: "约¥80,000（$11,000）", status: "bad" },
+      { label: "实际成交订单", value: "3单（均为内部测试）", status: "bad" },
+      { label: "商品Listing语言", value: "中文标题+机翻英文描述", status: "bad" },
+      { label: "产品主图", value: "白底工厂图，无使用场景", status: "bad" },
+      { label: "店铺评价数", value: "0条", status: "bad" },
+      { label: "广告关键词设置", value: "仅投「phone holder」（月搜索量极高竞争激烈）", status: "bad" },
+      { label: "目标市场设置", value: "全球（未区分市场）", status: "bad" },
+      { label: "竞品同类定价", value: "$8.99-$15.99（该价格带竞争激烈）", status: "ok" }
+    ],
+    options: [
+      { id: "a", text: "卡在【需求洞察】—— 手机支架市场已饱和，应换品类" },
+      { id: "b", text: "卡在【平台搭建+内容运营+流量获取】—— Listing质量极差（机翻+无场景图+零评价），广告策略错误（泛词+全球投放），三重失误叠加导致零转化" },
+      { id: "c", text: "卡在【供应链】—— 定价$12.99太贵，需要降价至$5以内" },
+      { id: "d", text: "卡在【履约物流】—— 跨境物流太慢导致买家不信任" }
+    ],
+    answer: "b",
+    explanation: `
+<h3>核心卡点：跨境电商基础建设三重缺失</h3>
+<p><strong>跨境电商与国内电商的关键差异：</strong></p>
+<table style="width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;">
+  <tr style="background:#f3f4f6"><th style="padding:8px;border:1px solid #d1d5db">维度</th><th style="padding:8px;border:1px solid #d1d5db">国内电商</th><th style="padding:8px;border:1px solid #d1d5db">跨境电商（速卖通）</th></tr>
+  <tr><td style="padding:6px;border:1px solid #e5e7eb">Listing语言</td><td style="padding:6px;border:1px solid #e5e7eb">中文</td><td style="padding:6px;border:1px solid #e5e7eb">目标市场母语（英/西/俄等）</td></tr>
+  <tr><td style="padding:6px;border:1px solid #e5e7eb">主图要求</td><td style="padding:6px;border:1px solid #e5e7eb">场景图为主</td><td style="padding:6px;border:1px solid #e5e7eb">白底+场景均需，符合Amazon/速卖通规范</td></tr>
+  <tr><td style="padding:6px;border:1px solid #e5e7eb">信任建立</td><td style="padding:6px;border:1px solid #e5e7eb">DSR+评价</td><td style="padding:6px;border:1px solid #e5e7eb">店铺评分+具体评价（外国买家极度依赖）</td></tr>
+  <tr><td style="padding:6px;border:1px solid #e5e7eb">关键词逻辑</td><td style="padding:6px;border:1px solid #e5e7eb">中文搜索习惯</td><td style="padding:6px;border:1px solid #e5e7eb">英文长尾词（用工具：Jungle Scout/Helium10）</td></tr>
+  <tr><td style="padding:6px;border:1px solid #e5e7eb">市场定向</td><td style="padding:6px;border:1px solid #e5e7eb">国内统一</td><td style="padding:6px;border:1px solid #e5e7eb">必须选择重点市场（美/欧/中东），不同市场打法不同</td></tr>
+</table>
+
+<p><strong>三重失误拆解：</strong></p>
+<ol>
+  <li><strong>Listing质量为零</strong>：机翻英文标题充满语法错误（「support phone car」而非「car phone mount」），外国买家看到就会直接离开。这是最根本的问题——内容都没做好，广告带来的流量100%流失</li>
+  <li><strong>广告策略错误</strong>：「phone holder」月搜索量极高，但竞品数量也是百万级，新店铺竞价成本极高、曝光极低。正确策略：先从「long tail keywords」入手（如「magnetic phone holder for car vent 2024」），点击成本低10倍，精准度高</li>
+  <li><strong>零评价店铺</strong>：跨境买家（尤其欧美）在零评价店铺几乎不下单——不是价格问题，是信任缺失。新店必须先用低价/送评方式快速积累10-20条真实评价</li>
+</ol>
+
+<p><strong>正确的跨境新店冷启动SOP：</strong></p>
+<ol>
+  <li><strong>Step 1 — Listing本地化</strong>：雇佣母语写手（Fiverr $30-50/篇）重写标题/五点描述/A+页面；拍摄本地场景图（或购买外国模特素材）</li>
+  <li><strong>Step 2 — 评价破零</strong>：通过速卖通「买家邀请评价」工具或Early Reviewer Program积累首批评价，目标先到20条</li>
+  <li><strong>Step 3 — 精准长尾词广告</strong>：用关键词工具挖掘月搜索1000-10000的精准词（竞争小，转化高），CPC从$0.05起测</li>
+  <li><strong>Step 4 — 聚焦1-2个重点市场</strong>：手机支架推荐优先打美国（消费力强）或中东（关税低、竞争弱），而非全球撒网</li>
+</ol>
+
+<p><strong>关键认知</strong>：「跨境电商不赚钱」的判断是错误的——当前的问题是「没有做好基础工作就开始烧广告」。正确流程应该是：Listing优化（3周）→评价积累（4-8周）→再上广告。顺序错了就是白烧钱。</p>`,
+    chainLink: 4  // 对应模块4平台搭建
   }
 ];
 
