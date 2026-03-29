@@ -148,6 +148,17 @@
 .blocker-q { flex: 1; font-size: .88rem; color: #374151; font-weight: 600; }
 .blocker-a { flex: 2; font-size: .88rem; color: #4b5563; line-height: 1.6; }
 
+/* Stuck points section */
+.stuckpoints { background: #fff8f0; border: 2px solid #f97316; border-radius: 12px; padding: 20px 24px; margin: 28px 0; }
+.stuckpoints h4 { color: #c2410c; font-size: 1rem; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.sp-item { display: grid; grid-template-columns: 1fr 2fr; gap: 12px; margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid #fed7aa; font-size: .88rem; }
+.sp-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.sp-stuck { color: #9a3412; font-weight: 700; line-height: 1.5; }
+.sp-stuck::before { content: "🚧 "; }
+.sp-fix { color: #374151; line-height: 1.6; }
+.sp-fix::before { content: "✅ "; color: #16a34a; font-weight: 700; }
+@media(max-width:600px){ .sp-item { grid-template-columns: 1fr; } }
+
 /* Phase checklist */
 .phase-checklist {
   background: linear-gradient(135deg, #f0fff4, #dcfce7);
@@ -489,6 +500,31 @@
       </div>
     </div>
 
+    <!-- Phase 1 Stuck Points -->
+    <div class="stuckpoints">
+      <h4>🚧 第一阶段常见卡点 & 解法</h4>
+      <div class="sp-item">
+        <div class="sp-stuck">评分模型算了5个品，总分都不够70分，找不到合适的</div>
+        <div class="sp-fix">放宽搜索范围：去1688「每日爆款」「热卖榜」重新挖品，不要只搜你已经在脑子里的品类。行业热品往往你还没想到。每次选品调研至少覆盖8-10个候选品。</div>
+      </div>
+      <div class="sp-item">
+        <div class="sp-stuck">试卖3单，没有任何人下单，发布都没有展现量</div>
+        <div class="sp-fix">问题在于闲鱼/平台的搜索词没命中。检查标题：用拼多多搜索你的标题核心词，确认有自动补全词（说明有人搜）；如果没有补全，说明需求量极低，换品或换词。</div>
+      </div>
+      <div class="sp-item">
+        <div class="sp-stuck">1688供应商要求最低起订50件，不愿意1件发货</div>
+        <div class="sp-fix">筛选条件改为「支持一件代发」（1688有专门筛选项）。代发供应商比批发供应商价格高10-20%，但验证阶段这点成本完全值得。稳定后再切换批发模式。</div>
+      </div>
+      <div class="sp-item">
+        <div class="sp-stuck">财务模型算下来毛利率只有25%，低于30%门槛</div>
+        <div class="sp-fix">先检查3个变量：①零售价能否提高10%（不影响销量的情况下）；②快递能否用面单优惠（抖音小店/1688代发经常有优惠）；③1688有没有更低的供货商（多比较3家）。如果3个都优化了还不够，换品。</div>
+      </div>
+      <div class="sp-item">
+        <div class="sp-stuck">试卖中有1-2单退款，担心是选品问题</div>
+        <div class="sp-fix">先看退款原因：「不喜欢」= 期望不符，通常是主图与实物差异大；「质量问题」= 供应商质量不稳定，换供应商；「不需要了」= 冲动消费，属于正常损耗（&lt;10%可以接受）。</div>
+      </div>
+    </div>
+
     <div class="phase-checklist">
       <h4>✅ 第一阶段完成标准</h4>
       <div class="pc-item"><input type="checkbox" data-p="1" data-i="0" onchange="savePhaseCheck(1,0,this.checked)"><span>完成至少5个候选品的5维评分，选出1个总分≥70分的品</span></div>
@@ -672,6 +708,31 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- Phase 2 Stuck Points -->
+    <div class="stuckpoints">
+      <h4>🚧 第二阶段常见卡点 & 解法</h4>
+      <div class="sp-item">
+        <div class="sp-stuck">主图换了3个版本，CTR还是0.5%以下，和均值差很远</div>
+        <div class="sp-fix">CTR低不只是主图的问题，还可能是价格太高（同款别人更便宜）或标题关键词没匹配上（出现在错误的搜索场景里）。三者同时检查，而不是只换图。测试时每次只改一个变量。</div>
+      </div>
+      <div class="sp-item">
+        <div class="sp-stuck">开了搜索广告，花了¥200，只出了1单，ROI完全不达标</div>
+        <div class="sp-fix">先暂停广告，检查「转化漏斗」：有点击但不转化 = 详情页问题（加强FABE、补充买家评价截图）；没有点击 = 关键词出价太低，没有展现量。两个问题，解法完全不同，必须先判断卡在哪一层。</div>
+      </div>
+      <div class="sp-item">
+        <div class="sp-stuck">私域朋友圈发了产品，朋友直接划走不看，参与度很低</div>
+        <div class="sp-fix">朋友圈发「产品广告」是最低效的。换成「真实使用体验」内容：「最近在用这个，发现XXX，分享一下」，自然植入产品，不要在朋友圈直接写价格。私信感兴趣的朋友给优惠，比朋友圈广播更有效。</div>
+      </div>
+      <div class="sp-item">
+        <div class="sp-stuck">评价积累了30条好评，但自然流量还是几乎为0</div>
+        <div class="sp-fix">评价不能带来流量，关键词排名才能。检查你的商品在搜索你的核心词时能排到第几页。如果超过第5页，说明还需要付费广告辅助；或者换一个竞争更低的长尾词作为主打关键词。</div>
+      </div>
+      <div class="sp-item">
+        <div class="sp-stuck">收到差评，对方要求退全款否则不改评，感觉被勒索</div>
+        <div class="sp-fix">¥200以内的商品，直接退款，标注「已处理」。这不是妥协，是成本最低的处理方式。维权的时间成本远大于退款金额。同时把该问题录入产品改进清单，争取消灭该问题的根源（包装/说明/预期管理）。</div>
       </div>
     </div>
 
@@ -898,6 +959,31 @@
       </div>
     </div>
 
+    <!-- Phase 3 Stuck Points -->
+    <div class="stuckpoints">
+      <h4>🚧 第三阶段常见卡点 & 解法</h4>
+      <div class="sp-item">
+        <div class="sp-stuck">和供应商谈价格，对方说「已经是最低价了，没法再降」</div>
+        <div class="sp-fix">谈判筹码不够时硬谈会碰壁。先在1688找2-3家同品供应商，拿到报价单。然后说「我对比了几家，你们家服务最好，但价格差了X分，能不能中间找个点？」——有竞争报价作为依据，成功率大幅提升。</div>
+      </div>
+      <div class="sp-item">
+        <div class="sp-stuck">第二个SKU上架了，一个月后几乎没有销量</div>
+        <div class="sp-fix">第二个SKU不能直接自然起量，要重走一遍第二阶段的冷启动：私域激活首批10单→积累5-10条评价→开搜索广告测试关键词。很多人以为有了第一个SKU的经验，第二个SKU会自动起来，其实还是要重新驱动。</div>
+      </div>
+      <div class="sp-item">
+        <div class="sp-stuck">月GMV增长很快，但发现账上钱越来越少，备货跟不上</div>
+        <div class="sp-fix">这是「成长型资金短缺」——销售越快，备货需求越大，资金缺口越大。解法：①和供应商争取账期（先货后款7天）；②减少广告预算，让ROI更高而不是更多量；③不要两个SKU同时扩张，先稳住一个。</div>
+      </div>
+      <div class="sp-item">
+        <div class="sp-stuck">双11备货了很多，但大促后销量骤降，库存积压严重</div>
+        <div class="sp-fix">大促后「销量悬崖」是正常现象，买家在大促前憋单，大促后3周需求低。备货公式：大促期间日销量×活动天数×0.8（留20%安全边际），宁可缺货返回备货，也不要压货。缺货的损失&lt;积压资金成本。</div>
+      </div>
+      <div class="sp-item">
+        <div class="sp-stuck">月GMV到了¥8000，但已经停滞2个月，突破不了¥1万</div>
+        <div class="sp-fix">突破GMV瓶颈通常有3条路：①提升主力SKU的客单价（加包装/组合销售，提价10-20%）；②增加第二SKU引入新流量；③增加广告预算（但前提是ROI达标）。三条路同时做风险高，按顺序逐一尝试。</div>
+      </div>
+    </div>
+
     <div class="phase-checklist">
       <h4>✅ 第三阶段完成标准</h4>
       <div class="pc-item"><input type="checkbox" data-p="3" data-i="0" onchange="savePhaseCheck(3,0,this.checked)"><span>与主力供应商完成至少1次正式谈判，获得价格或账期优化</span></div>
@@ -1099,6 +1185,31 @@
         </div>
       </div>
 
+    </div>
+
+    <!-- Phase 4 Stuck Points -->
+    <div class="stuckpoints">
+      <h4>🚧 第四阶段常见卡点 & 解法</h4>
+      <div class="sp-item">
+        <div class="sp-stuck">招了兼职客服，但回复质量很差，退款处理错误，反而增加麻烦</div>
+        <div class="sp-fix">招人之前SOP不够详细导致的。立刻暂停自主处理，要求客服遇到不确定的情况都来问你。同时完善SOP：把最近1个月的客服对话导出，总结每种问题的标准回答，做成「FAQ + 决策树」文档，让客服按图索骥。</div>
+      </div>
+      <div class="sp-item">
+        <div class="sp-stuck">小红书发了30多篇笔记，流量来了但没有真实转化，卖不出货</div>
+        <div class="sp-fix">小红书到拼多多的路径断了。检查：①笔记评论区有没有主动引导？（置顶评论写「需要的私信/搜[店铺名]」）；②买家搜你的品类词时，能不能找到你的店铺？③笔记中的商品和平台在售的是否是同款同规格？路径任何一步断开都会流失转化。</div>
+      </div>
+      <div class="sp-item">
+        <div class="sp-stuck">GMV达到2万了，但净利润只有5-8%，感觉白忙活</div>
+        <div class="sp-fix">做一次完整的利润诊断：列出所有成本项（拿货/广告/快递/平台佣金/退款/客服工资），找出占GMV比例最大的1-2项。通常罪魁祸首是广告费（超过20%要警惕）或退款率（超过8%要查产品问题）。针对最大的成本项优化，而不是全面铺开。</div>
+      </div>
+      <div class="sp-item">
+        <div class="sp-stuck">私域建了微信群，但群员越来越不活跃，最后变成了死群</div>
+        <div class="sp-fix">私域群不是「通知渠道」是「社区」。激活方法：①每周提1个有价值的问题让群员回答（如「你们都把XX放在哪个位置？」）；②发现新品时让群员投票选款（参与感）；③偶尔做「老顾客专属优惠」但频率不超过月1次，多了就是广告群。</div>
+      </div>
+      <div class="sp-item">
+        <div class="sp-stuck">月GMV稳定在2万以上了，但感觉每天还是在救火，没有工作室的感觉</div>
+        <div class="sp-fix">「救火模式」说明SOP还不完整。把过去1个月占用你时间最多的3件事列出来，逐一做成SOP文档或流程图。工作室不是GMV目标，而是「你离开一周，运营还能正常运转」的系统。达到这个状态才算真正的工作室。</div>
+      </div>
     </div>
 
     <div class="phase-checklist">
