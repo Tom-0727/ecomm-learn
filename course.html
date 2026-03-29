@@ -155,7 +155,20 @@ function loadSection(moduleId, sectionIdx) {
       <ul>
         ${m.pitfalls.map(p => `<li>${p}</li>`).join('')}
       </ul>
-    </div>` : ''}
+    </div>
+
+    ${m.furtherReading && m.furtherReading.length ? `
+    <div class="module-reading">
+      <h3>📚 延伸阅读 & 实战工具</h3>
+      <div class="reading-grid">
+        ${m.furtherReading.map(r => `
+          <div class="reading-card">
+            <span class="reading-type reading-type-${r.type === '书籍' ? 'book' : r.type === '工具' ? 'tool' : r.type === '平台' ? 'platform' : 'report'}">${r.type}</span>
+            <div class="reading-title">${r.url ? `<a href="${r.url}" target="_blank" rel="noopener">${r.title}</a>` : r.title}</div>
+            <div class="reading-desc">${r.desc}</div>
+          </div>`).join('')}
+      </div>
+    </div>` : ''}` : ''}
 
     <div class="section-footer">
       <div class="nav-prev">

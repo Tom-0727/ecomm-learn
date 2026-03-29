@@ -1541,3 +1541,19 @@ button:disabled { opacity:0.4; cursor:not-allowed; }
 .path-start { font-size:13px; font-weight:700; color:var(--primary); }
 .path-card.selected .path-start::before { content:"✓ 已选择 · "; }
 @media (max-width:600px) { .path-grid { grid-template-columns:1fr; } }
+
+/* Further reading section in course */
+.module-reading { margin-top:28px; padding:20px; background:#f0fdf4; border-radius:var(--radius-lg); border-left:4px solid #16a34a; }
+.module-reading h3 { font-size:15px; font-weight:700; margin-bottom:14px; color:#15803d; }
+.reading-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:12px; }
+.reading-card { background:#fff; border-radius:var(--radius); padding:14px; box-shadow:0 1px 3px rgba(0,0,0,.07); }
+.reading-type { display:inline-block; border-radius:99px; padding:2px 9px; font-size:11px; font-weight:700; margin-bottom:7px; }
+.reading-type-book { background:#dbeafe; color:#1d4ed8; }
+.reading-type-tool { background:#d1fae5; color:#065f46; }
+.reading-type-platform { background:#ede9fe; color:#5b21b6; }
+.reading-type-report { background:#fef3c7; color:#92400e; }
+.reading-title { font-size:13px; font-weight:700; margin-bottom:5px; }
+.reading-title a { color:var(--primary); text-decoration:none; }
+.reading-title a:hover { text-decoration:underline; }
+.reading-desc { font-size:12px; color:var(--text-muted); line-height:1.5; }
+@media (max-width:600px) { .reading-grid { grid-template-columns:1fr; } }
