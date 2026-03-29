@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>实战挑战 — 中国电商实战课</title>
+<link rel="stylesheet" href="css/styles.css">
+<style>
+/* ===== PRACTICE PAGE STYLES ===== */
+.practice-hero {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  color: #fff;
+  padding: 60px 0 40px;
+  text-align: center;
+}
+.practice-hero h2 { font-size: 2rem; margin-bottom: 12px; }
+.practice-hero p { font-size: 1.05rem; opacity: .85; max-width: 600px; margin: 0 auto 24px; }
+.practice-hero .hero-badges { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.hero-badge { background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.25); border-radius: 20px; padding: 6px 16px; font-size: .85rem; }
+
+/* Roadmap */
+.roadmap {
+  background: #f8f9fa;
+  padding: 40px 0 30px;
+  overflow-x: auto;
+}
+.roadmap-inner {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  min-width: 700px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.roadmap-step {
+  flex: 1;
+  text-align: center;
+  cursor: pointer;
+  transition: transform .2s;
+}
+.roadmap-step:hover { transform: translateY(-3px); }
+.roadmap-circle {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 8px;
+  font-size: 1.2rem;
+  background: #e9ecef;
+  border: 3px solid #dee2e6;
+  transition: all .3s;
+  position: relative;
+}
+.roadmap-circle.done { background: #28a745; border-color: #28a745; color: #fff; }
+.roadmap-circle.active { background: #e74c3c; border-color: #e74c3c; color: #fff; box-shadow: 0 0 0 4px rgba(231,76,60,.2); }
+.roadmap-label { font-size: .75rem; color: #666; line-height: 1.3; font-weight: 600; }
+.roadmap-arrow {
+  color: #ccc;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  padding: 0 4px;
+  margin-bottom: 28px;
+}
+
+/* Challenge cards */
+.challenges-section { padding: 40px 0; }
+.challenge-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  margin-bottom: 28px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  transition: box-shadow .2s;
+}
+.challenge-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.12); }
+.challenge-card.completed { border-color: #28a745; }
+.challenge-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  cursor: pointer;
+  user-select: none;
+}
+.challenge-num {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.challenge-card.completed .challenge-num { background: linear-gradient(135deg, #28a745, #20c997); }
+.challenge-title-area { flex: 1; }
+.challenge-title { font-size: 1.15rem; font-weight: 700; color: #1a1a2e; margin-bottom: 6px; }
+.challenge-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.c-tag {
+  font-size: .72rem;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+.c-tag-cost { background: #e8f5e9; color: #2e7d32; }
+.c-tag-time { background: #e3f2fd; color: #1565c0; }
+.c-tag-platform { background: #fff3e0; color: #e65100; }
+.c-tag-level { background: #fce4ec; color: #c62828; }
+.challenge-toggle {
+  font-size: 1.3rem;
+  color: #999;
+  transition: transform .3s;
+  flex-shrink: 0;
+}
+.challenge-card.open .challenge-toggle { transform: rotate(180deg); }
+.challenge-done-badge {
+  background: #28a745;
+  color: #fff;
+  font-size: .72rem;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* Challenge body */
+.challenge-body { display: none; padding: 0 24px 24px; border-top: 1px solid #f0f0f0; }
+.challenge-card.open .challenge-body { display: block; }
+.challenge-goal {
+  background: linear-gradient(135deg, #f0f4ff, #e8f0fe);
+  border-left: 4px solid #3b5bdb;
+  padding: 14px 18px;
+  border-radius: 0 8px 8px 0;
+  margin: 16px 0;
+}
+.challenge-goal strong { color: #3b5bdb; }
+
+.prereq-box {
+  background: #fff8e1;
+  border: 1px solid #ffcc02;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 18px;
+  font-size: .9rem;
+}
+.prereq-box strong { color: #f57f17; }
+
+/* Steps */
+.steps-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #333;
+  margin: 20px 0 12px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #e9ecef;
+}
+.steps-list { list-style: none; padding: 0; margin: 0; }
+.step-item {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 16px;
+  align-items: flex-start;
+}
+.step-num {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: #3b5bdb;
+  color: #fff;
+  font-size: .8rem;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.step-content { flex: 1; line-height: 1.7; font-size: .93rem; }
+.step-content strong { color: #1a1a2e; }
+.step-tip {
+  background: #e3f2fd;
+  border-left: 3px solid #1565c0;
+  padding: 8px 12px;
+  margin-top: 8px;
+  border-radius: 0 6px 6px 0;
+  font-size: .85rem;
+  color: #1565c0;
+}
+.step-warn {
+  background: #fff3e0;
+  border-left: 3px solid #e65100;
+  padding: 8px 12px;
+  margin-top: 8px;
+  border-radius: 0 6px 6px 0;
+  font-size: .85rem;
+  color: #bf360c;
+}
+
+/* Pitfalls */
+.pitfalls-box {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 18px 0;
+}
+.pitfalls-box h4 { color: #b91c1c; margin-bottom: 10px; font-size: .95rem; }
+.pitfalls-box ul { margin: 0; padding-left: 18px; }
+.pitfalls-box li { margin-bottom: 6px; font-size: .88rem; color: #7f1d1d; line-height: 1.6; }
+
+/* Checkpoint */
+.checkpoint-box {
+  background: linear-gradient(135deg, #f0fff4, #dcfce7);
+  border: 2px solid #22c55e;
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-top: 20px;
+}
+.checkpoint-box h4 { color: #15803d; margin-bottom: 12px; font-size: 1rem; }
+.checkpoint-items { list-style: none; padding: 0; margin: 0 0 14px; }
+.checkpoint-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-size: .9rem;
+  color: #166534;
+}
+.checkpoint-item input[type=checkbox] {
+  width: 18px; height: 18px;
+  accent-color: #22c55e;
+  flex-shrink: 0;
+  margin-top: 2px;
+  cursor: pointer;
+}
+.complete-btn {
+  background: #22c55e;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: .9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .2s;
+}
+.complete-btn:hover { background: #16a34a; }
+.complete-btn:disabled { background: #86efac; cursor: default; }
+
+/* Calculator */
+.calculator {
+  background: #f8faff;
+  border: 1px solid #c7d2fe;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 18px 0;
+}
+.calculator h4 { color: #3730a3; margin-bottom: 16px; }
+.calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.calc-field label { font-size: .8rem; color: #555; display: block; margin-bottom: 4px; font-weight: 600; }
+.calc-field input {
+  width: 100%;
+  border: 1px solid #c7d2fe;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: .9rem;
+  box-sizing: border-box;
+}
+.calc-result {
+  background: #1a1a2e;
+  color: #fff;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.calc-result-item { text-align: center; }
+.calc-result-val { font-size: 1.4rem; font-weight: 700; color: #ffd700; }
+.calc-result-label { font-size: .75rem; opacity: .7; margin-top: 2px; }
+.calc-btn {
+  background: #3b5bdb;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-size: .9rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 14px;
+  width: 100%;
+}
+.calc-decision {
+  margin-top: 12px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: .9rem;
+  font-weight: 600;
+  display: none;
+}
+.decision-go { background: #dcfce7; color: #166534; border: 1px solid #22c55e; }
+.decision-ok { background: #fff3e0; color: #92400e; border: 1px solid #f59e0b; }
+.decision-stop { background: #fef2f2; color: #991b1b; border: 1px solid #f87171; }
+
+/* Overall progress */
+.progress-overview {
+  background: #1a1a2e;
+  color: #fff;
+  padding: 30px 0;
+  text-align: center;
+}
+.progress-bar-wrap {
+  max-width: 500px;
+  margin: 16px auto 8px;
+  background: rgba(255,255,255,.15);
+  border-radius: 20px;
+  height: 12px;
+  overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #22c55e, #86efac);
+  border-radius: 20px;
+  transition: width .5s;
+}
+.progress-label { font-size: .9rem; opacity: .8; }
+
+/* Table utility */
+.data-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: .87rem; }
+.data-table th { background: #1a1a2e; color: #fff; padding: 8px 12px; text-align: left; }
+.data-table td { padding: 8px 12px; border-bottom: 1px solid #e9ecef; }
+.data-table tr:hover td { background: #f8f9fa; }
+
+/* Formula highlight */
+.formula-box {
+  background: #1a1a2e;
+  color: #ffd700;
+  border-radius: 8px;
+  padding: 12px 18px;
+  font-family: monospace;
+  font-size: .9rem;
+  margin: 10px 0;
+}
+
+/* Screenshot hint */
+.screenshot-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f3f4f6;
+  border: 1px dashed #9ca3af;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: .8rem;
+  color: #6b7280;
+  margin: 6px 0;
+}
+
+@media (max-width: 600px) {
+  .challenge-header { padding: 16px; }
+  .challenge-body { padding: 0 16px 20px; }
+  .calc-grid { grid-template-columns: 1fr; }
+  .calc-result { grid-template-columns: 1fr 1fr; }
+  .roadmap-inner { gap: 0; }
+  .roadmap-label { font-size: .65rem; }
+}
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="logo">
+    <div class="logo-icon">电</div>
+    <div>
+      <h1>中国电商实战课</h1>
+      <div class="tagline">从需求洞察到复购留存 · 商业级完整链路</div>
+    </div>
+  </div>
+  <nav class="nav">
+    <a href="index.html" class="nav-link">首页</a>
+    <a href="course.html" class="nav-link">课程</a>
+    <a href="exam.html" class="nav-link">考试</a>
+    <a href="diagnose.html" class="nav-link">诊断</a>
+    <a href="practice.html" class="nav-link active">实战</a>
+    <a href="metrics.html" class="nav-link">指标</a>
+  </nav>
+</header>
+
+<!-- Hero -->
+<div class="practice-hero">
+  <div class="container">
+    <h2>🚀 电商实战挑战</h2>
+    <p>7个递进式真实挑战，从零到第一单，再到可持续盈利。每个挑战都有具体操作步骤，你只需要照着做。</p>
+    <div class="hero-badges">
+      <span class="hero-badge">💰 最低0元启动</span>
+      <span class="hero-badge">⏱ 利用碎片时间完成</span>
+      <span class="hero-badge">✅ 每步有验收标准</span>
+      <span class="hero-badge">📈 从闲鱼到PDD到付费投放</span>
+    </div>
+  </div>
+</div>
+
+<!-- Roadmap -->
+<div class="roadmap">
+  <div class="roadmap-inner">
+    <div class="roadmap-step" onclick="scrollToChallenge(0)">
+      <div class="roadmap-circle" id="rm0">🔍</div>
+      <div class="roadmap-label">挑战0<br>选品调研</div>
+    </div>
+    <div class="roadmap-arrow">→</div>
+    <div class="roadmap-step" onclick="scrollToChallenge(1)">
+      <div class="roadmap-circle" id="rm1">🐟</div>
+      <div class="roadmap-label">挑战1<br>闲鱼首单</div>
+    </div>
+    <div class="roadmap-arrow">→</div>
+    <div class="roadmap-step" onclick="scrollToChallenge(2)">
+      <div class="roadmap-circle" id="rm2">📸</div>
+      <div class="roadmap-label">挑战2<br>内容制作</div>
+    </div>
+    <div class="roadmap-arrow">→</div>
+    <div class="roadmap-step" onclick="scrollToChallenge(3)">
+      <div class="roadmap-circle" id="rm3">💬</div>
+      <div class="roadmap-label">挑战3<br>微信私域</div>
+    </div>
+    <div class="roadmap-arrow">→</div>
+    <div class="roadmap-step" onclick="scrollToChallenge(4)">
+      <div class="roadmap-circle" id="rm4">🏪</div>
+      <div class="roadmap-label">挑战4<br>PDD开店</div>
+    </div>
+    <div class="roadmap-arrow">→</div>
+    <div class="roadmap-step" onclick="scrollToChallenge(5)">
+      <div class="roadmap-circle" id="rm5">💸</div>
+      <div class="roadmap-label">挑战5<br>付费投放</div>
+    </div>
+    <div class="roadmap-arrow">→</div>
+    <div class="roadmap-step" onclick="scrollToChallenge(6)">
+      <div class="roadmap-circle" id="rm6">📊</div>
+      <div class="roadmap-label">挑战6<br>利润复盘</div>
+    </div>
+  </div>
+</div>
+
+<!-- Progress overview -->
+<div class="progress-overview">
+  <div class="container">
+    <div id="progress-text" class="progress-label">开始你的第一个挑战 ↓</div>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill" id="progress-bar" style="width:0%"></div>
+    </div>
+    <div id="progress-sub" style="font-size:.8rem;opacity:.6;margin-top:4px;">0 / 7 挑战已完成</div>
+  </div>
+</div>
+
+<!-- Challenges -->
+<div class="challenges-section">
+  <div class="container" style="max-width:800px">
+
+    <!-- ========== CHALLENGE 0 ========== -->
+    <div class="challenge-card" id="challenge-0" onclick="toggleChallenge(0)">
+      <div class="challenge-header">
+        <div class="challenge-num">0</div>
+        <div class="challenge-title-area">
+          <div class="challenge-title">🔍 选品调研 — 用免费工具找到你的第一个机会</div>
+          <div class="challenge-tags">
+            <span class="c-tag c-tag-cost">💰 0元启动</span>
+            <span class="c-tag c-tag-time">⏱ 2-3小时</span>
+            <span class="c-tag c-tag-platform">🛠 工具: 拼多多/1688/生意参谋</span>
+            <span class="c-tag c-tag-level">⭐ 入门</span>
+          </div>
+        </div>
+        <div class="challenge-done-badge" id="done-badge-0" style="display:none">✓ 已完成</div>
+        <div class="challenge-toggle">▼</div>
+      </div>
+      <div class="challenge-body" onclick="event.stopPropagation()">
+        <div class="challenge-goal">
+          <strong>目标：</strong>完成一份选品分析表，找到一个「搜索量有需求、竞争不太激烈、毛利率>30%」的具体商品，有数据支撑，而不是凭感觉。
+        </div>
+
+        <div class="prereq-box">
+          <strong>📋 你需要准备：</strong>手机或电脑；安装闲鱼App或打开淘宝/拼多多网页；一个记录表格（Excel或手机备忘录）
+        </div>
+
+        <div class="steps-title">📝 详细操作步骤</div>
+        <ol class="steps-list">
+          <li class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <strong>发现大类机会</strong><br>
+              打开拼多多App，在搜索框里输入你感兴趣的生活品类（如「厨房收纳」「宠物用品」「桌面整理」「户外露营」）。<br>
+              观察搜索框自动补全出现的词——这些词是真实用户在搜索的，按频率排序。
+              <div class="step-tip">💡 选品的本质是：别人在找什么，你能供什么。从真实搜索词出发，而不是你觉得什么好卖。</div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <strong>评估竞争烈度</strong><br>
+              点击某个搜索词，切换排序为「销量」，查看前20个商品：<br>
+              &nbsp;&nbsp;· 第1名月销量超过10000单 → 说明市场大，但竞争可能激烈<br>
+              &nbsp;&nbsp;· 第10名月销量只有100-500单 → 竞争不太激烈，新手有机会<br>
+              &nbsp;&nbsp;· 商品主图质量参差不齐 → 说明还没有强势品牌主导，可以靠内容胜出<br>
+              记录：商品名、头部月销量、第10名月销量、均价
+              <div class="step-warn">⚠️ 避坑：月销量为0的新品不代表没需求，可能刚上架；但如果类目前20名全是月销量0，说明这个词无人搜索。</div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <strong>去1688查拿货价</strong><br>
+              打开 1688.com（在浏览器输入，不需要注册账号可以直接搜索），搜索同款商品的关键词。<br>
+              找到看起来和拼多多在售的同款（通常是同一张图片），记录：<br>
+              &nbsp;&nbsp;· 最低拿货价（1件/10件/50件的价格梯度）<br>
+              &nbsp;&nbsp;· 是否需要最低起订量<br>
+              &nbsp;&nbsp;· 运费估算（广东/浙江发货一般4-8元/件，重货更贵）
+              <div class="step-tip">💡 建议先从1件起拿，即使贵一些，用来测试市场再说。</div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <strong>计算初步毛利率</strong><br>
+              用以下公式估算：
+              <div class="formula-box">毛利率 = (零售价 - 拿货价 - 运费 - 平台佣金) ÷ 零售价 × 100%</div>
+              平台佣金约为：拼多多 3-5%，淘宝 5%，闲鱼 1%（极低）<br>
+              <strong>选品标准：毛利率 > 30% 才值得投入时间做</strong><br>
+              示例：零售价30元 - 拿货8元 - 运费5元 - 佣金1.5元 = 15.5元 → 毛利率51.7% ✅
+              <div class="step-warn">⚠️ 新手常犯错误：没算运费和佣金，看着差价大，实际到手所剩无几。</div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">5</div>
+            <div class="step-content">
+              <strong>筛选最终选品</strong><br>
+              重复步骤1-4，测试3-5个品类，填入你的选品记录表：<br>
+              <table class="data-table">
+                <tr><th>商品名</th><th>拼多多均价</th><th>1688拿货价</th><th>毛利率估算</th><th>竞争强度</th><th>结论</th></tr>
+                <tr><td>（示例）折叠收纳凳</td><td>39元</td><td>12元</td><td>48%</td><td>中等</td><td>✅ 可做</td></tr>
+                <tr><td colspan="6" style="color:#999;font-style:italic">← 你来填写...</td></tr>
+              </table>
+              选出你打算先做的那一个，标记「入围」。
+            </div>
+          </li>
+        </ol>
+
+        <div class="pitfalls-box">
+          <h4>🚫 三大致命误区</h4>
+          <ul>
+            <li>选「我喜欢的」而不是「有人搜索的」——情感选品是亏损之源</li>
+            <li>看到竞争对手卖得好就想做同款——你拿不到他的价格和流量位</li>
+            <li>选品太贵（客单价>200元）——资金压力大、退货率高、买家决策慢，新手死在压货上</li>
+          </ul>
+        </div>
+
+        <div class="checkpoint-box">
+          <h4>✅ 完成标准（全部勾选才算过关）</h4>
+          <ul class="checkpoint-items">
+            <li class="checkpoint-item"><input type="checkbox" data-c="0" data-i="0" onchange="saveCheck(0,0,this.checked)"><span>我测试了至少3个品类，填写了完整的选品比较表</span></li>
+            <li class="checkpoint-item"><input type="checkbox" data-c="0" data-i="1" onchange="saveCheck(0,1,this.checked)"><span>我选定了一个毛利率>30%的商品，有1688报价作为数据支撑</span></li>
+            <li class="checkpoint-item"><input type="checkbox" data-c="0" data-i="2" onchange="saveCheck(0,2,this.checked)"><span>我了解该商品在拼多多的竞争格局（大概多少人在卖，销量分布如何）</span></li>
+          </ul>
+          <button class="complete-btn" onclick="markComplete(0)" id="complete-btn-0">标记挑战0已完成 🎉</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== CHALLENGE 1 ========== -->
+    <div class="challenge-card" id="challenge-1" onclick="toggleChallenge(1)">
+      <div class="challenge-header">
+        <div class="challenge-num">1</div>
+        <div class="challenge-title-area">
+          <div class="challenge-title">🐟 闲鱼首单 — 零成本卖出第一个产品</div>
+          <div class="challenge-tags">
+            <span class="c-tag c-tag-cost">💰 0元（用现有闲置）</span>
+            <span class="c-tag c-tag-time">⏱ 发布1小时，等待1-3天</span>
+            <span class="c-tag c-tag-platform">📱 平台: 闲鱼App</span>
+            <span class="c-tag c-tag-level">⭐ 入门</span>
+          </div>
+        </div>
+        <div class="challenge-done-badge" id="done-badge-1" style="display:none">✓ 已完成</div>
+        <div class="challenge-toggle">▼</div>
+      </div>
+      <div class="challenge-body" onclick="event.stopPropagation()">
+        <div class="challenge-goal">
+          <strong>目标：</strong>在闲鱼完成一笔真实交易，收到一笔货款。这是你电商生涯的第一笔钱，意义重大——你会第一次感受到「有人付钱买你的东西」是什么感觉。
+        </div>
+
+        <div class="prereq-box">
+          <strong>📋 你需要准备：</strong>支付宝账号（已实名）；至少一件可以出售的东西（家里闲置、买了用不到的东西）；手机拍照
+        </div>
+
+        <div class="steps-title">📝 详细操作步骤</div>
+        <ol class="steps-list">
+          <li class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <strong>进入闲鱼 & 认证账号</strong><br>
+              打开支付宝 → 搜索「闲鱼」→ 点击进入（或直接下载闲鱼App）<br>
+              首次使用需要支付宝实名认证，这是自动关联的，不需要另外注册。<br>
+              完善头像和昵称，让买家觉得你是真人，可信度高。
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <strong>专业拍图（最重要的一步）</strong><br>
+              闲鱼上图片是成交率的第一决定因素。照着以下规范拍：<br>
+              &nbsp;&nbsp;· <strong>背景</strong>：白色（A4纸、白墙、白床单均可），不要有杂物<br>
+              &nbsp;&nbsp;· <strong>光线</strong>：靠窗自然光，不要用闪光灯（会曝光过度）<br>
+              &nbsp;&nbsp;· <strong>角度</strong>：正面+侧面+瑕疵处（主动展示瑕疵，减少纠纷）<br>
+              &nbsp;&nbsp;· <strong>数量</strong>：至少4张，主图要最好看的那张<br>
+              &nbsp;&nbsp;· <strong>手机设置</strong>：打开网格线，把商品放在中心
+              <div class="step-tip">💡 拍照时用手机横屏构图，主图比例1:1，商品要充满画面80%以上。</div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <strong>写一个好标题（精准触达搜索者）</strong><br>
+              标题公式：<strong>[品牌/型号] + [品类关键词] + [状态] + [特点/附件]</strong><br>
+              <br>
+              ✅ 好例子：「Nike Air Force 1 低帮 白色 41码 九成新 无鞋盒」<br>
+              ❌ 差例子：「超好看的白色运动鞋便宜出」<br>
+              <br>
+              ✅ 好例子：「小米充电宝 10000mAh PLM09ZM 拆封未使用 原装线」<br>
+              ❌ 差例子：「几乎全新充电宝 送人了还有一个」<br>
+              <br>
+              规则：不要用形容词；要写具体型号/规格/码数；买家搜什么你就写什么。
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <strong>定价策略</strong><br>
+              在闲鱼搜索同款商品，找出最低价，然后比它低5-10%。<br>
+              <br>
+              二手商品定价参考：<br>
+              &nbsp;&nbsp;· 全新未拆封：原价的6-7折<br>
+              &nbsp;&nbsp;· 九成新（几乎没用过）：原价的4-5折<br>
+              &nbsp;&nbsp;· 八成新（正常使用痕迹）：原价的3-4折<br>
+              &nbsp;&nbsp;· 七成以下（有明显瑕疵）：原价的2折以内<br>
+              <br>
+              技巧：定价比心理价格高10-20元，因为买家一定会砍价。
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">5</div>
+            <div class="step-content">
+              <strong>发布商品</strong><br>
+              点「卖」→ 上传图片 → 填写标题 → 选择品类 → 填写描述 → 设置价格 → 选「不支持虚假发货」→ 发布。<br>
+              <br>
+              <strong>描述怎么写：</strong>说明商品现状（几成新），说明有无瑕疵（主动说比买家问到好），说明是否有原包装/配件。语气诚恳，不夸大。<br>
+              <br>
+              示例描述：「小米Note3，买来备用一直没怎么用，外观无划痕，电池健康98%。屏幕有一处轻微压痕（图5有），不影响使用。原装充电器+数据线，无耳机。自用，非刷机翻新。」
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">6</div>
+            <div class="step-content">
+              <strong>接待买家询价</strong><br>
+              发布后会有人发消息询问。几条黄金回复原则：<br>
+              &nbsp;&nbsp;· <strong>快速回复</strong>（1小时内），闲鱼会显示「X分钟内回复」，提高可信度<br>
+              &nbsp;&nbsp;· <strong>坚持平台交易</strong>：「建议走闲鱼平台交易，有担保有保障，你也更安心」<br>
+              &nbsp;&nbsp;· <strong>适度让步</strong>：对方砍价，可以让5-10元，但不要砍到你的底线<br>
+              &nbsp;&nbsp;· <strong>拒绝骗局</strong>：任何要求你「先发货再付款」「转到其他账号」的都是骗局，直接无视
+              <div class="step-warn">⚠️ 高频骗局：「我是闲鱼客服，你的交易异常，需要先转账验证」——这是诈骗，闲鱼客服绝不会这样做！</div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">7</div>
+            <div class="step-content">
+              <strong>发货 & 完成交易</strong><br>
+              买家付款后，你会收到通知。你有48小时发货（建议24小时内发出）。<br>
+              <br>
+              &nbsp;&nbsp;· 打包：用纸箱或气泡袋，脆弱商品多加缓冲材料<br>
+              &nbsp;&nbsp;· 推荐快递：圆通/中通/申通（价格便宜，适合轻小件）；易碎/贵重用顺丰<br>
+              &nbsp;&nbsp;· 在闲鱼订单页面填写快递单号<br>
+              &nbsp;&nbsp;· 买家收货后点「确认收货」→ 款项4-7天到你支付宝<br>
+              <br>
+              发货后发一条消息：「已发出，单号：XXXXXXXX，预计X天到，收到记得确认收货~」
+            </div>
+          </li>
+        </ol>
+
+        <div class="pitfalls-box">
+          <h4>🚫 三大致命误区</h4>
+          <ul>
+            <li>被催促到站外交易（微信/支付宝直接转账）——没有平台担保，货款可能打水漂</li>
+            <li>描述夸大商品成色——买家收到后差评甚至退货，得不偿失</li>
+            <li>超过48小时不发货——买家有权取消订单，还会影响你的账号评分</li>
+          </ul>
+        </div>
+
+        <div class="checkpoint-box">
+          <h4>✅ 完成标准</h4>
+          <ul class="checkpoint-items">
+            <li class="checkpoint-item"><input type="checkbox" data-c="1" data-i="0" onchange="saveCheck(1,0,this.checked)"><span>我发布了至少1件商品，主图清晰，标题符合公式</span></li>
+            <li class="checkpoint-item"><input type="checkbox" data-c="1" data-i="1" onchange="saveCheck(1,1,this.checked)"><span>我完成了一笔真实交易（支付宝有收款记录）</span></li>
+            <li class="checkpoint-item"><input type="checkbox" data-c="1" data-i="2" onchange="saveCheck(1,2,this.checked)"><span>买家确认收货，我的账号有了第一条好评</span></li>
+          </ul>
+          <button class="complete-btn" onclick="markComplete(1)" id="complete-btn-1">标记挑战1已完成 🎉</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== CHALLENGE 2 ========== -->
+    <div class="challenge-card" id="challenge-2" onclick="toggleChallenge(2)">
+      <div class="challenge-header">
+        <div class="challenge-num">2</div>
+        <div class="challenge-title-area">
+          <div class="challenge-title">📸 内容制作 — 让你的商品比竞品好看10倍</div>
+          <div class="challenge-tags">
+            <span class="c-tag c-tag-cost">💰 0元（用Canva免费版）</span>
+            <span class="c-tag c-tag-time">⏱ 3-4小时</span>
+            <span class="c-tag c-tag-platform">🛠 工具: Canva + 手机相机</span>
+            <span class="c-tag c-tag-level">⭐⭐ 初级</span>
+          </div>
+        </div>
+        <div class="challenge-done-badge" id="done-badge-2" style="display:none">✓ 已完成</div>
+        <div class="challenge-toggle">▼</div>
+      </div>
+      <div class="challenge-body" onclick="event.stopPropagation()">
+        <div class="challenge-goal">
+          <strong>目标：</strong>为你挑战0选定的商品制作一套专业内容素材：1张主图 + 3张辅图 + 1条经过关键词优化的标题。这套素材可以复用到任何平台。
+        </div>
+
+        <div class="steps-title">📝 详细操作步骤</div>
+        <ol class="steps-list">
+          <li class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <strong>主图拍摄（10分钟能出效果）</strong><br>
+              <strong>场景A — 白底图（适合PDD/淘宝主图）：</strong><br>
+              &nbsp;&nbsp;· 找一张A4白纸，放桌上，商品放中央<br>
+              &nbsp;&nbsp;· 靠近窗户，利用自然光（避免正午直射太阳，阴天最好）<br>
+              &nbsp;&nbsp;· 手机垂直向下拍，商品占画面75%以上<br>
+              &nbsp;&nbsp;· 拍5-8张，挑最清晰、角度最好的<br>
+              <br>
+              <strong>场景B — 生活场景图（适合小红书/抖音）：</strong><br>
+              &nbsp;&nbsp;· 把商品放在真实使用场景中（厨房/桌面/手持使用）<br>
+              &nbsp;&nbsp;· 背景要干净，有一定景深<br>
+              &nbsp;&nbsp;· 构图：商品在黄金比例位置（三分之一处）
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <strong>用Canva制作专业主图</strong><br>
+              打开 canva.com（免费注册）→ 新建设计 → 尺寸选「800×800像素」<br>
+              <br>
+              主图设计公式：<br>
+              &nbsp;&nbsp;· 商品大图（占60-70%画面）+ 白色或纯色背景<br>
+              &nbsp;&nbsp;· 右上角：一个核心卖点（字要大，3-5个字，如「买二送一」「拍下立减」）<br>
+              &nbsp;&nbsp;· 底部：价格或促销信息（可选）<br>
+              <br>
+              Canva操作：上传你的商品图片 → 拖入画布 → 用「去背景」功能去掉背景 → 添加纯色背景 → 加文字
+              <div class="step-tip">💡 Canva有大量电商主图模板，搜索「产品主图」直接套用，改颜色和文字即可。</div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <strong>制作卖点展示图（详情页核心逻辑）</strong><br>
+              你的买家在脑子里会问5个问题，你的图要依次回答：<br>
+              <br>
+              <table class="data-table">
+                <tr><th>买家问题</th><th>你的回答方式</th><th>图片类型</th></tr>
+                <tr><td>这是什么？</td><td>清晰展示商品外观</td><td>白底正面图</td></tr>
+                <tr><td>有什么用？</td><td>使用场景/解决什么问题</td><td>场景图</td></tr>
+                <tr><td>凭什么信你？</td><td>材质/规格/认证/真实买家图</td><td>细节图</td></tr>
+                <tr><td>和别人有什么不同？</td><td>对比竞品或同类产品</td><td>对比图（可选）</td></tr>
+                <tr><td>怎么用/怎么保养？</td><td>使用说明</td><td>说明图（可选）</td></tr>
+              </table>
+              至少做前3张，即：白底图 + 场景图 + 细节图。
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <strong>研究关键词，优化标题</strong><br>
+              <strong>方法A（免费）：</strong>在拼多多搜索框输入你商品的核心词，记录自动补全词。这些词按搜索频率排序，排第一的词搜索量最大。<br>
+              <br>
+              <strong>方法B（免费）：</strong>打开生意参谋（sycm.taobao.com），进入「市场」→「搜索词」，输入你的品类词，查看搜索指数排名。<br>
+              <br>
+              标题组合公式：<br>
+              <div class="formula-box">标题 = [核心词，搜索最多] + [属性词，规格/材质/颜色] + [场景词，使用场景] + [人群词，适用对象]</div>
+              示例：「桌面收纳盒 办公室 文具整理 抽屉式 学生宿舍 置物架」→ 涵盖了多个搜索词
+              <div class="step-warn">⚠️ 不要堆砌无关词（如「热卖爆款必买精品」），平台会降权，买家也不会因为这种词点进来。</div>
+            </div>
+          </li>
+        </ol>
+
+        <div class="pitfalls-box">
+          <h4>🚫 内容制作三大误区</h4>
+          <ul>
+            <li>主图放太多文字——主图是「让人点进来的」，文字会分散注意力，6个字以内最好</li>
+            <li>用厂家提供的图片直接发布——和100个竞品完全一样，无差异化，只能靠最低价竞争</li>
+            <li>详情页顺序混乱——先展示「痛点/场景」，再展示「商品」，最后「规格/参数」</li>
+          </ul>
+        </div>
+
+        <div class="checkpoint-box">
+          <h4>✅ 完成标准</h4>
+          <ul class="checkpoint-items">
+            <li class="checkpoint-item"><input type="checkbox" data-c="2" data-i="0" onchange="saveCheck(2,0,this.checked)"><span>我制作了1张专业主图（有Canva文件或导出图片）</span></li>
+            <li class="checkpoint-item"><input type="checkbox" data-c="2" data-i="1" onchange="saveCheck(2,1,this.checked)"><span>我拍摄了至少3张不同角度/场景的商品图片</span></li>
+            <li class="checkpoint-item"><input type="checkbox" data-c="2" data-i="2" onchange="saveCheck(2,2,this.checked)"><span>我写了一条经过关键词研究的标题，包含核心词+属性词+场景词</span></li>
+          </ul>
+          <button class="complete-btn" onclick="markComplete(2)" id="complete-btn-2">标记挑战2已完成 🎉</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== CHALLENGE 3 ========== -->
+    <div class="challenge-card" id="challenge-3" onclick="toggleChallenge(3)">
+      <div class="challenge-header">
+        <div class="challenge-num">3</div>
+        <div class="challenge-title-area">
+          <div class="challenge-title">💬 微信私域首单 — 把身边人变成第一批客户</div>
+          <div class="challenge-tags">
+            <span class="c-tag c-tag-cost">💰 0元</span>
+            <span class="c-tag c-tag-time">⏱ 1天</span>
+            <span class="c-tag c-tag-platform">📱 平台: 微信朋友圈</span>
+            <span class="c-tag c-tag-level">⭐ 入门</span>
+          </div>
+        </div>
+        <div class="challenge-done-badge" id="done-badge-3" style="display:none">✓ 已完成</div>
+        <div class="challenge-toggle">▼</div>
+      </div>
+      <div class="challenge-body" onclick="event.stopPropagation()">
+        <div class="challenge-goal">
+          <strong>目标：</strong>通过微信朋友圈 / 微信好友获得至少1笔订单。这是成本最低的销售渠道——你的朋友天然信任你，转化率远高于陌生平台。
+        </div>
+
+        <div class="prereq-box">
+          <strong>📋 前提：</strong>完成挑战2的内容素材（主图+场景图）。手边有2-5件可售商品（可以是你在1688小批量进了几件的商品，或者家里闲置）。
+        </div>
+
+        <div class="steps-title">📝 详细操作步骤</div>
+        <ol class="steps-list">
+          <li class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <strong>发一条「非广告感」的朋友圈</strong><br>
+              朋友圈最大的忌讳是硬广——别人会直接屏蔽。要让内容看起来是你的真实生活，顺带提到商品。<br>
+              <br>
+              <strong>文案框架（4行公式）：</strong><br>
+              &nbsp;&nbsp;第1行：<em>生活化的起因</em>（最近/上周/前几天...）<br>
+              &nbsp;&nbsp;第2行：<em>引出产品</em>（发现了一个好东西/有个朋友问我...）<br>
+              &nbsp;&nbsp;第3行：<em>具体价值</em>（比某宝便宜X元/用了X周确实不错）<br>
+              &nbsp;&nbsp;第4行：<em>低门槛行动号召</em>（有需要的私信我/先到先得只有5个）<br>
+              <br>
+              ✅ <strong>好例子：</strong>「整理抽屉的时候发现多了几个收纳盒，买多了用不完。尺寸是15×10cm，放桌面文具或浴室杂物都很合适。本来自用，现在原价出，第一个联系的人直接拿走就行。」<br>
+              <br>
+              ❌ <strong>差例子：</strong>「【超高性价比收纳盒限时特卖！！】质量超好！！！原价99现在只要39！！！快来买！！！」
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <strong>配图策略</strong><br>
+              朋友圈配图4-9张，用这个顺序：<br>
+              &nbsp;&nbsp;1. 最好看的场景图（让人想点开看）<br>
+              &nbsp;&nbsp;2-3. 商品白底图（清晰展示商品）<br>
+              &nbsp;&nbsp;4. 细节图（材质、内部构造等）<br>
+              &nbsp;&nbsp;5. 如果有买过的人，可以加一张「收到货」的真实图<br>
+              <br>
+              不要用厂家宣传图——太商业化，朋友圈会被当成广告刷过。
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <strong>主动私聊精准好友</strong><br>
+              发完朋友圈，再主动私聊5-10个「可能会需要这个商品」的朋友：<br>
+              <br>
+              <strong>私聊话术（不要群发，要个性化）：</strong><br>
+              「XX，你上次说桌子乱，我最近整理了几个收纳盒出来，质量不错，有需要的话我给你留一个。」<br>
+              「我刚发了条朋友圈，你有没有需要这个，感觉挺适合你的。」<br>
+              <br>
+              关键：<strong>要给对方一个「为什么想到你」的理由</strong>，不要突然发商品链接，那是微商的做法，效果极差。
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <strong>接单 & 收款</strong><br>
+              有人感兴趣后，发商品图片给对方确认，然后：<br>
+              &nbsp;&nbsp;· 收款：微信直接转账（或出一张二维码收款）<br>
+              &nbsp;&nbsp;· 获取地址：「你把收货地址发给我，姓名+手机+地址」<br>
+              &nbsp;&nbsp;· 发货：可以在微信小程序「寄快递」直接上门取件（菜鸟/顺丰速运等）<br>
+              &nbsp;&nbsp;· 发完发单号给对方
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">5</div>
+            <div class="step-content">
+              <strong>请好友分享，建立第一批口碑</strong><br>
+              买家收到后：<br>
+              &nbsp;&nbsp;· 发一条「物品已安家」的照片给你（你可以发到朋友圈做真实案例）<br>
+              &nbsp;&nbsp;· 如果买家满意，请他帮忙「顺手提一句」——私域裂变的起点
+              <div class="step-tip">💡 微信私域的本质是信任经济。第一批5-10个客户来自你的真实关系网，他们的口碑会带来下一批。</div>
+            </div>
+          </li>
+        </ol>
+
+        <div class="pitfalls-box">
+          <h4>🚫 私域销售四大雷区</h4>
+          <ul>
+            <li>群发商品信息给所有好友——会被大量屏蔽，下次发什么都没人看了</li>
+            <li>朋友圈全是商品广告——正常朋友会认为你变了，关系消耗极快</li>
+            <li>不好意思开口——卖给朋友最大的障碍是心理，但你卖的是好东西，是帮朋友省钱</li>
+            <li>不主动问反馈——朋友买了你的东西，不跟进是最大的浪费</li>
+          </ul>
+        </div>
+
+        <div class="checkpoint-box">
+          <h4>✅ 完成标准</h4>
+          <ul class="checkpoint-items">
+            <li class="checkpoint-item"><input type="checkbox" data-c="3" data-i="0" onchange="saveCheck(3,0,this.checked)"><span>我发了一条符合「非广告感」公式的朋友圈</span></li>
+            <li class="checkpoint-item"><input type="checkbox" data-c="3" data-i="1" onchange="saveCheck(3,1,this.checked)"><span>我主动私聊了至少5个精准好友</span></li>
+            <li class="checkpoint-item"><input type="checkbox" data-c="3" data-i="2" onchange="saveCheck(3,2,this.checked)"><span>微信收到了至少1笔付款</span></li>
+          </ul>
+          <button class="complete-btn" onclick="markComplete(3)" id="complete-btn-3">标记挑战3已完成 🎉</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== CHALLENGE 4 ========== -->
+    <div class="challenge-card" id="challenge-4" onclick="toggleChallenge(4)">
+      <div class="challenge-header">
+        <div class="challenge-num">4</div>
+        <div class="challenge-title-area">
+          <div class="challenge-title">🏪 拼多多开店 — 进入公域流量池</div>
+          <div class="challenge-tags">
+            <span class="c-tag c-tag-cost">💰 需个体营业执照（申办免费）</span>
+            <span class="c-tag c-tag-time">⏱ 审核1-3工作日，全程1周</span>
+            <span class="c-tag c-tag-platform">🛒 平台: 拼多多</span>
+            <span class="c-tag c-tag-level">⭐⭐ 初级</span>
+          </div>
+        </div>
+        <div class="challenge-done-badge" id="done-badge-4" style="display:none">✓ 已完成</div>
+        <div class="challenge-toggle">▼</div>
+      </div>
+      <div class="challenge-body" onclick="event.stopPropagation()">
+        <div class="challenge-goal">
+          <strong>目标：</strong>在拼多多开设一家个体工商户店铺，上架第一款商品，商品状态显示「出售中」，可以在拼多多被真实搜索到。
+        </div>
+
+        <div class="prereq-box">
+          <strong>📋 前提：</strong>需要个体工商户营业执照（无执照则本挑战为「计划准备」阶段）。申办执照流程见步骤1，免费且越来越简化。同时需要银行对公账户或法人个人账户用于提现。
+        </div>
+
+        <div class="steps-title">📝 详细操作步骤</div>
+        <ol class="steps-list">
+          <li class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <strong>办理个体工商户营业执照（没有的话先做这步）</strong><br>
+              现在很多城市可以全程网办：<br>
+              &nbsp;&nbsp;· 手机搜索「[你的城市] 个体工商户网上申办」<br>
+              &nbsp;&nbsp;· 或打开「国家企业信用信息公示系统」→ 企业登记<br>
+              &nbsp;&nbsp;· 填写：经营者姓名、经营范围（填「零售: 日用品、家居用品」范围要宽）、注册地址（可以用居住地址）<br>
+              &nbsp;&nbsp;· 提交后3-5工作日领取电子执照<br>
+              <br>
+              <strong>⭐ 关键：</strong>经营范围要写宽一些，后续扩品类就不用重新申报了。参考：「日用百货、家居用品、文具办公用品、电子产品配件零售（不含需许可证审批的商品）」
+              <div class="step-tip">💡 费用：工商注册免费；后续如果要在阿里/腾讯开发票，需要在税务局进行税务登记，同样免费。</div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <strong>拼多多商家入驻</strong><br>
+              在PC端浏览器打开 mobile.pinduoduo.com → 点「商家入驻」→ 选择「个体工商户」<br>
+              <br>
+              填写资料：<br>
+              &nbsp;&nbsp;· 营业执照照片（需清晰，四角完整，不能遮挡）<br>
+              &nbsp;&nbsp;· 法人身份证正反面<br>
+              &nbsp;&nbsp;· 手机号绑定（建议用专门用于店铺的手机号）<br>
+              &nbsp;&nbsp;· 店铺名称（不能含品牌词，可以是：「XX优品旗舰店」「XX日用居家」）<br>
+              &nbsp;&nbsp;· 绑定银行卡（法人名下的银行卡）
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <strong>等待审核 & 完善店铺</strong><br>
+              提交后1-3个工作日审核完成。审核通过后：<br>
+              &nbsp;&nbsp;· 设置店铺Logo（建议用Canva制作，1:1比例，简洁大方）<br>
+              &nbsp;&nbsp;· 设置客服自动回复：「您好，感谢关注！有问题请描述，我们会在X分钟内回复。」<br>
+              &nbsp;&nbsp;· 开通「多多客服」App，方便在手机上处理消息
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <strong>发布第一款商品</strong><br>
+              进入「多多商家版」→「商品管理」→「发布商品」<br>
+              <br>
+              填写要点：<br>
+              &nbsp;&nbsp;· <strong>类目选择</strong>：要选准，否则展示给错误人群（可以对标竞品看他们选的类目）<br>
+              &nbsp;&nbsp;· <strong>商品标题</strong>：使用挑战2中研究好的关键词标题（30字以内）<br>
+              &nbsp;&nbsp;· <strong>主图</strong>：第一张是白底图，第2-5张展示卖点<br>
+              &nbsp;&nbsp;· <strong>价格</strong>：参考竞品，首次可以比市场均价低5-10%，快速获得初始评价<br>
+              &nbsp;&nbsp;· <strong>库存</strong>：填写你实际可发货数量（不要填假库存，会影响账号健康）<br>
+              &nbsp;&nbsp;· <strong>发货时间</strong>：承诺48小时发货（已经可以满足绝大多数买家）<br>
+              &nbsp;&nbsp;· <strong>运费模板</strong>：设置「包邮」（拼多多用户对运费敏感，包邮可以提升转化）
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">5</div>
+            <div class="step-content">
+              <strong>验证商品上架成功</strong><br>
+              商品提交审核（通常1小时内通过）后，在拼多多App里搜索你的商品关键词，向下翻找你的商品。<br>
+              <br>
+              找到了 → 说明你的商品已进入公域流量池 ✅<br>
+              找不到 → 可能是审核中，或者关键词没有匹配，检查标题是否包含准确的搜索词
+              <div class="step-tip">💡 新品没有评价，自然排名靠后很正常。不要焦虑，先通过私域引一批流量进来积累第一批评价。</div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">6</div>
+            <div class="step-content">
+              <strong>获取第一批评价（冷启动关键）</strong><br>
+              通过挑战3积累的私域客户，邀请他们在你的拼多多店铺下单并评价：<br>
+              &nbsp;&nbsp;· 给他们一个「拼多多专属优惠」（比私信价格低5-10元）<br>
+              &nbsp;&nbsp;· 发货后提醒评价：「如果满意的话帮我点个五星好评，对我很重要」<br>
+              &nbsp;&nbsp;· 目标：前30天积累10个以上五星好评<br>
+              <br>
+              有10个好评后，拼多多系统会认为这个商品有质量，开始给你自然流量。
+            </div>
+          </li>
+        </ol>
+
+        <div class="pitfalls-box">
+          <h4>🚫 开店四大坑</h4>
+          <ul>
+            <li>上传侵权图片（厂家官图、其他平台截图）——会被投诉下架，严重封号</li>
+            <li>虚报库存（填999件但实际没货）——有了订单发不出去，账号受惩罚</li>
+            <li>用同一手机号/身份证多次开店——拼多多会关联封号</li>
+            <li>全店价格比1688拿货价还低——有人专门来截图投诉你低于成本价</li>
+          </ul>
+        </div>
+
+        <div class="checkpoint-box">
+          <h4>✅ 完成标准</h4>
+          <ul class="checkpoint-items">
+            <li class="checkpoint-item"><input type="checkbox" data-c="4" data-i="0" onchange="saveCheck(4,0,this.checked)"><span>已有个体营业执照（或已提交申请，执照在路上）</span></li>
+            <li class="checkpoint-item"><input type="checkbox" data-c="4" data-i="1" onchange="saveCheck(4,1,this.checked)"><span>拼多多店铺状态为「正常」，通过入驻审核</span></li>
+            <li class="checkpoint-item"><input type="checkbox" data-c="4" data-i="2" onchange="saveCheck(4,2,this.checked)"><span>至少1款商品状态为「出售中」，能在拼多多被搜到</span></li>
+          </ul>
+          <button class="complete-btn" onclick="markComplete(4)" id="complete-btn-4">标记挑战4已完成 🎉</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== CHALLENGE 5 ========== -->
+    <div class="challenge-card" id="challenge-5" onclick="toggleChallenge(5)">
+      <div class="challenge-header">
+        <div class="challenge-num">5</div>
+        <div class="challenge-title-area">
+          <div class="challenge-title">💸 付费投放入门 — 用¥50验证流量能否转化</div>
+          <div class="challenge-tags">
+            <span class="c-tag c-tag-cost">💰 建议¥50-100测试预算</span>
+            <span class="c-tag c-tag-time">⏱ 投放设置1小时，观察3天</span>
+            <span class="c-tag c-tag-platform">🛒 平台: 拼多多多多进宝</span>
+            <span class="c-tag c-tag-level">⭐⭐ 初级</span>
+          </div>
+        </div>
+        <div class="challenge-done-badge" id="done-badge-5" style="display:none">✓ 已完成</div>
+        <div class="challenge-toggle">▼</div>
+      </div>
+      <div class="challenge-body" onclick="event.stopPropagation()">
+        <div class="challenge-goal">
+          <strong>目标：</strong>完成第一次付费广告投放，3天后根据数据做出「继续/暂停/优化」的判断。学会用数据说话，而不是凭感觉决策。
+        </div>
+
+        <div class="prereq-box">
+          <strong>📋 前提：</strong>完成挑战4，拼多多店铺已有至少1款上架商品；商品已有5个以上评价（没有评价的商品付费也效果差）
+        </div>
+
+        <div class="steps-title">📝 详细操作步骤</div>
+        <ol class="steps-list">
+          <li class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <strong>进入推广后台</strong><br>
+              PC端登录多多商家版 → 顶部菜单「推广中心」→ 选择「搜索推广」→「创建推广计划」<br>
+              <br>
+              计划设置：<br>
+              &nbsp;&nbsp;· 推广目的：选「商品推广」<br>
+              &nbsp;&nbsp;· 选择你的商品<br>
+              &nbsp;&nbsp;· <strong>每日预算：¥30-50（一定要设上限！）</strong>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <strong>关键词选择（决定广告给谁看）</strong><br>
+              选3-5个关键词，遵循「精准优于广泛」原则：<br>
+              <br>
+              <table class="data-table">
+                <tr><th>类型</th><th>举例</th><th>建议</th></tr>
+                <tr><td>大词（竞争激烈）</td><td>「收纳盒」</td><td>❌ 新手避开，CPC极高</td></tr>
+                <tr><td>中词</td><td>「桌面收纳盒」</td><td>⚠️ 可选1个，观察数据</td></tr>
+                <tr><td>精准长尾词</td><td>「桌面收纳盒 抽屉式 办公室」</td><td>✅ 主要投放，CPC低转化高</td></tr>
+              </table>
+              <br>
+              <strong>出价策略：</strong>系统建议价的70-80%开始，稳定后再酌情提价。
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <strong>投放时间设置</strong><br>
+              不要24小时投放（浪费预算在凌晨无效流量）。<br>
+              推荐时段：早9:00-11:30，下午14:00-17:00，晚上19:00-23:00<br>
+              <br>
+              在「分时折扣」设置中：高峰时段（晚7-11点）设100%，其他时段设70-80%。
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <strong>3天后看数据，学会判断</strong><br>
+              在推广报表中，记录以下数据：<br>
+              <br>
+              <table class="data-table">
+                <tr><th>指标</th><th>说明</th><th>健康值参考</th></tr>
+                <tr><td>展示量</td><td>你的广告被展示了多少次</td><td>&gt;1000次（才有统计意义）</td></tr>
+                <tr><td>点击量</td><td>有多少人点了你的商品</td><td>&gt;30次</td></tr>
+                <tr><td>点击率(CTR)</td><td>展示→点击的转化率</td><td>同类目均值±20%</td></tr>
+                <tr><td>CPC</td><td>每次点击花了多少钱</td><td>根据类目差异很大</td></tr>
+                <tr><td>转化率</td><td>点击→下单的比例</td><td>&gt;1%（低于说明详情页有问题）</td></tr>
+                <tr><td>ROI</td><td>广告花费产生的GMV倍数</td><td>&gt;2倍（保本）</td></tr>
+              </table>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">5</div>
+            <div class="step-content">
+              <strong>根据数据做决策</strong><br>
+              <div class="formula-box">ROI = 广告带来的GMV ÷ 广告花费</div>
+              <br>
+              &nbsp;&nbsp;· ROI > 3：出色，加大预算（每次增加20-30%，观察1-2天后再调）<br>
+              &nbsp;&nbsp;· ROI 2-3：可持续，继续跑<br>
+              &nbsp;&nbsp;· ROI 1-2：勉强保本，需要优化（主图/详情页/关键词）<br>
+              &nbsp;&nbsp;· ROI < 1：立即暂停！先优化商品内容，再重新投<br>
+              <br>
+              CTR低（&lt;1%）→ 主图有问题，需要更换<br>
+              CTR高但转化率低（&lt;0.5%）→ 详情页有问题，买家进来后流失
+              <div class="step-warn">⚠️ 新手最常犯的错误：ROI=0.5还在烧钱，觉得「烧一烧就好了」。付费投放没有「养着就会好」这回事，有问题必须先停再优化。</div>
+            </div>
+          </li>
+        </ol>
+
+        <div class="pitfalls-box">
+          <h4>🚫 付费投放四大陷阱</h4>
+          <ul>
+            <li>没有设每日预算上限——一觉醒来烧了几百元，转化率为零</li>
+            <li>投大词（「收纳盒」「T恤」这种超宽泛的词）——曝光量大但极不精准，ROI极低</li>
+            <li>开了广告就不看数据——付费投放需要每天查看，及时止损</li>
+            <li>商品没有评价就投广告——买家点进来没有评价直接走，钱全打水漂</li>
+          </ul>
+        </div>
+
+        <div class="checkpoint-box">
+          <h4>✅ 完成标准</h4>
+          <ul class="checkpoint-items">
+            <li class="checkpoint-item"><input type="checkbox" data-c="5" data-i="0" onchange="saveCheck(5,0,this.checked)"><span>完成了3天广告投放，产生了有统计意义的点击量（>50次）</span></li>
+            <li class="checkpoint-item"><input type="checkbox" data-c="5" data-i="1" onchange="saveCheck(5,1,this.checked)"><span>我计算出了这次投放的ROI</span></li>
+            <li class="checkpoint-item"><input type="checkbox" data-c="5" data-i="2" onchange="saveCheck(5,2,this.checked)"><span>我根据数据做出了「继续/暂停/优化」的判断，并有理由</span></li>
+          </ul>
+          <button class="complete-btn" onclick="markComplete(5)" id="complete-btn-5">标记挑战5已完成 🎉</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== CHALLENGE 6 ========== -->
+    <div class="challenge-card" id="challenge-6" onclick="toggleChallenge(6)">
+      <div class="challenge-header">
+        <div class="challenge-num">6</div>
+        <div class="challenge-title-area">
+          <div class="challenge-title">📊 利润复盘 — 算清楚你真正赚了多少钱</div>
+          <div class="challenge-tags">
+            <span class="c-tag c-tag-cost">💰 0元</span>
+            <span class="c-tag c-tag-time">⏱ 1-2小时</span>
+            <span class="c-tag c-tag-platform">🛠 工具: 本页计算器</span>
+            <span class="c-tag c-tag-level">⭐⭐ 初级</span>
+          </div>
+        </div>
+        <div class="challenge-done-badge" id="done-badge-6" style="display:none">✓ 已完成</div>
+        <div class="challenge-toggle">▼</div>
+      </div>
+      <div class="challenge-body" onclick="event.stopPropagation()">
+        <div class="challenge-goal">
+          <strong>目标：</strong>对你过去一段时间（建议以月为单位）的电商经营做完整的利润核算，得出真实净利润率，并决定下一步是扩大、优化还是换品。
+        </div>
+
+        <div class="steps-title">📊 利润计算器</div>
+        <div class="calculator">
+          <h4>🧮 真实利润计算器</h4>
+          <div class="calc-grid">
+            <div class="calc-field">
+              <label>月销售额（GMV）元</label>
+              <input type="number" id="c-gmv" placeholder="如 3000" oninput="calcProfit()">
+            </div>
+            <div class="calc-field">
+              <label>退款率 % （通常3-8%）</label>
+              <input type="number" id="c-refund" placeholder="如 5" oninput="calcProfit()">
+            </div>
+            <div class="calc-field">
+              <label>商品成本（进货总价）元</label>
+              <input type="number" id="c-cost" placeholder="如 800" oninput="calcProfit()">
+            </div>
+            <div class="calc-field">
+              <label>平台佣金率 % （PDD约3-5%）</label>
+              <input type="number" id="c-commission" placeholder="如 4" oninput="calcProfit()">
+            </div>
+            <div class="calc-field">
+              <label>快递费总额 元</label>
+              <input type="number" id="c-shipping" placeholder="如 300" oninput="calcProfit()">
+            </div>
+            <div class="calc-field">
+              <label>广告推广费 元</label>
+              <input type="number" id="c-adspend" placeholder="如 200" oninput="calcProfit()">
+            </div>
+            <div class="calc-field">
+              <label>包装材料费 元</label>
+              <input type="number" id="c-pack" placeholder="如 50" oninput="calcProfit()">
+            </div>
+            <div class="calc-field">
+              <label>其他费用 元（摄影/工具等）</label>
+              <input type="number" id="c-other" placeholder="如 0" oninput="calcProfit()">
+            </div>
+          </div>
+          <button class="calc-btn" onclick="calcProfit()">计算利润 →</button>
+          <div class="calc-result" id="calc-result" style="display:none">
+            <div class="calc-result-item">
+              <div class="calc-result-val" id="r-revenue">-</div>
+              <div class="calc-result-label">实收销售额</div>
+            </div>
+            <div class="calc-result-item">
+              <div class="calc-result-val" id="r-total-cost">-</div>
+              <div class="calc-result-label">总成本</div>
+            </div>
+            <div class="calc-result-item">
+              <div class="calc-result-val" id="r-profit">-</div>
+              <div class="calc-result-label">净利润</div>
+            </div>
+            <div class="calc-result-item">
+              <div class="calc-result-val" id="r-margin">-</div>
+              <div class="calc-result-label">净利润率</div>
+            </div>
+          </div>
+          <div class="calc-decision" id="calc-decision"></div>
+        </div>
+
+        <div class="steps-title">📝 复盘分析步骤</div>
+        <ol class="steps-list">
+          <li class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <strong>汇总你的收入数据</strong><br>
+              · 拼多多/闲鱼后台 → 订单管理 → 导出当月订单（可以看总GMV和退款）<br>
+              · 微信收款 → 账单 → 筛选本月收款<br>
+              · 汇总后得到「总销售额」和「退款金额」
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <strong>汇总你的成本数据</strong><br>
+              · 1688/厂家：查当月进货单，得到「商品成本」<br>
+              · 快递：查快递单或手机支付记录<br>
+              · 广告：推广后台→花费报表<br>
+              · 包装：回忆一下你买了多少纸箱/气泡袋/胶带，估算<br>
+              <br>
+              <strong>新手最容易漏掉的成本：</strong>你自己花的时间。建议按小时折算：如果你花了20小时，时薪按工资折算，这也是成本。
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <strong>解读利润率，决定下一步</strong><br>
+              <br>
+              <table class="data-table">
+                <tr><th>净利润率</th><th>判断</th><th>行动建议</th></tr>
+                <tr><td>&gt;30%</td><td>🟢 优秀</td><td>加大备货，尝试付费投放扩量</td></tr>
+                <tr><td>20-30%</td><td>🟢 良好</td><td>稳定运营，优化转化率</td></tr>
+                <tr><td>10-20%</td><td>🟡 一般</td><td>找到最大成本项，重点优化</td></tr>
+                <tr><td>0-10%</td><td>🔴 危险</td><td>暂停扩张，彻查每项成本；考虑换品</td></tr>
+                <tr><td>&lt;0%</td><td>🔴 亏损</td><td>立即停止备货，分析根本原因再决定</td></tr>
+              </table>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <strong>写一份简短的复盘记录</strong><br>
+              不需要很正式，手机备忘录就行，记录：<br>
+              &nbsp;&nbsp;· 本月销售额：X元 / 净利润：X元 / 净利润率：X%<br>
+              &nbsp;&nbsp;· 做得好的3件事：（例: 主图更换后点击率提升了）<br>
+              &nbsp;&nbsp;· 做得不好的2件事：（例: 没及时回复买家消息，有一单因此取消）<br>
+              &nbsp;&nbsp;· 下个月重点改进：（1件事）<br>
+              <br>
+              这个习惯将帮助你快速迭代，3个月后你的能力会有质的飞跃。
+            </div>
+          </li>
+        </ol>
+
+        <div class="pitfalls-box">
+          <h4>🚫 复盘常见误区</h4>
+          <ul>
+            <li>只看GMV不看利润——「月销5万」可能只赚了500元，甚至亏损</li>
+            <li>忘记算退款和退货成本——退货商品的来回运费是真实损失</li>
+            <li>不算自己的时间成本——如果花100小时赚了500元，时薪5元，不如去打工</li>
+            <li>月月亏损还在坚持「再给一个月」——电商没有「坚持就会成功」，亏损要找原因，不是坚持</li>
+          </ul>
+        </div>
+
+        <div class="checkpoint-box">
+          <h4>✅ 完成标准</h4>
+          <ul class="checkpoint-items">
+            <li class="checkpoint-item"><input type="checkbox" data-c="6" data-i="0" onchange="saveCheck(6,0,this.checked)"><span>我用计算器算出了这段时间真实的净利润和净利润率</span></li>
+            <li class="checkpoint-item"><input type="checkbox" data-c="6" data-i="1" onchange="saveCheck(6,1,this.checked)"><span>我写了一份简短的复盘记录（哪些做好了，哪些需要改进）</span></li>
+            <li class="checkpoint-item"><input type="checkbox" data-c="6" data-i="2" onchange="saveCheck(6,2,this.checked)"><span>我做出了下一步决定：扩大/优化/换品/暂停</span></li>
+          </ul>
+          <button class="complete-btn" onclick="markComplete(6)" id="complete-btn-6">🏆 全部挑战完成！恭喜你成为真正的电商人！</button>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /container -->
+</div><!-- /challenges-section -->
+
+<footer style="background:#1a1a2e;color:#fff;padding:30px;text-align:center;font-size:.85rem;opacity:.8">
+  中国电商实战课 · 实战挑战 · 从第一单开始，真正做起电商 |
+  <a href="index.html" style="color:#ffd700;text-decoration:none">返回首页</a>
+</footer>
+
+<script>
+// ===== PROGRESS TRACKING =====
+var TOTAL = 7;
+var KEY = 'ecomm_practice';
+
+function loadProgress() {
+  try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch(e) { return {}; }
+}
+function saveProgress(p) {
+  localStorage.setItem(KEY, JSON.stringify(p));
+}
+
+function saveCheck(c, i, checked) {
+  var p = loadProgress();
+  if (!p.checks) p.checks = {};
+  var k = c + '_' + i;
+  p.checks[k] = checked;
+  saveProgress(p);
+}
+
+function markComplete(c) {
+  var p = loadProgress();
+  if (!p.done) p.done = [];
+  if (p.done.indexOf(c) === -1) p.done.push(c);
+  saveProgress(p);
+  renderProgress(p);
+  var card = document.getElementById('challenge-' + c);
+  card.classList.add('completed');
+  var badge = document.getElementById('done-badge-' + c);
+  badge.style.display = 'flex';
+  var btn = document.getElementById('complete-btn-' + c);
+  btn.disabled = true;
+  btn.textContent = '✓ 已完成';
+  updateRoadmap(p);
+}
+
+function renderProgress(p) {
+  var done = (p.done || []).length;
+  var pct = Math.round(done / TOTAL * 100);
+  document.getElementById('progress-bar').style.width = pct + '%';
+  document.getElementById('progress-sub').textContent = done + ' / ' + TOTAL + ' 挑战已完成';
+  if (done === 0) {
+    document.getElementById('progress-text').textContent = '开始你的第一个挑战 ↓';
+  } else if (done === TOTAL) {
+    document.getElementById('progress-text').textContent = '🏆 恭喜！你已完成全部实战挑战！';
+  } else {
+    document.getElementById('progress-text').textContent = '进行中 — 已完成 ' + pct + '%';
+  }
+}
+
+function updateRoadmap(p) {
+  var done = p.done || [];
+  for (var i = 0; i < TOTAL; i++) {
+    var el = document.getElementById('rm' + i);
+    if (done.indexOf(i) > -1) {
+      el.classList.add('done');
+      el.classList.remove('active');
+    }
+  }
+  // mark next incomplete as active
+  for (var j = 0; j < TOTAL; j++) {
+    if (done.indexOf(j) === -1) {
+      document.getElementById('rm' + j).classList.add('active');
+      break;
+    }
+  }
+}
+
+function restoreChecks(p) {
+  if (!p.checks) return;
+  Object.keys(p.checks).forEach(function(k) {
+    var parts = k.split('_');
+    var c = parseInt(parts[0]), i = parseInt(parts[1]);
+    var el = document.querySelector('[data-c="'+c+'"][data-i="'+i+'"]');
+    if (el) el.checked = p.checks[k];
+  });
+}
+
+function restoreCompleted(p) {
+  (p.done || []).forEach(function(c) {
+    var card = document.getElementById('challenge-' + c);
+    if (card) card.classList.add('completed');
+    var badge = document.getElementById('done-badge-' + c);
+    if (badge) badge.style.display = 'flex';
+    var btn = document.getElementById('complete-btn-' + c);
+    if (btn) { btn.disabled = true; btn.textContent = '✓ 已完成'; }
+  });
+}
+
+// ===== TOGGLE =====
+function toggleChallenge(n) {
+  var card = document.getElementById('challenge-' + n);
+  var isOpen = card.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.challenge-card').forEach(function(c) {
+    c.classList.remove('open');
+  });
+  if (!isOpen) card.classList.add('open');
+}
+
+function scrollToChallenge(n) {
+  var el = document.getElementById('challenge-' + n);
+  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  setTimeout(function() {
+    if (!el.classList.contains('open')) toggleChallenge(n);
+  }, 400);
+}
+
+// ===== CALCULATOR =====
+function calcProfit() {
+  var gmv = parseFloat(document.getElementById('c-gmv').value) || 0;
+  var refundRate = parseFloat(document.getElementById('c-refund').value) || 0;
+  var cost = parseFloat(document.getElementById('c-cost').value) || 0;
+  var commRate = parseFloat(document.getElementById('c-commission').value) || 0;
+  var shipping = parseFloat(document.getElementById('c-shipping').value) || 0;
+  var adspend = parseFloat(document.getElementById('c-adspend').value) || 0;
+  var pack = parseFloat(document.getElementById('c-pack').value) || 0;
+  var other = parseFloat(document.getElementById('c-other').value) || 0;
+
+  if (gmv <= 0) return;
+
+  var revenue = gmv * (1 - refundRate / 100);
+  var commission = revenue * commRate / 100;
+  var totalCost = cost + commission + shipping + adspend + pack + other;
+  var profit = revenue - totalCost;
+  var margin = revenue > 0 ? (profit / revenue * 100) : 0;
+
+  document.getElementById('r-revenue').textContent = '¥' + revenue.toFixed(0);
+  document.getElementById('r-total-cost').textContent = '¥' + totalCost.toFixed(0);
+  document.getElementById('r-profit').textContent = '¥' + profit.toFixed(0);
+  document.getElementById('r-margin').textContent = margin.toFixed(1) + '%';
+  document.getElementById('calc-result').style.display = 'grid';
+
+  var dec = document.getElementById('calc-decision');
+  dec.style.display = 'block';
+  dec.className = 'calc-decision';
+  if (margin > 30) {
+    dec.classList.add('decision-go');
+    dec.textContent = '🟢 利润率' + margin.toFixed(1) + '% — 优秀！可以加大备货和投放，进入扩张阶段。';
+  } else if (margin > 20) {
+    dec.classList.add('decision-go');
+    dec.textContent = '🟢 利润率' + margin.toFixed(1) + '% — 良好。稳定运营，优化转化率可以进一步提升。';
+  } else if (margin > 10) {
+    dec.classList.add('decision-ok');
+    dec.textContent = '🟡 利润率' + margin.toFixed(1) + '% — 一般。找出最大成本项重点优化，暂不要扩张。';
+  } else if (margin > 0) {
+    dec.classList.add('decision-stop');
+    dec.textContent = '🔴 利润率' + margin.toFixed(1) + '% — 危险！暂停扩张，彻查每项成本。考虑换品或调价。';
+  } else {
+    dec.classList.add('decision-stop');
+    dec.textContent = '🔴 亏损！立即停止备货。分析是选品问题、定价问题还是成本过高，再决定是否继续。';
+  }
+}
+
+// ===== INIT =====
+window.onload = function() {
+  var p = loadProgress();
+  renderProgress(p);
+  restoreChecks(p);
+  restoreCompleted(p);
+  updateRoadmap(p);
+  // Open first incomplete challenge
+  var done = p.done || [];
+  for (var i = 0; i < TOTAL; i++) {
+    if (done.indexOf(i) === -1) {
+      document.getElementById('challenge-' + i).classList.add('open');
+      break;
+    }
+  }
+};
+</script>
+</body>
+</html>
