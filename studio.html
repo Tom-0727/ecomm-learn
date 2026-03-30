@@ -3669,23 +3669,118 @@
       <h4>🚧 第二阶段常见卡点 & 解法</h4>
       <div class="sp-item">
         <div class="sp-stuck">主图换了3个版本，CTR还是0.5%以下，和均值差很远</div>
-        <div class="sp-fix">CTR低不只是主图的问题，还可能是价格太高（同款别人更便宜）或标题关键词没匹配上（出现在错误的搜索场景里）。三者同时检查，而不是只换图。测试时每次只改一个变量。</div>
+        <div class="sp-fix">
+          <strong>CTR长期低于1%，通常是3个问题同时存在，换图只解决了其中1个。</strong>
+          <table class="dt" style="margin:10px 0">
+            <tr><th>检查项</th><th>如何判断</th><th>解法</th></tr>
+            <tr>
+              <td><strong>①关键词出现场景错误</strong><br><span style="font-size:.78rem;color:#6b7280">展现量大但CTR极低</span></td>
+              <td>PDD后台→推广→搜索词报告：看主要展现词是否真的是你的目标人群在搜的词</td>
+              <td>删掉与商品不匹配的关键词（比如「收纳」太宽泛，换成「桌面收纳盒上班族」），让展现更精准</td>
+            </tr>
+            <tr>
+              <td><strong>②价格没有竞争力</strong><br><span style="font-size:.78rem;color:#6b7280">同款对比你贵10%以上</span></td>
+              <td>PDD搜你的核心词，截图前3名定价，和你的对比</td>
+              <td>新店权重低，建议比均价低5%进行冷启动，销量上来后再逐步提价（每次提5%，观察转化率）</td>
+            </tr>
+            <tr>
+              <td><strong>③主图没有传递「结果」</strong><br><span style="font-size:.78rem;color:#6b7280">产品图 vs 场景图</span></td>
+              <td>你的主图是「产品本身」（白底or平铺）还是「用了以后的状态」（使用场景/对比图）</td>
+              <td>换成「整洁桌面对比图」或「使用后效果图」；主图上加1行文字说「核心结果」（如「乱桌变整洁 1个盒搞定」）</td>
+            </tr>
+          </table>
+          <div style="background:#f0fdf4;border-radius:6px;padding:8px 12px;font-size:.83rem;color:#166534;line-height:1.75">
+            <strong>实战参考：</strong>同一收纳盒，白底产品图CTR=0.6%；换成「桌面前后对比图+文字标注」后CTR=2.1%，提升3.5倍。主图一次只换一个元素，先换封面类型（产品→场景），再试文字排版。
+          </div>
+        </div>
       </div>
       <div class="sp-item">
         <div class="sp-stuck">开了搜索广告，花了¥200，只出了1单，ROI完全不达标</div>
-        <div class="sp-fix">先暂停广告，检查「转化漏斗」：有点击但不转化 = 详情页问题（加强FABE、补充买家评价截图）；没有点击 = 关键词出价太低，没有展现量。两个问题，解法完全不同，必须先判断卡在哪一层。</div>
+        <div class="sp-fix">
+          <strong>花了¥200出1单，先确认问题在哪一层，再决定是否继续烧钱。</strong>
+          <table class="dt" style="margin:10px 0">
+            <tr><th>漏斗层</th><th>判断指标</th><th>问题定位</th><th>解法</th></tr>
+            <tr style="background:rgba(248,113,113,.06)">
+              <td><strong>第1层：展现→点击</strong></td>
+              <td>CTR &lt; 1%</td>
+              <td>主图/价格没有竞争力，或关键词不精准</td>
+              <td>先解决主图和关键词（见上一个卡点），广告不是主要问题</td>
+            </tr>
+            <tr style="background:rgba(253,224,71,.06)">
+              <td><strong>第2层：点击→下单</strong></td>
+              <td>CTR&gt;1%但转化率&lt;1%</td>
+              <td>详情页说服力不足；或评价太少让买家不放心</td>
+              <td>评价少于10条时优先补评价（私域激活），不要大规模投广告；详情页加「买家真实反馈截图」「使用前后对比」</td>
+            </tr>
+            <tr style="background:rgba(134,239,172,.06)">
+              <td><strong>第3层：广告ROI计算</strong></td>
+              <td>CTR&gt;1%，转化&gt;2%，但ROI&lt;3</td>
+              <td>出价过高，或关键词太宽泛导致无效点击</td>
+              <td>广告后台→搜索词报告→暂停「花费多但0成交」的词；出价下调10-15%，观察消耗率（保持60-80%消耗即可）</td>
+            </tr>
+          </table>
+          <div style="background:#fef2f2;border-radius:6px;padding:8px 12px;font-size:.83rem;color:#991b1b;line-height:1.75">
+            <strong>⚠️ 新店常见错误：</strong>评价&lt;5条就开广告。此时转化率通常&lt;0.5%（买家不信任新店），广告费全部浪费。正确顺序：私域首批20单→积累10+评价→再开广告。评价是广告ROI的放大器，没有评价的广告ROI往往只有0.5-1.0。
+          </div>
+        </div>
       </div>
       <div class="sp-item">
         <div class="sp-stuck">私域朋友圈发了产品，朋友直接划走不看，参与度很低</div>
-        <div class="sp-fix">朋友圈发「产品广告」是最低效的。换成「真实使用体验」内容：「最近在用这个，发现XXX，分享一下」，自然植入产品，不要在朋友圈直接写价格。私信感兴趣的朋友给优惠，比朋友圈广播更有效。</div>
+        <div class="sp-fix">
+          <strong>朋友圈「产品广告」和「真实分享」的区别，朋友们能在0.5秒内判断出来。</strong><br>
+          把内容从「产品广告」切换到「真实体验」，参与度会立刻不同：
+          <table class="dt" style="margin:10px 0">
+            <tr><th>类型</th><th>示例内容</th><th>效果</th></tr>
+            <tr style="background:rgba(248,113,113,.06)"><td>❌ 产品广告</td><td>「我家新品上架了！桌面收纳盒，原木材质，买一送一，点击链接购买→」</td><td>直接被划走，甚至被屏蔽</td></tr>
+            <tr style="background:rgba(134,239,172,.06)"><td>✅ 真实分享</td><td>「今天终于把桌面整理好了，之前乱到找不到钥匙😂 用了一个月的心得：分格收纳真的有用，出门前10秒能找到所有东西了。感兴趣的私信我」</td><td>自然点赞、评论、私信</td></tr>
+          </table>
+          <strong>朋友圈内容节奏（不能天天发产品）：</strong><br>
+          · 每周1条「真实使用体验」（提到产品但不直接卖）<br>
+          · 每2周1条「朋友专属优惠」（明确说是给朋友圈朋友的福利，数量有限）<br>
+          · 每月1条「新品预告」（预热，不卖货，问「有没有人对XXX感兴趣？」）<br>
+          · <strong>对留言/私信的朋友，一对一私信给优惠</strong>——私信转化率比朋友圈广播高5-10倍
+        </div>
       </div>
       <div class="sp-item">
         <div class="sp-stuck">评价积累了30条好评，但自然流量还是几乎为0</div>
-        <div class="sp-fix">评价不能带来流量，关键词排名才能。检查你的商品在搜索你的核心词时能排到第几页。如果超过第5页，说明还需要付费广告辅助；或者换一个竞争更低的长尾词作为主打关键词。</div>
+        <div class="sp-fix">
+          <strong>评价本身不产生流量——关键词排名才产生流量。30条好评不等于自然排名靠前。</strong><br>
+          按以下步骤诊断：<br><br>
+          <strong>第1步：查你的实际排名</strong><br>
+          打开PDD → 搜索你的核心关键词 → 向下翻，找到你的商品在第几页、第几位。<br>
+          · 前3页（top 60）：说明排名OK，自然流量应该有，去查展现量数据<br>
+          · 第4-10页：流量极少，需要广告辅助<br>
+          · 10页以外：基本搜索不到，必须优化关键词+广告<br><br>
+          <strong>第2步：查关键词是否精准</strong><br>
+          搜索你的核心词，看搜索结果里你的商品旁边的「推荐标签」是否和商品匹配。不匹配说明标题/类目有偏差——调整标题中的核心关键词，让搜索引擎更准确地理解你的品。<br><br>
+          <strong>第3步：用广告辅助自然排名</strong><br>
+          在搜索结果靠后时，搜索广告是提升曝光最直接的手段。月GMV目标¥2万，广告费预算上限为GMV的18%（约¥3600/月）——优先集中投在3-5个核心词，不要分散。<br>
+          <div class="insight-box" style="margin:10px 0 0">💡 <strong>核心逻辑：</strong>评价提升「转化率」，关键词+排名提升「曝光量」。流量 = 曝光 × CTR × 转化率。如果流量几乎为0，说明曝光量是瓶颈，和评价无关。</div>
+        </div>
       </div>
       <div class="sp-item">
         <div class="sp-stuck">收到差评，对方要求退全款否则不改评，感觉被勒索</div>
-        <div class="sp-fix">¥200以内的商品，直接退款，标注「已处理」。这不是妥协，是成本最低的处理方式。维权的时间成本远大于退款金额。同时把该问题录入产品改进清单，争取消灭该问题的根源（包装/说明/预期管理）。</div>
+        <div class="sp-fix">
+          <strong>先判断是「合理投诉」还是「恶意勒索」，处理方式完全不同。</strong>
+          <table class="dt" style="margin:10px 0">
+            <tr><th>情况</th><th>判断标准</th><th>处理方式</th></tr>
+            <tr style="background:rgba(253,224,71,.06)">
+              <td><strong>合理投诉</strong></td>
+              <td>商品确实有质量问题/和描述不符，买家要求合理补偿</td>
+              <td>主动联系买家道歉，给合理补偿（¥200以内直接退款）。退款后差评通常会自然改善，或你可以申请追评。成本最低。</td>
+            </tr>
+            <tr style="background:rgba(248,113,113,.06)">
+              <td><strong>恶意勒索</strong></td>
+              <td>商品无质量问题，对方以「不给钱就差评」为由索要远超合理范围的补偿</td>
+              <td>① 不要答应超额要求；② 走PDD「举报恶意差评」路径（商家后台→客服→举报）；③ 在差评下方公开、专业地回复说明情况（买家可见，让其他买家有参考）；④ 金额&lt;¥100时退款止损更快</td>
+            </tr>
+          </table>
+          <strong>差评公开回复模板（让潜在买家看到你的处理态度）：</strong>
+          <div class="template-box" style="margin:8px 0 0">
+            <div class="tpl-title">📝 差评回复话术（专业、不卑不亢）</div>
+            <div class="template-content" style="font-family:inherit;font-size:.83rem;line-height:1.9">「非常抱歉您的体验不满意。我们已第一时间联系您处理，<span class="tpl-var">[说明实际处理结果：如已全额退款/已补发]</span>。如有其他问题欢迎再联系，我们一定负责到底。」<br><em style="font-size:.78rem;color:#9ca3af">（不要争辩谁对谁错；不要情绪化；让看到这条差评的潜在买家感受到你的处理态度）</em></div>
+          </div>
+        </div>
       </div>
       <div class="sp-item">
         <div class="sp-stuck">商品突然被系统下架或显示「违规」，后台提示违规但看不懂原因，不知道怎么恢复</div>
