@@ -8253,6 +8253,132 @@ SKU2新增：¥<span class="tpl-var">_____</span>/天（冷启动30天，约¥10
         </div>
       </div>
 
+      <!-- Traffic Diagnosis SOP -->
+      <div class="task-block" id="t3-traffic-diag">
+        <div class="task-block-header" onclick="toggleTask('t3-traffic-diag')">
+          <div class="task-icon">🔎</div>
+          <div class="task-block-title">任务 3.X — 流量诊断SOP：流量下跌时系统排查</div>
+          <div class="task-block-meta">紧急使用 · 发现流量异常后30分钟内定位原因</div>
+          <div class="task-block-toggle">▼</div>
+        </div>
+        <div class="task-block-content" id="t3-traffic-diag-content" style="display:none">
+          <div class="deep-steps">
+
+            <div class="deep-step">
+              <div class="dt">流量下跌的4大根源（优先级顺序排查）</div>
+              <p>流量下跌 ≠ 一定是你的问题。先排除外部原因，再看内部原因，避免乱改一通。</p>
+              <div class="framework-box" style="margin:12px 0">
+                <div class="fw-title">🔍 流量诊断4步排查树（按顺序执行）</div>
+                <div style="font-size:.84rem;color:#cbd5e1">
+                  <div style="background:#0f1f35;border-radius:6px;padding:12px;margin-bottom:8px">
+                    <div style="color:#60a5fa;font-weight:700;margin-bottom:6px">第1步：排除外部原因（5分钟）</div>
+                    <div style="line-height:2">
+                      ☐ <strong>平台大盘</strong>：打开多多商家群或卖家论坛，看是否有"今天普遍流量低"的讨论（大盘波动 = 不是你的问题）<br>
+                      ☐ <strong>季节性波动</strong>：对比去年同期数据，工作日/节假日/月末前后本来就有波动<br>
+                      ☐ <strong>竞品活动</strong>：搜索你的核心词，看前10名是否有大促活动或大幅降价（竞品活动会抢走你的展现量）
+                    </div>
+                  </div>
+                  <div style="background:#0f1f35;border-radius:6px;padding:12px;margin-bottom:8px">
+                    <div style="color:#fbbf24;font-weight:700;margin-bottom:6px">第2步：广告流量诊断（10分钟）</div>
+                    <div style="line-height:2">
+                      ☐ <strong>广告账户余额</strong>：是否清零或不足？（最常见！设置余额提醒）<br>
+                      ☐ <strong>广告展现量</strong>：推广中心 → 今日展现量 vs 昨日/上周同天。展现量跌 = 竞争加剧或出价被超越<br>
+                      ☐ <strong>关键词排名</strong>：主力词排名是否下降？（查推广中心关键词报告）<br>
+                      ☐ <strong>日预算是否提前耗尽</strong>：流量只在上午，下午断 = 预算不足，提高日预算或调整时段投放
+                    </div>
+                  </div>
+                  <div style="background:#0f1f35;border-radius:6px;padding:12px;margin-bottom:8px">
+                    <div style="color:#f97316;font-weight:700;margin-bottom:6px">第3步：自然流量诊断（10分钟）</div>
+                    <div style="line-height:2">
+                      ☐ <strong>搜索排名</strong>：手机上搜核心词，找到你的商品。在第几页第几位？（排名是否近期下滑）<br>
+                      ☐ <strong>最近是否改过标题/主图/价格</strong>：任何修改都可能触发权重重新计算（改完后有3-5天的"重新学习期"流量低是正常的）<br>
+                      ☐ <strong>评价是否有新差评</strong>：1条1星差评可以导致自然流量下降15-20%<br>
+                      ☐ <strong>账号是否有违规提醒</strong>：商家后台 → 消息中心 → 查是否有系统警告
+                    </div>
+                  </div>
+                  <div style="background:#2d0f0f;border:1px solid #991b1b;border-radius:6px;padding:12px">
+                    <div style="color:#f87171;font-weight:700;margin-bottom:6px">第4步：平台限流排查（5分钟）</div>
+                    <div style="line-height:2">
+                      ☐ <strong>商品是否在"审核中"状态</strong>：改过主图/标题后系统会自动暂停展现审核（通常1-24小时）<br>
+                      ☐ <strong>DSR评分是否近期跌破4.7</strong>：低于4.7系统会主动降低自然流量分配<br>
+                      ☐ <strong>发货时效是否超标</strong>：超时率&gt;5%会触发限流<br>
+                      ☐ <strong>是否有大量退款未处理</strong>：积压的退款申请会影响店铺健康分
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="deep-step">
+              <div class="dt">流量下跌快速恢复操作（按根源对症）</div>
+              <div class="framework-box" style="margin:12px 0">
+                <div class="fw-title">⚡ 对症处理方案（找到根源后执行）</div>
+                <table style="width:100%;border-collapse:collapse;font-size:.82rem">
+                  <tr style="background:#1e3a5f">
+                    <th style="padding:7px 10px;color:#93c5fd">根源</th>
+                    <th style="padding:7px 10px;color:#93c5fd">处理方案</th>
+                    <th style="padding:7px 10px;color:#93c5fd">恢复时间</th>
+                  </tr>
+                  <tr style="border-bottom:1px solid #1e293b">
+                    <td style="padding:7px 10px;color:#fbbf24">广告余额清零</td>
+                    <td style="padding:7px 10px;color:#e2e8f0">立刻充值，设置余额不足¥20时手机提醒</td>
+                    <td style="padding:7px 10px;color:#4ade80">1小时内</td>
+                  </tr>
+                  <tr style="border-bottom:1px solid #1e293b;background:#0f1f35">
+                    <td style="padding:7px 10px;color:#fbbf24">广告出价被超越</td>
+                    <td style="padding:7px 10px;color:#e2e8f0">主力词出价提高10-20%；查看竞品出价情况</td>
+                    <td style="padding:7px 10px;color:#4ade80">当天见效</td>
+                  </tr>
+                  <tr style="border-bottom:1px solid #1e293b">
+                    <td style="padding:7px 10px;color:#fbbf24">修改标题/主图后流量跌</td>
+                    <td style="padding:7px 10px;color:#e2e8f0">等待3-5天系统重新学习，不要再改；若7天后仍低，考虑恢复原版</td>
+                    <td style="padding:7px 10px;color:#fbbf24">3-7天</td>
+                  </tr>
+                  <tr style="border-bottom:1px solid #1e293b;background:#0f1f35">
+                    <td style="padding:7px 10px;color:#f87171">新差评拉低评分</td>
+                    <td style="padding:7px 10px;color:#e2e8f0">联系买家处理（参考t2-3差评处理SOP），争取修改评价</td>
+                    <td style="padding:7px 10px;color:#fbbf24">5-14天</td>
+                  </tr>
+                  <tr style="border-bottom:1px solid #1e293b">
+                    <td style="padding:7px 10px;color:#f87171">商品审核中</td>
+                    <td style="padding:7px 10px;color:#e2e8f0">等待审核通过（通常1-24小时），不需要操作</td>
+                    <td style="padding:7px 10px;color:#4ade80">1-24小时</td>
+                  </tr>
+                  <tr style="background:#0f1f35">
+                    <td style="padding:7px 10px;color:#f87171">平台大盘整体低</td>
+                    <td style="padding:7px 10px;color:#e2e8f0">不做任何操作，等恢复。乱改反而带来更多损失</td>
+                    <td style="padding:7px 10px;color:#4ade80">1-3天自动恢复</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <!-- 模拟对话 -->
+            <div class="deep-step">
+              <div class="dt">模拟对话：流量诊断的实战困惑</div>
+              <div style="background:#0d1f35;border-radius:8px;padding:16px;margin-top:8px">
+
+                <div style="margin-bottom:16px">
+                  <div style="color:#93c5fd;font-weight:600;margin-bottom:4px">Q：流量突然跌了50%，但我什么都没改，怎么办？</div>
+                  <div style="color:#cbd5e1;font-size:.88rem;line-height:1.7">A：按排查树从外部到内部走一遍。<strong style="color:#60a5fa">最常见的"什么都没改但流量跌"的原因</strong>是：①广告余额不知不觉清零了；②节假日/周末本来流量就低（你上次关注是工作日）；③竞品做了大促，临时抢走了你的展现份额。真正是平台降权的情况（什么都没改且不是大盘问题）其实比较少见——遇到这种情况，检查是否有未处理的违规提醒或退款积压。</div>
+                </div>
+
+                <div>
+                  <div style="color:#93c5fd;font-weight:600;margin-bottom:4px">Q：我检查发现是搜索排名从第2页掉到第5页了，怎么提升？</div>
+                  <div style="color:#cbd5e1;font-size:.88rem;line-height:1.7">A：搜索排名的决定因素是<strong style="color:#60a5fa">销量权重 × 点击率 × 转化率 × DSR评分</strong>。从第2页掉到第5页，通常是竞品销量增长比你快，稀释了你的相对权重。恢复路径：①用广告"刷"搜索排名（出价精准词拿到搜索流量→销量和点击率数据积累→自然排名提升）；②参加一次限时秒杀活动拉高即时销量；③如果以上都不行，考虑换核心词（选搜索量小一点但竞争更少的长尾词，先拿到排名再逐步做大词）。</div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="insight-box">
+              <strong>流量诊断的核心认知</strong>：80%的"流量下跌"有简单的外部原因（广告余额/平台大盘/竞品活动）。在乱改标题/主图/价格之前，先花10分钟跑完排查树。<strong>错误的操作（不明原因改标题）会把一个可以自然恢复的问题变成真正的权重损失</strong>。诊断清楚再操作，不确定就等待观察3天。
+            </div>
+
+          </div>
+        </div>
+      </div>
+
       <!-- Task 3.3: Cashflow -->
       <div class="task-block" id="t3-3">
         <div class="task-block-header" onclick="toggleTask('t3-3')">
