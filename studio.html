@@ -5790,6 +5790,92 @@
             </div>
           </div>
 
+          <!-- Purchase Ledger / 进销存台账 -->
+          <div class="deep-steps" style="margin-top:16px">
+            <div class="deep-step">
+              <div class="deep-step-content">
+                <strong>📒 进销存台账模板（2张表，10分钟/月，让P&L计算不出错）</strong>
+                <p style="font-size:.84rem;color:#555;margin:6px 0 10px">当你开始批量囤货、并且每次拿货价格不同时（谈判成功后价格从¥10.5降到¥9.0），月底算净利润时会遇到一个问题：这个月卖出的货，平均成本是多少？用第一次拿货价还是最新拿货价？算错了，净利润可能差¥500-1500。以下是一套不需要ERP软件的简单台账方案，腾讯文档/Excel即可。</p>
+
+                <div style="background:#f0fdf4;border-radius:6px;padding:10px 14px;font-size:.83rem;color:#166534;margin-bottom:12px;line-height:1.75">
+                  <strong>📌 台账的核心目的：</strong><br>
+                  ① 知道每次买了多少、花了多少钱（拿货成本） → 准确算单品毛利<br>
+                  ② 知道现在还剩多少库存 → 防止断货/过度备货<br>
+                  ③ 月底对账时能告诉你「这个月商品成本共¥XXX」→ 对应现金流表格的「备货支出」行
+                </div>
+
+                <p style="font-weight:700;font-size:.9rem;margin-bottom:8px">表1：采购台账（每次从1688下单后填一行，约1分钟）</p>
+                <table class="dt" style="margin-bottom:16px">
+                  <tr>
+                    <th>采购日期</th>
+                    <th>商品名称/SKU</th>
+                    <th>采购数量</th>
+                    <th>单价（¥）</th>
+                    <th>总采购额（¥）</th>
+                    <th>到货日期</th>
+                    <th>备注</th>
+                  </tr>
+                  <tr style="color:#374151">
+                    <td>2025-06-15</td>
+                    <td>桌面收纳盒（木质4格）</td>
+                    <td>200件</td>
+                    <td>¥10.50</td>
+                    <td style="font-weight:700">¥2,100</td>
+                    <td>2025-06-20</td>
+                    <td>首批代发转囤货</td>
+                  </tr>
+                  <tr style="color:#374151">
+                    <td>2025-07-10</td>
+                    <td>桌面收纳盒（木质4格）</td>
+                    <td>300件</td>
+                    <td>¥9.00</td>
+                    <td style="font-weight:700">¥2,700</td>
+                    <td>2025-07-15</td>
+                    <td>谈判后新价格</td>
+                  </tr>
+                  <tr style="background:#f0fdf4;font-weight:700">
+                    <td colspan="4" style="color:#166534">6月合计备货支出</td>
+                    <td style="color:#166534">¥2,100</td>
+                    <td colspan="2" style="color:#166534">→ 填入6月现金流表「备货支出」行</td>
+                  </tr>
+                </table>
+
+                <p style="font-weight:700;font-size:.9rem;margin-bottom:8px">表2：库存台账（每周更新一次，约5分钟）</p>
+                <table class="dt" style="margin-bottom:14px">
+                  <tr>
+                    <th>商品名称</th>
+                    <th>期初库存</th>
+                    <th>+ 本周到货</th>
+                    <th>- 本周销售<br><span style="font-size:.75rem;font-weight:400">从PDD后台取</span></th>
+                    <th>期末库存</th>
+                    <th>补货触发点</th>
+                    <th>状态</th>
+                  </tr>
+                  <tr>
+                    <td>桌面收纳盒</td>
+                    <td>185件</td>
+                    <td>0件</td>
+                    <td>84件</td>
+                    <td style="font-weight:700">101件</td>
+                    <td>98件</td>
+                    <td style="color:#f59e0b;font-weight:700">⚠️ 临近补货线</td>
+                  </tr>
+                </table>
+
+                <div style="background:#0d1117;border-radius:8px;padding:14px;font-size:.83rem;line-height:1.9;margin-bottom:12px">
+                  <strong style="color:#ffd700">加权平均成本计算（多批次不同价格时必做）</strong><br>
+                  当两批次货混在一起时，不能用最新价，要用加权平均：<br><br>
+                  <span style="color:#86efac">加权平均单价 = 总采购额 ÷ 总采购件数</span><br>
+                  例：200件×¥10.5 + 300件×¥9.0 = ¥2,100 + ¥2,700 = ¥4,800<br>
+                  加权平均单价 = ¥4,800 ÷ 500件 = <strong style="color:#ffd700">¥9.60/件</strong>（不是¥10.5，也不是¥9.0）<br><br>
+                  在月度P&L中，这个月卖出的所有件数都按¥9.60计算拿货成本，结果最准确。
+                </div>
+
+                <div class="insight-box">💡 <strong>什么时候需要这个台账？</strong> 月销量稳定在200单以上、已经切换到批量囤货后，每次补货价格可能不同。初期代发阶段每单都从1688买，成本清晰，不需要台账。切换到囤货、开始积累库存后，就需要这2张表了。工具首选：腾讯文档（免费，多设备同步，手机上随时查库存）。</div>
+              </div>
+            </div>
+          </div>
+
           <!-- Safe Price Adjustment Guide -->
           <div class="deep-steps" style="margin-top:16px">
             <div class="deep-step">
