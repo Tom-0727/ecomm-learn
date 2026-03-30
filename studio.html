@@ -6238,6 +6238,179 @@
         </div>
       </div>
 
+      <!-- Task 3.3c: 旺季前备货策略 -->
+      <div class="task-block" id="t3-3c">
+        <div class="task-block-header" onclick="toggleTask('t3-3c')">
+          <div class="task-icon">📦</div>
+          <div class="task-block-title">任务 3.3c — 旺季前备货策略：抓住3倍流量窗口期</div>
+          <div class="task-block-meta">旺季前4-6周执行</div>
+          <div class="task-block-toggle">▼</div>
+        </div>
+        <div class="task-block-body">
+          <p>旺季备货是工作室体量最可预期的一次GMV爆发机会。备货太少：旺季缺货断链，流量白白浪费；备货太多：旺季后库存积压，资金占用2-3个月。以下是精确备货的计算框架，让你不多不少。</p>
+
+          <div class="framework-box">
+            <div class="fw-title">📅 拼多多主要旺季节点 + 提前备货时间表</div>
+            <table class="dt" style="margin-top:8px">
+              <tr><th>节点</th><th>通常时间</th><th>流量倍数</th><th>提前备货时间</th><th>适合品类</th></tr>
+              <tr>
+                <td><strong>年货节</strong></td>
+                <td>1月中旬-2月初（春节前3周）</td>
+                <td>2-4倍</td>
+                <td>提前 <strong>6-8周</strong>（12月初开始备）</td>
+                <td>食品/礼品/家居/收纳</td>
+              </tr>
+              <tr>
+                <td><strong>618</strong></td>
+                <td>5月25日-6月18日</td>
+                <td>3-5倍</td>
+                <td>提前 <strong>4-6周</strong>（4月下旬备货）</td>
+                <td>电器/服装/日用品</td>
+              </tr>
+              <tr>
+                <td><strong>开学季</strong></td>
+                <td>8月20日-9月10日</td>
+                <td>2-3倍</td>
+                <td>提前 <strong>4周</strong>（7月下旬备货）</td>
+                <td>文具/收纳/生活用品/小家电</td>
+              </tr>
+              <tr>
+                <td><strong>双11</strong></td>
+                <td>10月25日-11月11日</td>
+                <td>4-8倍</td>
+                <td>提前 <strong>6-8周</strong>（9月中旬备货）</td>
+                <td>几乎全品类</td>
+              </tr>
+              <tr>
+                <td><strong>双12/年末促销</strong></td>
+                <td>12月1日-12月12日</td>
+                <td>2-3倍</td>
+                <td>提前 <strong>3-4周</strong>（11月初备货）</td>
+                <td>服装/日用/礼品</td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="deep-steps" style="margin-top:16px">
+            <div class="deep-step">
+              <div class="deep-step-content">
+                <strong>旺季备货量计算公式（精确到件数）</strong>
+                <div style="background:#1e293b;border-radius:8px;padding:14px;font-size:.84rem;line-height:1.9;margin:10px 0">
+                  <strong style="color:#ffd700">第1步：算出旺季日均销量预测</strong><br>
+                  旺季日均销量 = 当前平时日均销量 × 流量倍数 × 你的转化率系数<br>
+                  <em style="color:#94a3b8">（转化率系数：旺季前已积累50+评价→1.2；20-50评价→1.0；&lt;20评价→0.8）</em><br><br>
+
+                  <strong style="color:#ffd700">第2步：算出旺季持续天数</strong><br>
+                  旺季持续天数 = 活动正式开始前3天（预热）+ 活动正式持续天数 + 活动结束后3天（尾波）<br><br>
+
+                  <strong style="color:#ffd700">第3步：算出理论备货量</strong><br>
+                  理论备货量 = 旺季日均销量 × 旺季持续天数<br><br>
+
+                  <strong style="color:#ffd700">第4步：加安全库存系数</strong><br>
+                  实际备货量 = 理论备货量 × 1.2（留20%缓冲，防止预测偏低）<br>
+                  减去：当前手头已有库存<br>
+                  = <strong>需要新采购数量</strong>
+                </div>
+
+                <div class="framework-box">
+                  <div class="fw-title">📊 旺季备货计算实例 — 开学季桌面收纳盒</div>
+                  <div style="font-size:.84rem;line-height:2;padding:4px 0">
+                    <strong>基础数据（备货前状态）：</strong><br>
+                    当前平时日均销量：8单/天<br>
+                    当前手头库存：35件<br>
+                    目标旺季：开学季（8/25-9/10，共17天）<br>
+                    预测流量倍数：2.5倍（开学季中等旺季）<br>
+                    评价数量：62条 → 转化率系数1.2<br><br>
+
+                    <strong>计算过程：</strong><br>
+                    旺季日均销量 = 8 × 2.5 × 1.2 = <strong>24单/天</strong><br>
+                    旺季持续天数 = 3（预热）+ 17（活动）+ 3（尾波）= <strong>23天</strong><br>
+                    理论备货量 = 24 × 23 = <strong>552件</strong><br>
+                    实际备货量 = 552 × 1.2 = <strong>662件</strong><br>
+                    减去手头库存 = 662 - 35 = <strong>需采购627件</strong><br><br>
+
+                    <strong>资金需求：</strong>627件 × ¥9（拿货价）= <strong>¥5,643</strong>（需在7月下旬备好）<br>
+                    对比平时月备货支出约¥2,160（240件×¥9），旺季备货是平时的2.6倍<br><br>
+
+                    <strong style="color:#86efac">实际结果：旺季17天GMV = ¥16,200（vs 平时17天约¥5,300），净利润增加¥2,890</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="deep-step">
+              <div class="deep-step-content">
+                <strong>旺季前4-6周操作清单（按倒计时排列）</strong>
+                <table class="dt" style="margin:10px 0">
+                  <tr><th>时间节点</th><th>操作项目</th><th>目的</th><th>完成标准</th></tr>
+                  <tr>
+                    <td><strong>旺季前6周</strong></td>
+                    <td>用上述公式计算备货量，联系供应商确认库存和价格</td>
+                    <td>锁定货源，避免旺季时供应商缺货</td>
+                    <td>供应商确认可供数量+到货时间</td>
+                  </tr>
+                  <tr>
+                    <td><strong>旺季前5周</strong></td>
+                    <td>下采购订单（支付货款或预付定金）</td>
+                    <td>确保货在旺季前2周到手，留缓冲</td>
+                    <td>1688订单已确认，预计到货日期≤旺季前14天</td>
+                  </tr>
+                  <tr>
+                    <td><strong>旺季前4周</strong></td>
+                    <td>更新商品标题+主图（加旺季关键词，如「开学季」「送礼」）</td>
+                    <td>搜索权重提前布局</td>
+                    <td>标题含节点关键词，主图有节日感</td>
+                  </tr>
+                  <tr>
+                    <td><strong>旺季前3周</strong></td>
+                    <td>报名平台旺季活动（限时秒杀/大促专场）；设置满减活动</td>
+                    <td>获取平台额外流量扶持</td>
+                    <td>至少1个活动报名已通过审核</td>
+                  </tr>
+                  <tr>
+                    <td><strong>旺季前2周</strong></td>
+                    <td>广告预算+30%（日预算从¥100提至¥130-150），关键词加入旺季词</td>
+                    <td>提前抢排名，旺季开始时已有数据积累</td>
+                    <td>广告ROI稳定，预算已调整</td>
+                  </tr>
+                  <tr>
+                    <td><strong>旺季前1周</strong></td>
+                    <td>确认备货到位；检查发货效率（打印机耗材/包装材料/快递账户余额）</td>
+                    <td>防止旺季发货崩溃</td>
+                    <td>库存实物与后台一致；发货能力≥日均预测量×1.5</td>
+                  </tr>
+                  <tr>
+                    <td><strong>旺季结束后1周</strong></td>
+                    <td>清点剩余库存；复盘备货准确率；联系供应商退还多余备货（协商）</td>
+                    <td>处置尾货，回收资金</td>
+                    <td>剩余库存数量 ÷ 实际销量 &lt; 15%（备货准确率&gt;85%）</td>
+                  </tr>
+                </table>
+
+                <div class="template-box">
+                  <div class="tpl-title">旺季备货供应商确认话术（微信发给供应商）</div>
+                  <div class="template-content">
+老板您好！我是上次拿过<span class="tpl-var">XX商品</span>的<span class="tpl-var">您的名字</span>。
+
+临近<span class="tpl-var">开学季/618/双11</span>，我需要备一批货，想确认几件事：
+
+①「<span class="tpl-var">商品名称+规格</span>」您现在库存有多少？能确保<span class="tpl-var">X月X日前</span>发出吗？
+② 这次我想采购<span class="tpl-var">500-700件</span>（根据我的计算），价格还是¥<span class="tpl-var">XX</span>/件吗？量大有没有优惠？
+③ 如果到时候旺季卖不完，剩余库存能不能退部分给您（或者换其他款）？
+
+我需要在<span class="tpl-var">X月X日前</span>确认，麻烦您回复一下，谢谢！
+                  </div>
+                </div>
+
+                <div class="insight-box" style="margin-top:10px">
+                  💡 <strong>旺季备货的核心原则</strong>：宁可备多10-15%，不要备少。旺季缺货的损失（断货后流量继续花费、排名下跌、买家差评）远大于多备15%货物的资金占用成本。但超过20%的冒进备货就是赌博，特别是季节性强的商品（如圣诞/春节专款），旺季一过就成死库存。
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Task 3.3b: Ads Scaling -->
       <div class="task-block" id="t3-ads">
         <div class="task-block-header" onclick="toggleTask('t3-ads')">
