@@ -1817,6 +1817,25 @@ PDD搜索关键词：<span class="tpl-var">_______________</span>
 □ 净利润率 ≥ 20%  且  毛利率 ≥ 40%  → ✅ 财务上可行，进入下一步选品评分
 □ 净利润率 10-20%，毛利率 30-40%   → ⚠️ 边缘，须谈降价或换包装降成本再考虑
 □ 净利润率 < 10%                   → ❌ 此价格区间不可做，换品或换供应商</div>
+
+            <!-- Financial model walkthrough dialog -->
+            <div style="background:#0d1117;border-radius:8px;padding:14px 16px;font-size:.84rem;line-height:2.1;margin-top:12px">
+              <strong style="color:#94a3b8;font-size:.8rem">🎭 模拟对话：对一个候选品填财务模型，发现「定价¥25根本做不了」</strong><br>
+              <p style="font-size:.82rem;color:#6b7280;margin:4px 0 10px">背景：你看中一款「竹制文件架」，1688报价¥8/件，市场定价¥25，准备做。先跑一遍财务模型。</p>
+              <strong style="color:#86efac">Q: 拿货¥8，定价¥25，毛利率是多少？</strong><br>
+              <strong style="color:#fcd34d">A:</strong> (25-8)/25 = 68%。毛利率看起来不错，继续算。<br><br>
+              <strong style="color:#86efac">Q: 快递费多少？</strong><br>
+              <strong style="color:#fcd34d">A:</strong> 文件架尺寸大，估算快递¥8/单（大件）。净利润 = 25 - 8 - 8 - 广告 - 平台佣金。<br><br>
+              <strong style="color:#86efac">Q: 广告预算按ROI 2.5算，¥25客单价，广告成本≈?</strong><br>
+              <strong style="color:#fcd34d">A:</strong> 广告成本 = 客单价 ÷ ROI = 25 ÷ 2.5 = ¥10/单。加上平台佣金¥0.5。<br><br>
+              <strong style="color:#86efac">Q: 算净利润：25 - 8 - 8 - 10 - 0.5 = ?</strong><br>
+              <strong style="color:#fcd34d">A:</strong> 净利润 = -1.5元！这个品亏钱。净利润率 = -6%。<br><br>
+              <strong style="color:#86efac">Q: 快递费是核心问题。有没有办法？</strong><br>
+              <strong style="color:#fcd34d">A:</strong> 方案A：涨价到¥35（净利润 = 35-8-8-14-0.7 = ¥4.3，净利润率12%，还是低）。方案B：换成小件品（文件架改为「桌面名片收纳盒」，¥6/件，快递¥3），重新算。方案C：放弃这个品。
+              <div style="background:rgba(239,68,68,.12);border-radius:6px;padding:8px 12px;margin-top:10px;font-size:.81rem;line-height:1.75">
+                <strong style="color:#fca5a5">财务模型的最大作用：在买货前发现问题。</strong>很多新手买了300件才发现每单亏钱。用这个模型的3分钟，胜过2个月的惨痛学费。<strong>快递费是大件商品最容易忽略的杀手</strong>——超过¥6/单的商品，净利润率通常低于15%。
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -6549,6 +6568,23 @@ SKU2新增：¥<span class="tpl-var">_____</span>/天（冷启动30天，约¥10
 阶段三：爆款固化（第9-12周，目标：月销500+单，进入自然排名维持）
 第9-12周月GMV：¥<span class="tpl-var">_______</span>   广告占GMV比：<span class="tpl-var">___</span>%   自然流量占比：<span class="tpl-var">___</span>%
 进入维护模式标志：□月销≥500单  □CTR≥3%稳定  □自然流量≥20%  □ROI≥3.0稳定</div>
+
+            <!-- 12-week progress check dialog -->
+            <div style="background:#0d1117;border-radius:8px;padding:14px 16px;font-size:.84rem;line-height:2.1;margin-top:12px">
+              <strong style="color:#94a3b8;font-size:.8rem">🎭 模拟对话：第6周进度检查——数据不好看，该继续还是放弃？</strong><br>
+              <p style="font-size:.82rem;color:#6b7280;margin:4px 0 10px">第6周末，你的爆款链接日均17单，ROI 2.1，低于目标（日均25单，ROI 2.5）。你在评估是否应该继续投入。</p>
+              <strong style="color:#86efac">Q: 第6周日均17单，目标25单，差31%。是广告问题还是商品问题？</strong><br>
+              <strong style="color:#fcd34d">A:</strong> 查广告漏斗：CTR 2.4%（正常），转化率1.9%（低于目标2.5%）。点进来的人多，但不买——是转化问题。<br><br>
+              <strong style="color:#86efac">Q: 转化低，最可能的原因？第6周应该有多少评价了？</strong><br>
+              <strong style="color:#fcd34d">A:</strong> 17单/天×6周≈714单，评价可能有200-300条。够了。再查：退款率4%（正常），好评率98%（正常）。详情页有没有问题？<br><br>
+              <strong style="color:#86efac">Q: 查详情页停留时间——多少秒？</strong><br>
+              <strong style="color:#fcd34d">A:</strong> 18秒（目标>30秒）。买家进来看了18秒就走——说明详情页没有说服力，可能第一屏没有抓住核心卖点。<br><br>
+              <strong style="color:#86efac">Q: 那继续还是放弃？</strong><br>
+              <strong style="color:#fcd34d">A:</strong> 继续——商品本身有购买意愿（CTR正常），只是详情页没说服。这是可以修复的问题。本周行动：重做详情页第一屏（突出「节省桌面空间30%」这个具体利益点）。2周后验证转化率是否回升。
+              <div style="background:rgba(96,165,250,.12);border-radius:6px;padding:8px 12px;margin-top:10px;font-size:.81rem;line-height:1.75">
+                <strong style="color:#60a5fa">爆款12周的放弃信号（真正应该停的情况）：</strong>①CTR &lt;1%（主图无竞争力，换图3次无改善）②退款率 &gt;15%（商品本身问题）③ROI连续4周 &lt;1.0（广告烧钱无转化）。转化率低+详情页停留短，通常是可修复的，不是放弃的信号。
+              </div>
+            </div>
           </div>
         </div>
       </div>
