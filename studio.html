@@ -8799,6 +8799,41 @@ SKU2新增：¥<span class="tpl-var">_____</span>/天（冷启动30天，约¥10
           </div>
         </div>
 
+        <!-- 广告出价策略框架 -->
+        <div class="framework-box" style="margin-top:16px">
+          <div class="fw-title">💰 广告出价策略：4种场景下的出价决策逻辑</div>
+          <div style="font-size:.84rem;line-height:1.85">
+            <p style="margin:0 0 10px">出价不是越高越好，也不是越低越好。<strong>出价 = 你愿意为每次点击支付的最高成本</strong>，合理出价需要基于目标ROI反推。</p>
+            <table class="dt" style="margin-bottom:12px">
+              <tr><th>场景</th><th>出价策略</th><th>逻辑</th></tr>
+              <tr>
+                <td><strong>冷启动期</strong><br>（前2周，积累数据）</td>
+                <td>出价 = 行业建议出价×1.1-1.2<br>（略高于均值，抢曝光）</td>
+                <td>冷启动期需要数据积累，宁可贵一点获取点击，让算法快速学习你的人群</td>
+              </tr>
+              <tr>
+                <td><strong>ROI达标期</strong><br>（ROI稳定≥3.0）</td>
+                <td>维持现有出价，每周微调±10%<br>（按搜索词报告优化单词出价）</td>
+                <td>达标后的目标是效率最大化，而非追求更多曝光</td>
+              </tr>
+              <tr>
+                <td><strong>ROI低于目标</strong><br>（ROI &lt; 2.5）</td>
+                <td>亏损词出价-20%；暂停ROI&lt;1.5的词；主词出价不动</td>
+                <td>不要整体降价——会同时削减好词的曝光。精准降低差词</td>
+              </tr>
+              <tr>
+                <td><strong>旺季/大促前</strong><br>（活动前3-5天）</td>
+                <td>全词出价+15-20%，抢大促流量窗口</td>
+                <td>大促期间竞争激烈，出价不跟进会被挤出首屏</td>
+              </tr>
+            </table>
+            <div style="background:#f0f9ff;border-radius:6px;padding:10px 14px;font-size:.82rem;color:#1e40af;line-height:1.8">
+              <strong>反推出价公式：</strong>合理出价 = 客单价 × 目标转化率 ÷ 目标ROI<br>
+              示例：客单价¥39 × 转化率4% ÷ 目标ROI 3.5 = <strong>¥0.45/次点击</strong>（这是你能承受的最高出价）
+            </div>
+          </div>
+        </div>
+
         <div style="background:rgba(255,255,255,.06);border-radius:10px;padding:16px 18px;margin-top:18px">
             <div style="font-weight:700;color:#a78bfa;margin-bottom:14px;font-size:.9rem">💬 模拟对话：广告优化的实际决策</div>
             <div style="font-size:.82rem;line-height:2.0">
