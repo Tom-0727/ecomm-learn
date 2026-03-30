@@ -5123,6 +5123,158 @@
         </div>
       </div>
 
+      <!-- Task 3.1c: 代发→囤货切换指南 -->
+      <div class="task-block" id="t3-1c">
+        <div class="task-block-header" onclick="toggleTask('t3-1c')">
+          <div class="task-icon">📦</div>
+          <div class="task-block-title">任务 3.1c — 代发→囤货切换指南（日销10单是分水岭）</div>
+          <div class="task-block-meta">通常在第5-7周触发</div>
+          <div class="task-block-toggle">▼</div>
+        </div>
+        <div class="task-block-body">
+          <p>大多数人用1件代发起步是正确的——零库存，零积压风险，验证市场。但当日均订单超过10单，代发的操作成本开始拖累你：每单都要手动去1688下单，填写买家地址，确认单号，回PDD填发货……日均10单=每天30-40分钟在做重复机械操作。加上代发比囤货拿货贵5-15%，毛利率在持续流失。这一节告诉你什么时候切换、怎么算第一批备货量、以及如何无缝过渡。</p>
+
+          <div class="framework-box" style="margin:14px 0">
+            <div class="fw-title">⚖️ 切换决策矩阵（满足其中2个条件即可考虑切换）</div>
+            <table class="dt">
+              <tr><th>条件</th><th>判断标准</th><th>你的状况</th><th>结论</th></tr>
+              <tr>
+                <td><strong>① 日均销量</strong></td>
+                <td>连续7天日均 ≥ 10单</td>
+                <td>日均10单 = 每天手动下1688订单30-40分钟</td>
+                <td style="color:#dc2626">达到即切换</td>
+              </tr>
+              <tr>
+                <td><strong>② 代发 vs 批发价差</strong></td>
+                <td>批发价比代发价低 ≥ 8%</td>
+                <td>桌面收纳盒：代发¥10.5 → 批发¥9.0，价差14%</td>
+                <td style="color:#dc2626">月GMV¥8000以上必切换</td>
+              </tr>
+              <tr>
+                <td><strong>③ 供应商发货时效</strong></td>
+                <td>代发供应商发货超过2天影响好评率</td>
+                <td>代发时效2-3天，囤货自发同日发</td>
+                <td style="color:#f59e0b">影响评价体验时切换</td>
+              </tr>
+              <tr>
+                <td><strong>④ 库存预测确定性</strong></td>
+                <td>连续4周销量波动 &lt;30%（销量已稳定）</td>
+                <td>稳定意味着积压风险低，可以安全囤货</td>
+                <td style="color:#16a34a">稳定后切换更安全</td>
+              </tr>
+            </table>
+            <div style="background:#fef3c7;border-radius:6px;padding:10px 14px;font-size:.83rem;color:#92400e;margin-top:10px;line-height:1.75">
+              <strong>⚠️ 不切换的代价（以桌面收纳盒为例）：</strong>代发价¥10.5 vs 批发价¥9.0，差¥1.5/件。月销500件 = 每月多花¥750采购成本。另外每天30分钟代发操作 × 30天 = 15小时/月的重复劳动，换成学习/选品/内容，价值更高。
+            </div>
+          </div>
+
+          <!-- Worked example: first stock calculation -->
+          <div class="framework-box" style="margin:16px 0">
+            <div class="fw-title">🧮 第一批囤货量计算实战（桌面收纳盒，切换前日均12单）</div>
+            <p style="font-size:.87rem;color:#555;margin:4px 0 12px">公式：首批囤货量 = 日均销量 × 安全天数 × 安全系数。切换初期不确定性大，安全天数选20天（不是30天），安全系数选0.8（保守），宁少不多。</p>
+
+            <table class="dt" style="margin-bottom:14px">
+              <tr><th>计算项目</th><th>数值</th><th>说明</th></tr>
+              <tr><td>连续7天日均销量</td><td style="font-weight:700">12单/天</td><td>取近7天均值，不取最高单日</td></tr>
+              <tr><td>× 安全天数（首次囤货）</td><td style="font-weight:700">× 20天</td><td>首次不确定性高，选20天（而非30天）</td></tr>
+              <tr><td>× 安全系数（保守）</td><td style="font-weight:700">× 0.8</td><td>宁可提前补货，不要一次押太多现金</td></tr>
+              <tr><td>= 首批囤货量</td><td style="font-weight:700;color:#2563eb">= 192件</td><td>四舍五入到200件（方便和供应商谈整数量价格）</td></tr>
+              <tr><td>+ 在途预留</td><td>+ 30件</td><td>从下单到到货3-5天，这段时间仍用代发，30件缓冲</td></tr>
+              <tr><td style="font-weight:700">下单量</td><td style="font-weight:700;color:#16a34a">200件</td><td>告诉供应商：「我要200件，要批发价¥9，什么时候能到？」</td></tr>
+            </table>
+
+            <p style="font-weight:700;font-size:.9rem;margin-bottom:8px">资金预算（切换前提前准备好这笔钱）</p>
+            <table class="dt" style="margin-bottom:10px">
+              <tr><th>项目</th><th>金额</th><th>说明</th></tr>
+              <tr><td>备货支出（200件 × ¥9）</td><td style="color:#dc2626">- ¥1,800</td><td>这笔钱提前从PDD提现备用</td></tr>
+              <tr><td>头程运费（厂家→你家）</td><td style="color:#dc2626">- ¥30-80</td><td>200件通常重15-30kg，快递¥30-80不等</td></tr>
+              <tr><td>回收（200件售出后）</td><td style="color:#16a34a">+ ¥39 × 200 = ¥7,800</td><td>全部售出的GMV；实际周转约20天</td></tr>
+              <tr><td style="font-weight:700">单次囤货净利润（200件）</td><td style="font-weight:700;color:#16a34a">+ ¥4,500（估算）</td><td>相比代发多赚¥300（价差¥1.5 × 200件）</td></tr>
+            </table>
+          </div>
+
+          <div class="deep-steps">
+            <div class="deep-step">
+              <div class="deep-step-content">
+                <strong>3步无缝切换（不中断订单的过渡方法）</strong>
+                <table class="dt" style="margin:10px 0">
+                  <tr><th>步骤</th><th>操作</th><th>时机</th><th>注意</th></tr>
+                  <tr>
+                    <td style="font-weight:700">步骤1<br>下批发单</td>
+                    <td>联系供应商：「我现在日均10+单，想从代发转批发，200件，批发价是多少？什么时候能到货？」→ 确认价格和到货时间 → 下单付款</td>
+                    <td>收到货前3-5天（即供应商发货时）</td>
+                    <td>要求「到货再付款」或「先打50%定金」，保留话术见下</td>
+                  </tr>
+                  <tr>
+                    <td style="font-weight:700">步骤2<br>混合期</td>
+                    <td>批发货到之前，继续用代发处理订单。批发货到后，先处理手头代发的剩余在途订单，之后全部切换自发</td>
+                    <td>到货前继续代发；到货后立刻切换</td>
+                    <td>不要同时用代发+自发发两批货给同一个买家，会导致单号混乱</td>
+                  </tr>
+                  <tr>
+                    <td style="font-weight:700">步骤3<br>发货方式更新</td>
+                    <td>PDD后台 → 「物流」→「运费模板」→ 把「发货时间」从「2-3天」改为「24小时内」（囤货自发比代发快）→ 这个改动会直接提升搜索权重</td>
+                    <td>第一批货到手后当天操作</td>
+                    <td>只有你真的能做到24小时内发，才改成这个时效。否则改成「1-2天」</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <div class="deep-step">
+              <div class="deep-step-content">
+                <strong>📝 和供应商谈批发价的话术模板（切换时机的谈判）</strong>
+                <div class="template-box" style="margin:10px 0">
+                  <div class="tpl-title">🗣️ 首次批发采购谈判话术（微信/1688消息，发给供应商）</div>
+                  <div class="template-content" style="font-family:inherit;font-size:.83rem;line-height:1.9">
+                    「王总，您好！我的PDD店铺最近销量还不错，桌面收纳盒目前日均<span class="tpl-var">10-12单</span>，准备从代发转成囤货自发了。<br><br>
+                    这次想先拿<span class="tpl-var">200件</span>试试，请问<span class="tpl-var">200件</span>的批发价是多少？<br>
+                    之前代发是<span class="tpl-var">¥10.5</span>，批发能不能到<span class="tpl-var">¥9</span>？<br>
+                    另外这批货什么时候能到？我需要提前安排仓储。<br><br>
+                    如果质量和之前代发的一样，我以后会稳定每月从您这里拿货，量会逐渐提升。期待您的报价，谢谢！」
+                  </div>
+                </div>
+
+                <div style="background:#fef9c3;border-radius:6px;padding:10px 14px;font-size:.83rem;color:#713f12;margin-top:8px;line-height:1.75">
+                  <strong>谈判预期设置：</strong><br>
+                  · 200件通常能拿到比代发价低 <strong>8-15%</strong> 的价格（代发含单次处理费）<br>
+                  · 如果供应商不降价：「那我先拿<span class="tpl-var">300件</span>，价格能不能到<span class="tpl-var">¥9</span>？」（量换价）<br>
+                  · 如果对方还不降：换一家已经在1688看好的备用供应商，当前供应商通常会松口
+                </div>
+              </div>
+            </div>
+
+            <div class="deep-step">
+              <div class="deep-step-content">
+                <strong>🚨 库存积压风险：3个保险机制</strong>
+                <div style="font-size:.84rem;line-height:1.85;color:#374151;margin:6px 0">
+                  刚切换囤货时，销量可能因为各种原因波动（广告ROI变化、竞品降价、季节性），以下3个机制可以避免大量积压：
+                </div>
+                <table class="dt" style="margin:8px 0">
+                  <tr><th>保险机制</th><th>具体做法</th><th>效果</th></tr>
+                  <tr>
+                    <td><strong>① 小批量起步</strong></td>
+                    <td>首批只囤20天量（不是30天）。稳定运营2个月后，再扩大到30天量</td>
+                    <td>即使销量跌30%，也只多出6天的库存，影响可控</td>
+                  </tr>
+                  <tr>
+                    <td><strong>② 设补货触发线</strong></td>
+                    <td>当库存 ≤ 7天销量时立刻补货（不是等库存见底）。7天缓冲 = 3-5天供应商发货 + 2天处理时间</td>
+                    <td>不断货，不超卖，平台发货时效永远达标</td>
+                  </tr>
+                  <tr>
+                    <td><strong>③ 大促前谨慎备货</strong></td>
+                    <td>大促前备货按「日均销量 × 大促天数 × 1.5」（不要× 3），宁可缺货5单也不要大促后压40件</td>
+                    <td>大促后滞销是最常见的积压来源</td>
+                  </tr>
+                </table>
+                <div class="insight-box">💡 <strong>代发→囤货切换效果（真实数据）：</strong>桌面收纳盒在第7周（日均12单）完成切换。切换后：①每天发货操作从35分钟降到8分钟（有了自动面单打印）；②拿货成本从¥10.5降到¥9.0（节省14%）；③发货时效从「2-3天」提升到「当天发」，转化率从3.2%升至3.9%（快速发货直接带来转化提升）。综合影响：月净利润增加约¥900（月销500件）。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Task 3.2: Second SKU -->
       <div class="task-block" id="t3-2">
         <div class="task-block-header" onclick="toggleTask('t3-2')">
