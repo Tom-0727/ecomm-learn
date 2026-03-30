@@ -10734,6 +10734,154 @@ ROI最高的词（前3名）：
         </div>
       </div>
 
+      <!-- Weekly Data Dashboard -->
+      <div class="task-block" id="t3-dashboard">
+        <div class="task-block-header" onclick="toggleTask('t3-dashboard')">
+          <div class="task-icon">📊</div>
+          <div class="task-block-title">任务 3.X — 每周数据看板：10分钟判断店铺健康度</div>
+          <div class="task-block-meta">Phase 3必备 · 周日晚上填一次，替代感觉运营</div>
+          <div class="task-block-toggle">▼</div>
+        </div>
+        <div class="task-block-content" id="t3-dashboard-content" style="display:none">
+          <div class="deep-steps">
+
+            <div class="deep-step">
+              <div class="dt">为什么要用数据看板？（告别"感觉运营"）</div>
+              <p>没有数据看板的运营模式：今天感觉还行→广告没动→过两周才发现ROI一直在跌。有数据看板：每周同一时间对比同一指标，趋势变化一目了然，早发现早处理。</p>
+              <div class="framework-box" style="margin:12px 0">
+                <div class="fw-title">📈 Phase 3 核心追踪指标（8个，周周对比）</div>
+                <table style="width:100%;border-collapse:collapse;font-size:.82rem">
+                  <tr style="background:#1e3a5f">
+                    <th style="padding:7px 10px;color:#93c5fd">指标</th>
+                    <th style="padding:7px 10px;color:#93c5fd">健康值</th>
+                    <th style="padding:7px 10px;color:#93c5fd">预警值</th>
+                    <th style="padding:7px 10px;color:#93c5fd">在哪里看</th>
+                  </tr>
+                  <tr style="border-bottom:1px solid #1e293b">
+                    <td style="padding:7px 10px;color:#4ade80">周GMV</td>
+                    <td style="padding:7px 10px;color:#e2e8f0">环比增长≥5%</td>
+                    <td style="padding:7px 10px;color:#fbbf24">环比下跌&gt;15%</td>
+                    <td style="padding:7px 10px;color:#94a3b8">商家后台→数据概览</td>
+                  </tr>
+                  <tr style="border-bottom:1px solid #1e293b;background:#0f1f35">
+                    <td style="padding:7px 10px;color:#4ade80">广告ROI</td>
+                    <td style="padding:7px 10px;color:#e2e8f0">≥ 2.5</td>
+                    <td style="padding:7px 10px;color:#fbbf24">&lt; 1.5（连续2周）</td>
+                    <td style="padding:7px 10px;color:#94a3b8">推广中心→效果报告</td>
+                  </tr>
+                  <tr style="border-bottom:1px solid #1e293b">
+                    <td style="padding:7px 10px;color:#4ade80">CTR（点击率）</td>
+                    <td style="padding:7px 10px;color:#e2e8f0">≥ 2.5%</td>
+                    <td style="padding:7px 10px;color:#fbbf24">&lt; 1.5%（主图问题）</td>
+                    <td style="padding:7px 10px;color:#94a3b8">推广中心→关键词报告</td>
+                  </tr>
+                  <tr style="border-bottom:1px solid #1e293b;background:#0f1f35">
+                    <td style="padding:7px 10px;color:#4ade80">转化率</td>
+                    <td style="padding:7px 10px;color:#e2e8f0">≥ 3%</td>
+                    <td style="padding:7px 10px;color:#fbbf24">&lt; 1.5%（详情页/价格问题）</td>
+                    <td style="padding:7px 10px;color:#94a3b8">商家后台→商品分析</td>
+                  </tr>
+                  <tr style="border-bottom:1px solid #1e293b">
+                    <td style="padding:7px 10px;color:#4ade80">退款率</td>
+                    <td style="padding:7px 10px;color:#e2e8f0">&lt; 8%</td>
+                    <td style="padding:7px 10px;color:#fbbf24">&gt; 12%（商品/物流问题）</td>
+                    <td style="padding:7px 10px;color:#94a3b8">售后管理→退款统计</td>
+                  </tr>
+                  <tr style="border-bottom:1px solid #1e293b;background:#0f1f35">
+                    <td style="padding:7px 10px;color:#4ade80">动态评分</td>
+                    <td style="padding:7px 10px;color:#e2e8f0">≥ 4.8</td>
+                    <td style="padding:7px 10px;color:#fbbf24">&lt; 4.6（紧急处理）</td>
+                    <td style="padding:7px 10px;color:#94a3b8">店铺管理→评价中心</td>
+                  </tr>
+                  <tr style="border-bottom:1px solid #1e293b">
+                    <td style="padding:7px 10px;color:#4ade80">库存覆盖天数</td>
+                    <td style="padding:7px 10px;color:#e2e8f0">7-14天</td>
+                    <td style="padding:7px 10px;color:#fbbf24">&lt; 3天（断货风险）</td>
+                    <td style="padding:7px 10px;color:#94a3b8">手动计算：库存÷日均销量</td>
+                  </tr>
+                  <tr style="background:#0f1f35">
+                    <td style="padding:7px 10px;color:#4ade80">账面净利润</td>
+                    <td style="padding:7px 10px;color:#e2e8f0">≥ GMV × 18%</td>
+                    <td style="padding:7px 10px;color:#fbbf24">&lt; GMV × 10%（成本失控）</td>
+                    <td style="padding:7px 10px;color:#94a3b8">手动计算（收入-所有成本）</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <div class="deep-step">
+              <div class="dt">每周数据看板填写模板（周日9点，10分钟）</div>
+              <div class="template-box">
+                <div class="tpl-title">📊 第___周 数据看板（<span class="tpl-var">月/日</span> — <span class="tpl-var">月/日</span>）</div>
+                <div class="template-content">【本周核心数据】
+周GMV：¥<span class="tpl-var">_____</span>（上周：¥<span class="tpl-var">_____</span>，环比：<span class="tpl-var">+/-</span>____%）
+广告ROI：<span class="tpl-var">___</span>（上周：<span class="tpl-var">___</span>）
+CTR点击率：<span class="tpl-var">___</span>%（上周：<span class="tpl-var">___</span>%）
+转化率：<span class="tpl-var">___</span>%（上周：<span class="tpl-var">___</span>%）
+退款率：<span class="tpl-var">___</span>%（上周：<span class="tpl-var">___</span>%）
+动态评分：<span class="tpl-var">___</span>（上周：<span class="tpl-var">___</span>）
+库存剩余：<span class="tpl-var">___</span>件 / 覆盖：<span class="tpl-var">___</span>天
+本周净利润：¥<span class="tpl-var">_____</span>（利润率：<span class="tpl-var">___</span>%）
+
+【预警信号】（勾选本周出现的问题）
+□ GMV环比跌超15% → 排查：广告/排名/竞品
+□ ROI连续2周 &lt; 1.5 → 执行广告优化SOP
+□ CTR &lt; 1.5% → 更换主图
+□ 退款率 &gt; 12% → 排查商品/物流问题
+□ 库存 &lt; 3天 → 今晚联系供应商补货
+□ 评分 &lt; 4.6 → 紧急处理差评
+
+【下周1个优先行动】
+→ <span class="tpl-var">_________________________________________________</span>
+
+【累计GMV进度】
+当月GMV：¥<span class="tpl-var">_____</span> / 目标：¥<span class="tpl-var">_____</span>（完成率：<span class="tpl-var">___</span>%）</div>
+              </div>
+            </div>
+
+            <div class="deep-step">
+              <div class="dt">数据异常快速诊断（3步定位问题根源）</div>
+              <div class="framework-box" style="margin:12px 0">
+                <div class="fw-title">🔍 GMV下跌诊断树（5分钟内定位原因）</div>
+                <div style="font-size:.84rem;color:#cbd5e1;line-height:2">
+                  <div><strong style="color:#f87171">GMV突然下跌</strong> → 先看：今天下单量 vs 昨天</div>
+                  <div style="padding-left:16px">↳ 下单量没变，但GMV跌 → 检查：是否有商品降价？套装被买家拆单？</div>
+                  <div style="padding-left:16px">↳ 下单量变少 → 分两路排查：</div>
+                  <div style="padding-left:32px">① <strong style="color:#fbbf24">流量问题</strong>：看展现量（曝光），曝光少 = 广告限制/排名下降/竞品抢量</div>
+                  <div style="padding-left:32px">② <strong style="color:#60a5fa">转化问题</strong>：曝光正常但成交少 = 价格/评价/详情页有问题</div>
+                  <div style="margin-top:8px"><strong style="color:#f87171">ROI突然下跌</strong> → 先检查：展现量是否大幅增加？</div>
+                  <div style="padding-left:16px">↳ 展现增加但ROI跌 → 广告跑到了不精准的人群，需要加否定词</div>
+                  <div style="padding-left:16px">↳ 展现不变ROI跌 → 竞品加大投放抢了转化，或你的转化率在下降（评价/价格）</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 模拟对话 -->
+            <div class="deep-step">
+              <div class="dt">模拟对话：数据看板使用困惑</div>
+              <div style="background:#0d1f35;border-radius:8px;padding:16px;margin-top:8px">
+
+                <div style="margin-bottom:16px">
+                  <div style="color:#93c5fd;font-weight:600;margin-bottom:4px">Q：数据每天都在变，我应该每天看还是每周看？</div>
+                  <div style="color:#cbd5e1;font-size:.88rem;line-height:1.7">A：<strong style="color:#60a5fa">每天看趋势（1分钟），每周看指标（10分钟）</strong>。每天只需要看：今日订单量、广告账户余额（防清零）。指标分析留到每周固定时间——因为每天的数据波动太大（今天下雨、周一、竞品活动都会影响），拿单日数据做决策很容易误判。至少连续3天同方向才算趋势，至少7天才用来调整广告策略。</div>
+                </div>
+
+                <div>
+                  <div style="color:#93c5fd;font-weight:600;margin-bottom:4px">Q：我所有指标都在健康范围，但GMV就是不增长怎么办？</div>
+                  <div style="color:#cbd5e1;font-size:.88rem;line-height:1.7">A：所有指标都健康说明当前系统运转良好，但GMV增长停滞是"天花板问题"而不是"运营问题"。此时应该用 Task 3.3 末尾的"¥1.5万→¥2万杠杆诊断"：<strong style="color:#60a5fa">看广告预算是否有提升空间→看客单价是否可以通过套装提高→看复购率是否有私域挖掘空间</strong>。三条杠杆都跑完，GMV自然会突破平台期。</div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="insight-box">
+              <strong>数据看板的核心价值</strong>：它不是让你更忙，而是让你<strong>每次操作都有依据</strong>。没有看板：凭感觉改广告，改完不知道是否有效。有看板：每次改动前记录baseline，2周后比较，量化每个决策的ROI。在职创业者时间有限，有限的时间必须花在有数据支撑的操作上。
+            </div>
+
+          </div>
+        </div>
+      </div>
+
       <!-- Inventory Turnover Management -->
       <div class="task-block" id="t3-inv-turn">
         <div class="task-block-header" onclick="toggleTask('t3-inv-turn')">
@@ -10890,6 +11038,151 @@ ROI最高的词（前3名）：
 
             <div class="insight-box">
               <strong>库存周转的底层逻辑</strong>：对在职创业者来说，库存周转率比GMV更重要。GMV是虚荣指标，周转率是生存指标。<strong>¥5000资金、周转率4次/月 = 月处理¥20000货</strong>；周转率1次/月 = 月处理¥5000货。同样的资金，周转率决定你的实际规模上限。
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Holiday Automated Operations -->
+      <div class="task-block" id="t3-holiday">
+        <div class="task-block-header" onclick="toggleTask('t3-holiday')">
+          <div class="task-icon">🎌</div>
+          <div class="task-block-title">任务 3.X — 节假日自动化运营：人不在店照常转</div>
+          <div class="task-block-meta">Phase 3必备 · 节前1天设置，假期零操作</div>
+          <div class="task-block-toggle">▼</div>
+        </div>
+        <div class="task-block-content" id="t3-holiday-content" style="display:none">
+          <div class="deep-steps">
+
+            <div class="deep-step">
+              <div class="dt">节假日的三大风险点（在职创业者独有）</div>
+              <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:10px">
+                <div style="background:#2d0f0f;border:1px solid #991b1b;border-radius:6px;padding:12px;text-align:center">
+                  <div style="font-size:1.5rem;margin-bottom:6px">⏰</div>
+                  <div style="color:#f87171;font-weight:700;margin-bottom:6px">延迟发货</div>
+                  <p style="font-size:.81rem;color:#cbd5e1;margin:0">假期停发货但订单继续进，超时发货触发系统罚款+差评</p>
+                </div>
+                <div style="background:#1f1a0e;border:1px solid #854d0e;border-radius:6px;padding:12px;text-align:center">
+                  <div style="font-size:1.5rem;margin-bottom:6px">💬</div>
+                  <div style="color:#fbbf24;font-weight:700;margin-bottom:6px">客服无响应</div>
+                  <p style="font-size:.81rem;color:#cbd5e1;margin:0">买家咨询无回复→放弃购买；问题买家→直接差评</p>
+                </div>
+                <div style="background:#0f1a2e;border:1px solid #1e3a5f;border-radius:6px;padding:12px;text-align:center">
+                  <div style="font-size:1.5rem;margin-bottom:6px">📦</div>
+                  <div style="color:#60a5fa;font-weight:700;margin-bottom:6px">供应商停发</div>
+                  <p style="font-size:.81rem;color:#cbd5e1;margin:0">供应商放假但你忘了通知买家，引发大规模纠纷</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="deep-step">
+              <div class="dt">节前1天设置清单（30分钟完成所有自动化）</div>
+              <div class="framework-box" style="margin:12px 0">
+                <div class="fw-title">✅ 节假日前1天操作清单</div>
+                <div style="font-size:.84rem;color:#cbd5e1;line-height:2.1">
+                  <div><strong style="color:#4ade80">① 发货时效修改</strong>：拼多多后台→物流设置→发货时效→改为"7天发货"（平台允许的最长时间）。节后恢复正常</div>
+                  <div><strong style="color:#4ade80">② 自动回复设置</strong>：客服中心→自动回复→设置节假日版（含预计恢复时间）。见下方模板</div>
+                  <div><strong style="color:#4ade80">③ 供应商确认</strong>：微信联系供应商确认：①几号放假？②几号恢复发货？③能否提前备一批货代发？</div>
+                  <div><strong style="color:#4ade80">④ 库存备货</strong>：节前备足"假期天数×日均销量×1.5倍"的货，委托供应商代发或自行预发</div>
+                  <div><strong style="color:#fbbf24">⑤ 广告调整</strong>：日预算降至平时的50%（减少浪费），或暂停广告，节后第1天恢复并加量</div>
+                  <div><strong style="color:#fbbf24">⑥ 限购设置</strong>：每人限购2件，防止囤货党把备货一次性买完</div>
+                  <div><strong style="color:#60a5fa">⑦ 设置提醒</strong>：手机日历设置节后第1个工作日提醒：恢复正常发货时效+恢复广告预算+联系供应商核查库存</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="deep-step">
+              <div class="dt">即用话术模板</div>
+              <div class="template-box">
+                <div class="tpl-title">🎌 节假日客服自动回复模板（拼多多自动回复填入）</div>
+                <div class="template-content">亲爱的买家，您好！🎉
+
+感谢您咨询我们的店铺！当前正值<span class="tpl-var">[节假日名称]</span>，客服将于<span class="tpl-var">[X月X日]</span>恢复正常响应。
+
+关于发货：节假日期间订单将延迟至<span class="tpl-var">[X月X日]</span>统一发货，请您放心，订单将按顺序优先处理。
+
+如有紧急问题：可在站内信留言，我们节后第一时间回复您。
+
+再次感谢您的理解与支持，祝您节日愉快！🙏</div>
+              </div>
+
+              <div class="template-box" style="margin-top:12px">
+                <div class="tpl-title">📱 联系供应商确认节假日安排话术</div>
+                <div class="template-content">老板好！我是<span class="tpl-var">[您的称呼]</span>，想确认一下节假日的发货安排：
+
+①您们几号开始放假？几号恢复正常发货？
+②节前能否帮我多备<span class="tpl-var">[X件]</span>货，假期期间帮忙代发（我来下单，您来发）？
+③如果不能代发，我需要把库存转到自己仓库，方便安排吗？
+
+谢谢，提前祝您节日快乐！😊</div>
+              </div>
+            </div>
+
+            <div class="deep-step">
+              <div class="dt">主要节假日运营日历（提前规划）</div>
+              <div class="framework-box" style="margin:12px 0">
+                <div class="fw-title">📅 全年主要节假日运营影响 & 应对策略</div>
+                <table style="width:100%;border-collapse:collapse;font-size:.82rem">
+                  <tr style="background:#1e3a5f">
+                    <th style="padding:7px 10px;color:#93c5fd">节假日</th>
+                    <th style="padding:7px 10px;color:#93c5fd">通常时长</th>
+                    <th style="padding:7px 10px;color:#93c5fd">流量特点</th>
+                    <th style="padding:7px 10px;color:#93c5fd">关键操作</th>
+                  </tr>
+                  <tr style="border-bottom:1px solid #1e293b">
+                    <td style="padding:7px 10px;color:#fbbf24">春节</td>
+                    <td style="padding:7px 10px;color:#e2e8f0">7-15天</td>
+                    <td style="padding:7px 10px;color:#94a3b8">年前爆量→年后断崖</td>
+                    <td style="padding:7px 10px;color:#e2e8f0">年前备足货，年后第3天恢复广告</td>
+                  </tr>
+                  <tr style="border-bottom:1px solid #1e293b;background:#0f1f35">
+                    <td style="padding:7px 10px;color:#4ade80">五一</td>
+                    <td style="padding:7px 10px;color:#e2e8f0">5天</td>
+                    <td style="padding:7px 10px;color:#94a3b8">持续有单，物流稍慢</td>
+                    <td style="padding:7px 10px;color:#e2e8f0">备3-5天库存，委托供应商代发</td>
+                  </tr>
+                  <tr style="border-bottom:1px solid #1e293b">
+                    <td style="padding:7px 10px;color:#4ade80">端午/中秋</td>
+                    <td style="padding:7px 10px;color:#e2e8f0">3天</td>
+                    <td style="padding:7px 10px;color:#94a3b8">影响较小</td>
+                    <td style="padding:7px 10px;color:#e2e8f0">只修改自动回复即可，无需减广告</td>
+                  </tr>
+                  <tr style="background:#0f1f35">
+                    <td style="padding:7px 10px;color:#f97316">国庆</td>
+                    <td style="padding:7px 10px;color:#e2e8f0">7天</td>
+                    <td style="padding:7px 10px;color:#94a3b8">购物高峰，物流压力大</td>
+                    <td style="padding:7px 10px;color:#e2e8f0">备7天货，告知买家延迟，广告保持</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <!-- 模拟对话 -->
+            <div class="deep-step">
+              <div class="dt">模拟对话：节假日运营常见担忧</div>
+              <div style="background:#0d1f35;border-radius:8px;padding:16px;margin-top:8px">
+
+                <div style="margin-bottom:16px">
+                  <div style="color:#93c5fd;font-weight:600;margin-bottom:4px">Q：春节供应商放假15天，我也要休息，怎么办？</div>
+                  <div style="color:#cbd5e1;font-size:.88rem;line-height:1.7">A：两个选择：①<strong style="color:#60a5fa">年前备货+委托供应商代发</strong>——提前备15天库存放在供应商仓库，买家下单后供应商帮发货，你给代发费（通常¥1-2/单），这样假期完全不用管；②<strong style="color:#60a5fa">修改发货时效+降广告</strong>——发货时效改为15天，广告降至20%，接受假期少单，年后复苏。方案①适合月GMV已稳定的店铺，方案②适合刚起步阶段。</div>
+                </div>
+
+                <div style="margin-bottom:16px">
+                  <div style="color:#93c5fd;font-weight:600;margin-bottom:4px">Q：节假日关掉广告，节后能恢复原来的流量吗？</div>
+                  <div style="color:#cbd5e1;font-size:.88rem;line-height:1.7">A：能恢复，但需要2-5天预热期。节后第1天广告恢复到正常预算的120%（超投一周），让系统重新拉起权重和曝光。关键是<strong style="color:#60a5fa">不要节后第1天就恢复100%预算，要冲一下</strong>。竞争激烈的品类节后第1周往往是流量洼地——很多卖家节后行动慢，此时多投性价比高。</div>
+                </div>
+
+                <div>
+                  <div style="color:#93c5fd;font-weight:600;margin-bottom:4px">Q：节假日有买家一直催发货，我人在外地怎么处理？</div>
+                  <div style="color:#cbd5e1;font-size:.88rem;line-height:1.7">A：提前设置好自动回复是关键——90%的催单买家看到"节假日延迟发货+具体恢复日期"的自动回复后会接受等待。对于坚持要退款的买家，<strong style="color:#60a5fa">手机上直接同意退款</strong>，2分钟操作，不要为了¥20-50的订单让对方申诉。主动退款 vs 被差评，数学账一算很清楚：1条差评的代价 = 未来3个月流量权重损失 ≈ ¥300-1000。</div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="insight-box">
+              <strong>核心认知</strong>：节假日运营的目标不是"节假日也全力运营"，而是"<strong>设置好自动化，让店铺在你不在时不出大问题</strong>"。提前30分钟的设置，可以换来整个假期的安心。节假日是在职创业者最容易翻车的时间点，但也是最容易用系统化预防的。
             </div>
 
           </div>
